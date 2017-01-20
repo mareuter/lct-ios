@@ -62,7 +62,6 @@ class MoonInfoViewController: UIViewController {
     private func setupUtcDateTimeFormatter() {
         utcDateTimeFormatter.dateFormat = TimeConstants.secondsTime
         utcDateTimeFormatter.timeZone = TimeConstants.utcTimeZone
-        print(utcDateTimeFormatter.timeZone)
     }
     
     private func formatDoubleLabel(label: UILabel, value: Double, backCaption: String) -> String {
