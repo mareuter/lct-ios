@@ -10,11 +10,8 @@ import UIKit
 import Foundation
 
 class MoonInfoViewController: UIViewController {
-
-    var moonInfo = MoonInfo(age: 14.184, colongitude: 87.519, fractionalPhase: 0.999428, librationLatitude: -1.0329,
-                            librationLongitude: 5.18859, altitude: 64.3990, azimuth: 161.7587,
-                            nextFourPhases: [("tq", [2013, 10, 26, 23, 40, 29]), ("new", [2013, 11, 3, 12, 49, 58]),
-                                             ("fq", [2013, 11, 10, 5, 57, 10]), ("full", [2013, 11, 17, 15, 15, 44])])
+    
+    var moonInfo = MoonInfo(jsonFile: NSDataAsset(name: "MoonInfoJSON", bundle: Bundle.main)!.data)!
     {
         didSet {
             updateUI()

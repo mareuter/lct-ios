@@ -19,6 +19,39 @@ struct MoonInfo
     let azimuth: Double
     let nextFourPhases: Array<(String, Array<Int>)>
     
+    init?(jsonFile: Data) {
+        //print(String(data: jsonFile, encoding: String.Encoding.utf8) ?? "Cannot print data")
+        let json = try! JSONSerialization.jsonObject(with: jsonFile, options: []) as! [String: Any]
+        
+        guard let age = json["age"] as? Double,
+            let colongitude = json["colong"] as? Double,
+            let fractionalPhase = json["fractional_phase"] as? Double,
+            let librationLatitude = json["libration_lat"] as? Double,
+            let librationLongitude = json["libration_lon"] as? Double,
+            let altitude = json["altitude"] as? Double,
+            let azimuth = json["azimuth"] as? Double,
+            let nextFourPhasesJSON = json["next_four_phases"] as? [String: [String: Any]]
+        else {
+            return nil
+        }
+        
+        var nextFourPhases: Array<(String, Array<Int>)> = []
+        for phaseId in Array(nextFourPhasesJSON.keys).sorted(by: <) {
+            if let phaseInfo = nextFourPhasesJSON[phaseId] {
+                nextFourPhases.append(((phaseInfo["phase"] as? String)!, (phaseInfo["datetime"] as? Array<Int>)!))
+            }
+        }
+        
+        self.age = age
+        self.colongitude = colongitude
+        self.fractionalPhase = fractionalPhase
+        self.librationLatitude = librationLatitude
+        self.librationLongitude = librationLongitude
+        self.altitude = altitude
+        self.azimuth = azimuth
+        self.nextFourPhases = nextFourPhases
+    }
+    
     var illumination: Double {
         return fractionalPhase * 100.0
     }
