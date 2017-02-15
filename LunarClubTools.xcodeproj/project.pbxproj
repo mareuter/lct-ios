@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A42D74BA1E54110D00E3641F /* LunarClubToolsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D74B91E54110D00E3641F /* LunarClubToolsTabBarController.swift */; };
 		A48BA3DF1E2D8D0C00A8C784 /* MoonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA3DE1E2D8D0C00A8C784 /* MoonInfo.swift */; };
 		A4B35FEC1E230F1B008D675F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35FEB1E230F1B008D675F /* AppDelegate.swift */; };
 		A4B35FEE1E230F1B008D675F /* MoonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B35FED1E230F1B008D675F /* MoonInfoViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A42D74B91E54110D00E3641F /* LunarClubToolsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarClubToolsTabBarController.swift; sourceTree = "<group>"; };
 		A48BA3DE1E2D8D0C00A8C784 /* MoonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonInfo.swift; sourceTree = "<group>"; };
 		A4B35FE81E230F1B008D675F /* LunarClubTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunarClubTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B35FEB1E230F1B008D675F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				A4B35FF21E230F1B008D675F /* Assets.xcassets */,
 				A4B35FF41E230F1B008D675F /* LaunchScreen.storyboard */,
 				A4B35FF71E230F1B008D675F /* Info.plist */,
+				A42D74B91E54110D00E3641F /* LunarClubToolsTabBarController.swift */,
 			);
 			path = LunarClubTools;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42D74BA1E54110D00E3641F /* LunarClubToolsTabBarController.swift in Sources */,
 				A4B35FEE1E230F1B008D675F /* MoonInfoViewController.swift in Sources */,
 				A48BA3DF1E2D8D0C00A8C784 /* MoonInfo.swift in Sources */,
 				A4B35FEC1E230F1B008D675F /* AppDelegate.swift in Sources */,
