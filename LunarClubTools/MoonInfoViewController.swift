@@ -22,6 +22,8 @@ class MoonInfoViewController: UIViewController {
     private let localDateTimeFormatter = DateFormatter()
     private let utcDateTimeFormatter = DateFormatter()
     private let moonPhaseDateTimeFormatter = DateFormatter()
+    private var urlComp = URLComponents()
+    private var timeAndLocation = TimeAndLocation()
     
     private let moonPhaseIcons = [
         "new": #imageLiteral(resourceName: "New-Moon"),
@@ -39,6 +41,13 @@ class MoonInfoViewController: UIViewController {
     
     private struct Symbols {
         static let degrees = "°"
+    }
+    
+    private func setupMoonInfoUrl() -> URLComponents {
+        urlComp.scheme = "https"
+        urlComp.host = "lct-web.herokuapp.com"
+        urlComp.path = "/moon_info"
+        return urlComp
     }
     
     private func setupFormatter() {
@@ -61,8 +70,8 @@ class MoonInfoViewController: UIViewController {
         utcDateTimeFormatter.timeZone = TimeConstants.utcTimeZone
     }
     
-    private func formatDoubleLabel(label: UILabel, value: Double, backCaption: String) -> String {
-        return label.text! + " " + formatter.string(from: value as NSNumber)! + backCaption
+    private func formatDoubleLabel(value: Double, backCaption: String) -> String {
+        return formatter.string(from: value as NSNumber)! + backCaption
     }
     
     private func formatPhaseInfo(image: UIImageView, label: UILabel, index: Int) {
@@ -97,6 +106,34 @@ class MoonInfoViewController: UIViewController {
         updateUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let tbc = tabBarController as! LunarClubToolsTabBarController
+        timeAndLocation = tbc.timeAndLocation
+        let coords = timeAndLocation.getCoordinates()
+        var url = setupMoonInfoUrl()
+        let dateQuery = URLQueryItem(name: "date", value: String(timeAndLocation.getTimestamp()))
+        let longitudeQuery = URLQueryItem(name: "lon", value: String(coords.longitude))
+        let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
+        url.queryItems = [dateQuery, latitudeQuery, longitudeQuery]
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        //print(url.url!)
+        let request = URLRequest(url: url.url!)
+        let task = session.dataTask(with: request) { (data, response, error) -> Void in
+            let httpResponse = response as! HTTPURLResponse
+            let statusCode = httpResponse.statusCode
+            if statusCode == 200 {
+                //print("Downloaded Moon Info")
+                DispatchQueue.main.async {
+                    self.moonInfo = MoonInfo(jsonFile: data!)!
+                }
+            } else {
+                print("Download failed: \(statusCode)")
+            }
+        }
+        task.resume()
+    }
+    
     private func updateUI() {
         setupFormatter()
         setupLocalDateTimeFormatter()
@@ -104,18 +141,17 @@ class MoonInfoViewController: UIViewController {
         setupMoonPhaseDateTimeFormatter()
         let timeZoneString = localDateTimeFormatter.timeZone.abbreviation() ?? ""
         if timeZoneString != "" {
-            localDateLabel.text = localDateLabel.text! + " (" + timeZoneString + ")"
+            localDateLabel.text =  "Date (" + timeZoneString + ")"
         }
-        let now = NSDate() as Date
-        localDateInfo.text = localDateTimeFormatter.string(from: now)
-        utcDateInfo.text = utcDateTimeFormatter.string(from: now)
-        ageInfo.text = formatDoubleLabel(label: ageInfo, value: moonInfo.age, backCaption: " days")
-        illuminationInfo.text = formatDoubleLabel(label: illuminationInfo, value: moonInfo.illumination, backCaption: "%")
-        colongitudeInfo.text = formatDoubleLabel(label: colongitudeInfo, value: moonInfo.colongitude, backCaption: Symbols.degrees)
-        librationLatitudeInfo.text = formatDoubleLabel(label: librationLatitudeInfo, value: moonInfo.librationLatitude, backCaption: Symbols.degrees)
-        librationLongitudeInfo.text = formatDoubleLabel(label: librationLongitudeInfo, value: moonInfo.librationLongitude, backCaption: Symbols.degrees)
-        altitudeInfo.text = formatDoubleLabel(label: altitudeInfo, value: moonInfo.altitude, backCaption: Symbols.degrees)
-        azimuthInfo.text = formatDoubleLabel(label: azimuthInfo, value: moonInfo.azimuth, backCaption: Symbols.degrees)
+        localDateInfo.text = localDateTimeFormatter.string(from: timeAndLocation.getCurrentTime() as Date)
+        utcDateInfo.text = utcDateTimeFormatter.string(from: timeAndLocation.getCurrentTime() as Date)
+        ageInfo.text = formatDoubleLabel(value: moonInfo.age, backCaption: " days")
+        illuminationInfo.text = formatDoubleLabel(value: moonInfo.illumination, backCaption: "%")
+        colongitudeInfo.text = formatDoubleLabel(value: moonInfo.colongitude, backCaption: Symbols.degrees)
+        librationLatitudeInfo.text = formatDoubleLabel(value: moonInfo.librationLatitude, backCaption: Symbols.degrees)
+        librationLongitudeInfo.text = formatDoubleLabel(value: moonInfo.librationLongitude, backCaption: Symbols.degrees)
+        altitudeInfo.text = formatDoubleLabel(value: moonInfo.altitude, backCaption: Symbols.degrees)
+        azimuthInfo.text = formatDoubleLabel(value: moonInfo.azimuth, backCaption: Symbols.degrees)
         formatPhaseInfo(image: firstPhaseImage, label: firstPhaseLabel, index: 0)
         formatPhaseInfo(image: secondPhaseImage, label: secondPhaseLabel, index: 1)
         formatPhaseInfo(image: thirdPhaseImage, label: thirdPhaseLabel, index: 2)

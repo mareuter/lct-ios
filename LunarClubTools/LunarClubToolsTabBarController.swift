@@ -10,6 +10,8 @@ import UIKit
 
 class LunarClubToolsTabBarController: UITabBarController {
 
+    var timeAndLocation = TimeAndLocation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

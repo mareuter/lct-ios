@@ -14,6 +14,7 @@
 		A4B35FF11E230F1B008D675F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B35FEF1E230F1B008D675F /* Main.storyboard */; };
 		A4B35FF31E230F1B008D675F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B35FF21E230F1B008D675F /* Assets.xcassets */; };
 		A4B35FF61E230F1B008D675F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B35FF41E230F1B008D675F /* LaunchScreen.storyboard */; };
+		A4C0D9B41E5A70BE005522A3 /* TimeAndLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C0D9B31E5A70BE005522A3 /* TimeAndLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A4B35FF21E230F1B008D675F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4B35FF51E230F1B008D675F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4B35FF71E230F1B008D675F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4C0D9B31E5A70BE005522A3 /* TimeAndLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAndLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				A4B35FF41E230F1B008D675F /* LaunchScreen.storyboard */,
 				A4B35FF71E230F1B008D675F /* Info.plist */,
 				A42D74B91E54110D00E3641F /* LunarClubToolsTabBarController.swift */,
+				A4C0D9B31E5A70BE005522A3 /* TimeAndLocation.swift */,
 			);
 			path = LunarClubTools;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				A42D74BA1E54110D00E3641F /* LunarClubToolsTabBarController.swift in Sources */,
 				A4B35FEE1E230F1B008D675F /* MoonInfoViewController.swift in Sources */,
+				A4C0D9B41E5A70BE005522A3 /* TimeAndLocation.swift in Sources */,
 				A48BA3DF1E2D8D0C00A8C784 /* MoonInfo.swift in Sources */,
 				A4B35FEC1E230F1B008D675F /* AppDelegate.swift in Sources */,
 			);
