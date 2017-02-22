@@ -25,4 +25,9 @@ class TimeAndLocation
     func getCoordinates() -> (latitude: Double, longitude: Double) {
         return (currentLatitude, currentLongitude)
     }
+    
+    func updateCoordinates(latitude: Double, longitude: Double) {
+        currentLatitude = latitude
+        currentLongitude = longitude
+    }
 }

@@ -117,7 +117,7 @@ class MoonInfoViewController: UIViewController {
         let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
         url.queryItems = [dateQuery, latitudeQuery, longitudeQuery]
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        //print(url.url!)
+        print(url.url!)
         let request = URLRequest(url: url.url!)
         let task = session.dataTask(with: request) { (data, response, error) -> Void in
             let httpResponse = response as! HTTPURLResponse
