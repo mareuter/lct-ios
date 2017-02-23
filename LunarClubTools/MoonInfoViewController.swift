@@ -100,6 +100,7 @@ class MoonInfoViewController: UIViewController {
     @IBOutlet weak private var fourthPhaseImage: UIImageView!
     @IBOutlet weak private var fourthPhaseLabel: UILabel!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,6 +120,7 @@ class MoonInfoViewController: UIViewController {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         print(url.url!)
         let request = URLRequest(url: url.url!)
+        spinner?.startAnimating()
         let task = session.dataTask(with: request) { (data, response, error) -> Void in
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
@@ -156,6 +158,7 @@ class MoonInfoViewController: UIViewController {
         formatPhaseInfo(image: secondPhaseImage, label: secondPhaseLabel, index: 1)
         formatPhaseInfo(image: thirdPhaseImage, label: thirdPhaseLabel, index: 2)
         formatPhaseInfo(image: fourthPhaseImage, label: fourthPhaseLabel, index: 3)
+        spinner?.stopAnimating()
     }
 }
 
