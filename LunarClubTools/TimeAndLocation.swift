@@ -10,11 +10,11 @@ import Foundation
 
 class TimeAndLocation
 {
-    private var currentTime = NSDate()
+    private var currentTime = Date()
     private var currentLongitude = -84.316666666666
     private var currentLatitude = 35.9694444444444
     
-    func getCurrentTime() -> NSDate {
+    func getCurrentTime() -> Date {
         return currentTime
     }
     

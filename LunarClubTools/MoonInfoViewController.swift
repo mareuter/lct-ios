@@ -143,8 +143,8 @@ class MoonInfoViewController: UIViewController {
         if timeZoneString != "" {
             localDateLabel.text =  "Date (" + timeZoneString + ")"
         }
-        localDateInfo.text = localDateTimeFormatter.string(from: timeAndLocation.getCurrentTime() as Date)
-        utcDateInfo.text = utcDateTimeFormatter.string(from: timeAndLocation.getCurrentTime() as Date)
+        localDateInfo.text = localDateTimeFormatter.string(from: timeAndLocation.getCurrentTime())
+        utcDateInfo.text = utcDateTimeFormatter.string(from: timeAndLocation.getCurrentTime())
         ageInfo.text = formatDoubleLabel(value: moonInfo.age, backCaption: " days")
         illuminationInfo.text = formatDoubleLabel(value: moonInfo.illumination, backCaption: "%")
         colongitudeInfo.text = formatDoubleLabel(value: moonInfo.colongitude, backCaption: Symbols.degrees)
