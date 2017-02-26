@@ -52,6 +52,7 @@ class MoonInfoViewController: UIViewController {
     
     private func setupFormatter() {
         formatter.minimumFractionDigits = 2
+        formatter.minimumIntegerDigits = 1
     }
     
     private func setupLocalDateTimeFormatter() {
