@@ -302,7 +302,7 @@
                             <constraint firstItem="AkC-QP-x56" firstAttribute="centerX" secondItem="KwC-bV-ThA" secondAttribute="centerX" id="lds-Bb-amV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Moon Info" id="9hY-JK-wrd"/>
+                    <tabBarItem key="tabBarItem" title="Moon Info" image="MoonInfoTabIcon" selectedImage="MoonInfoTabSelectedIcon" id="9hY-JK-wrd"/>
                     <connections>
                         <outlet property="ageInfo" destination="cgy-iw-jzh" id="aCr-hL-aQu"/>
                         <outlet property="altitudeInfo" destination="INC-p4-njr" id="LKQ-ow-6BV"/>
@@ -330,4 +330,8 @@
             <point key="canvasLocation" x="844" y="37"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MoonInfoTabIcon" width="25" height="25"/>
+        <image name="MoonInfoTabSelectedIcon" width="25" height="25"/>
+    </resources>
 </document>
