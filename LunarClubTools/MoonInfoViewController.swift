@@ -11,7 +11,32 @@ import Foundation
 
 class MoonInfoViewController: UIViewController {
     
-    var moonInfo = MoonInfo(jsonFile: NSDataAsset(name: "MoonInfoJSON", bundle: Bundle.main)!.data)!
+    private struct FileNames {
+        static let bundleFile = "MoonInfoJSON"
+        static let downloadedFile = "MoonInfo.json"
+    }
+    
+    private var moonInfoFile: Data? {
+        let fileManager = FileManager.default
+        let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        do {
+            let fileList = try fileManager.contentsOfDirectory(at: dirs[0], includingPropertiesForKeys: nil, options: [])
+            print("A: \(fileList)")
+            for file in fileList {
+                if file.absoluteString.contains(FileNames.downloadedFile) {
+                    return try? Data(contentsOf: file)
+                }
+            }
+        } catch let error {
+            print("\(error)")
+            print("Cannot read \(dirs[0].absoluteString)")
+            return nil
+        }
+
+        return NSDataAsset(name: FileNames.bundleFile, bundle: Bundle.main)!.data
+    }
+    
+    private var moonInfo : MoonInfo?
     {
         didSet {
             updateUI()
@@ -71,14 +96,16 @@ class MoonInfoViewController: UIViewController {
         utcDateTimeFormatter.timeZone = TimeConstants.utcTimeZone
     }
     
-    private func formatDoubleLabel(value: Double, backCaption: String) -> String {
-        return formatter.string(from: value as NSNumber)! + backCaption
+    private func formatDoubleLabel(value: Double?, backCaption: String) -> String {
+        let parameter = value ?? 0.0
+        return formatter.string(from: parameter as NSNumber)! + backCaption
     }
     
     private func formatPhaseInfo(image: UIImageView, label: UILabel, index: Int) {
-        let phase = moonInfo.getPhase(index: index)
-        image.image = moonPhaseIcons[phase.0]
-        label.text = moonPhaseDateTimeFormatter.string(from: phase.1)
+        if let phase = moonInfo?.getPhase(index: index) {
+            image.image = moonPhaseIcons[phase.0]
+            label.text = moonPhaseDateTimeFormatter.string(from: phase.1)
+        }
     }
     
     @IBOutlet weak private var localDateLabel: UILabel!
@@ -105,11 +132,16 @@ class MoonInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+        moonInfo = MoonInfo(jsonFile: moonInfoFile!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchData()
+        moonInfo = MoonInfo(jsonFile: moonInfoFile!)
+    }
+    
+    private func fetchData() {
         let tbc = tabBarController as! LunarClubToolsTabBarController
         timeAndLocation = tbc.timeAndLocation
         let coords = timeAndLocation.getCoordinates()
@@ -119,7 +151,7 @@ class MoonInfoViewController: UIViewController {
         let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
         url.queryItems = [dateQuery, latitudeQuery, longitudeQuery]
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        print(url.url!)
+        //print(url.url!)
         let request = URLRequest(url: url.url!)
         spinner?.startAnimating()
         let task = session.dataTask(with: request) { (data, response, error) -> Void in
@@ -127,8 +159,15 @@ class MoonInfoViewController: UIViewController {
             let statusCode = httpResponse.statusCode
             if statusCode == 200 {
                 //print("Downloaded Moon Info")
-                DispatchQueue.main.async {
-                    self.moonInfo = MoonInfo(jsonFile: data!)!
+                let fileManager = FileManager.default
+                let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+                let fileName = dirs[0].appendingPathComponent("MoonInfo.json")
+                print("\(dirs)")
+                let x = try? data?.write(to: fileName)
+                if x == nil {
+                    print("Failed to write file.")
+                } else {
+                    print("OK")
                 }
             } else {
                 print("Download failed: \(statusCode)")
@@ -148,13 +187,13 @@ class MoonInfoViewController: UIViewController {
         }
         localDateInfo.text = localDateTimeFormatter.string(from: timeAndLocation.getCurrentTime())
         utcDateInfo.text = utcDateTimeFormatter.string(from: timeAndLocation.getCurrentTime())
-        ageInfo.text = formatDoubleLabel(value: moonInfo.age, backCaption: " days")
-        illuminationInfo.text = formatDoubleLabel(value: moonInfo.illumination, backCaption: "%")
-        colongitudeInfo.text = formatDoubleLabel(value: moonInfo.colongitude, backCaption: Symbols.degrees)
-        librationLatitudeInfo.text = formatDoubleLabel(value: moonInfo.librationLatitude, backCaption: Symbols.degrees)
-        librationLongitudeInfo.text = formatDoubleLabel(value: moonInfo.librationLongitude, backCaption: Symbols.degrees)
-        altitudeInfo.text = formatDoubleLabel(value: moonInfo.altitude, backCaption: Symbols.degrees)
-        azimuthInfo.text = formatDoubleLabel(value: moonInfo.azimuth, backCaption: Symbols.degrees)
+        ageInfo.text = formatDoubleLabel(value: moonInfo?.age, backCaption: " days")
+        illuminationInfo.text = formatDoubleLabel(value: moonInfo?.illumination, backCaption: "%")
+        colongitudeInfo.text = formatDoubleLabel(value: moonInfo?.colongitude, backCaption: Symbols.degrees)
+        librationLatitudeInfo.text = formatDoubleLabel(value: moonInfo?.librationLatitude, backCaption: Symbols.degrees)
+        librationLongitudeInfo.text = formatDoubleLabel(value: moonInfo?.librationLongitude, backCaption: Symbols.degrees)
+        altitudeInfo.text = formatDoubleLabel(value: moonInfo?.altitude, backCaption: Symbols.degrees)
+        azimuthInfo.text = formatDoubleLabel(value: moonInfo?.azimuth, backCaption: Symbols.degrees)
         formatPhaseInfo(image: firstPhaseImage, label: firstPhaseLabel, index: 0)
         formatPhaseInfo(image: secondPhaseImage, label: secondPhaseLabel, index: 1)
         formatPhaseInfo(image: thirdPhaseImage, label: thirdPhaseLabel, index: 2)
