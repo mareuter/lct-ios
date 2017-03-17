@@ -321,7 +321,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="26f-G8-LNI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Moon Info" image="MoonInfoTabIcon" selectedImage="MoonInfoTabSelectedIcon" id="9hY-JK-wrd"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SAG-Nn-fps">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="SAG-Nn-fps">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
