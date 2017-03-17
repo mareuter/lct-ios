@@ -24,7 +24,13 @@ class MoonInfoViewController: UIViewController {
             print("A: \(fileList)")
             for file in fileList {
                 if file.absoluteString.contains(FileNames.downloadedFile) {
-                    return try? Data(contentsOf: file)
+                    do {
+                        let iFile = try Data(contentsOf: file)
+                        return iFile
+                    } catch {
+                        print("Failed to read file.")
+                        return nil
+                    }
                 }
             }
         } catch let error {
