@@ -144,7 +144,6 @@ class MoonInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchData()
-        moonInfo = MoonInfo(jsonFile: moonInfoFile!)
     }
     
     private func fetchData() {
@@ -160,7 +159,7 @@ class MoonInfoViewController: UIViewController {
         //print(url.url!)
         let request = URLRequest(url: url.url!)
         spinner?.startAnimating()
-        let task = session.dataTask(with: request) { (data, response, error) -> Void in
+        let task = session.dataTask(with: request) { [weak self] (data, response, error) -> Void in
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
             if statusCode == 200 {
@@ -169,11 +168,13 @@ class MoonInfoViewController: UIViewController {
                 let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
                 let fileName = dirs[0].appendingPathComponent("MoonInfo.json")
                 print("\(dirs)")
-                let x = try? data?.write(to: fileName)
-                if x == nil {
-                    print("Failed to write file.")
-                } else {
+                if ((try? data?.write(to: fileName)) != nil) {
                     print("OK")
+                    DispatchQueue.main.async {
+                        self?.moonInfo = MoonInfo(jsonFile: (self?.moonInfoFile!)!)
+                    }
+                } else {
+                    print("Failed to write file.")
                 }
             } else {
                 print("Download failed: \(statusCode)")
