@@ -66,7 +66,7 @@ struct MoonInfo
         components.hour = dateList[3]
         components.minute = dateList[4]
         components.second = dateList[5]
-        components.timeZone = NSTimeZone(abbreviation: "GMT") as? TimeZone
+        components.timeZone = TimeZone(abbreviation: "GMT")
         let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         let cdate = cal?.date(from: components as DateComponents)
         return (phaseId, cdate!)

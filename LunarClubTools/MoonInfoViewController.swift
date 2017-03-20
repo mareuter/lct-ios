@@ -67,7 +67,7 @@ class MoonInfoViewController: UIViewController {
         static let secondsTime = "yyyy-MM-dd HH:mm:ss"
         static let minutesTimeWithTimeZone = "yyyy-MM-dd HH:mm zzz"
         static let localTimeZone = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)?.timeZone
-        static let utcTimeZone = NSTimeZone(abbreviation: "GMT") as? TimeZone
+        static let utcTimeZone = TimeZone(abbreviation: "GMT")
     }
     
     private struct Symbols {
