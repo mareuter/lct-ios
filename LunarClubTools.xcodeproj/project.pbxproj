@@ -15,6 +15,9 @@
 		A4B35FF31E230F1B008D675F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B35FF21E230F1B008D675F /* Assets.xcassets */; };
 		A4B35FF61E230F1B008D675F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B35FF41E230F1B008D675F /* LaunchScreen.storyboard */; };
 		A4C0D9B41E5A70BE005522A3 /* TimeAndLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C0D9B31E5A70BE005522A3 /* TimeAndLocation.swift */; };
+		A4CC0B0E1E860CA500AADDE1 /* MoonInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC0B0D1E860CA500AADDE1 /* MoonInfoPageViewController.swift */; };
+		A4CC0B101E860CC000AADDE1 /* EphemerisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC0B0F1E860CC000AADDE1 /* EphemerisViewController.swift */; };
+		A4CC0B121E860CD200AADDE1 /* NextFourPhasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC0B111E860CD200AADDE1 /* NextFourPhasesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		A4B35FF51E230F1B008D675F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4B35FF71E230F1B008D675F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4C0D9B31E5A70BE005522A3 /* TimeAndLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAndLocation.swift; sourceTree = "<group>"; };
+		A4CC0B0D1E860CA500AADDE1 /* MoonInfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonInfoPageViewController.swift; sourceTree = "<group>"; };
+		A4CC0B0F1E860CC000AADDE1 /* EphemerisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EphemerisViewController.swift; sourceTree = "<group>"; };
+		A4CC0B111E860CD200AADDE1 /* NextFourPhasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextFourPhasesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,9 @@
 				A4B35FED1E230F1B008D675F /* MoonInfoViewController.swift */,
 				A48BA3DE1E2D8D0C00A8C784 /* MoonInfo.swift */,
 				A4B35FEF1E230F1B008D675F /* Main.storyboard */,
+				A4CC0B0D1E860CA500AADDE1 /* MoonInfoPageViewController.swift */,
+				A4CC0B0F1E860CC000AADDE1 /* EphemerisViewController.swift */,
+				A4CC0B111E860CD200AADDE1 /* NextFourPhasesViewController.swift */,
 				A4B35FF21E230F1B008D675F /* Assets.xcassets */,
 				A4B35FF41E230F1B008D675F /* LaunchScreen.storyboard */,
 				A4B35FF71E230F1B008D675F /* Info.plist */,
@@ -146,10 +155,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A42D74BA1E54110D00E3641F /* LunarClubToolsTabBarController.swift in Sources */,
+				A4CC0B101E860CC000AADDE1 /* EphemerisViewController.swift in Sources */,
 				A4B35FEE1E230F1B008D675F /* MoonInfoViewController.swift in Sources */,
 				A4C0D9B41E5A70BE005522A3 /* TimeAndLocation.swift in Sources */,
 				A48BA3DF1E2D8D0C00A8C784 /* MoonInfo.swift in Sources */,
+				A4CC0B0E1E860CA500AADDE1 /* MoonInfoPageViewController.swift in Sources */,
 				A4B35FEC1E230F1B008D675F /* AppDelegate.swift in Sources */,
+				A4CC0B121E860CD200AADDE1 /* NextFourPhasesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
