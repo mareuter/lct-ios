@@ -66,7 +66,7 @@ class EphemerisViewController: UIViewController, UIUpdatable {
         let secDouble = (minDouble - Double(minutes)) * 60.0
         let seconds = Int(secDouble)
         
-        var coordinateString = "\(degrees)\(MoonInfoConstants.degrees) \(minutes)' \(seconds)\""
+        var coordinateString = "\(degrees)\(MoonInfoConstants.degrees) " + String(format: "%02d' %02d''", minutes, seconds) //\(minutes)' \(seconds)\""
         
         if label != nil {
             let cardinalDirs = label!.components(separatedBy: " ")
