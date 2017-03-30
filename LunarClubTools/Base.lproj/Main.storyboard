@@ -264,7 +264,6 @@
                     </view>
                     <connections>
                         <outlet property="ageInfo" destination="0XK-Pw-f6y" id="Jc6-1r-Vww"/>
-                        <outlet property="ageLabel" destination="0XK-Pw-f6y" id="KED-ds-zD1"/>
                         <outlet property="colongitudeInfo" destination="dYR-5s-pyL" id="lcJ-ur-hk5"/>
                         <outlet property="illuminationInfo" destination="CPz-Dd-CPG" id="V1j-OI-HgM"/>
                         <outlet property="latitudeInfo" destination="8eN-gm-yTI" id="wE2-u6-ZNS"/>
@@ -272,7 +271,6 @@
                         <outlet property="localDateLabel" destination="D25-aL-Zpp" id="Ooa-cT-4oE"/>
                         <outlet property="longitudeInfo" destination="Aog-eA-LFT" id="cS3-l9-Zwc"/>
                         <outlet property="phaseInfo" destination="kUH-O4-huL" id="Jby-I2-tXe"/>
-                        <outlet property="phaseLabel" destination="kUH-O4-huL" id="zQQ-2p-Qom"/>
                         <outlet property="utcDateInfo" destination="kbI-xH-yT2" id="FNS-sA-UJ0"/>
                     </connections>
                 </viewController>

@@ -7,28 +7,81 @@
 //
 
 import UIKit
+import Foundation
 
 class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    
+    private struct FileNames {
+        static let bundleFile = "MoonInfoJSON"
+        static let downloadedFile = "MoonInfo.json"
+    }
+    
+    private var urlComp = URLComponents()
+    private var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    public var timeAndLocation = TimeAndLocation()
 
-    private struct Constants {
-        static let topLevelStoryBoard = "Main"
-        static let ephemerisVcName = "EphemerisViewController"
-        static let nextFourPhasesVcName = "NextFourPhasesViewController"
+    private var moonInfoFile: Data? {
+        let fileManager = FileManager.default
+        let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        do {
+            let fileList = try fileManager.contentsOfDirectory(at: dirs[0], includingPropertiesForKeys: nil, options: [])
+            print("A: \(fileList)")
+            for file in fileList {
+                if file.absoluteString.contains(FileNames.downloadedFile) {
+                    do {
+                        let iFile = try Data(contentsOf: file)
+                        return iFile
+                    } catch {
+                        print("Failed to read file.")
+                        return nil
+                    }
+                }
+            }
+        } catch let error {
+            print("\(error)")
+            print("Cannot read \(dirs[0].absoluteString)")
+            return nil
+        }
+        
+        return NSDataAsset(name: FileNames.bundleFile, bundle: Bundle.main)!.data
+    }
+    
+    public var moonInfo : MoonInfo?
+    {
+        didSet {
+            for viewController in orderedViewControllers {
+                if let updatable = viewController as? UIUpdatable {
+                    updatable.updateUI()
+                }
+            }
+
+        }
+    }
+
+    private func setupMoonInfoUrl() -> URLComponents {
+        urlComp.scheme = "https"
+        urlComp.host = "lct-web.herokuapp.com"
+        urlComp.path = "/moon_info"
+        return urlComp
     }
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newMoonInfoViewController(Constants.ephemerisVcName),
-                self.newMoonInfoViewController(Constants.nextFourPhasesVcName)]
+        return [self.newMoonInfoViewController(MoonInfoConstants.ephemerisVcName),
+                self.newMoonInfoViewController(MoonInfoConstants.nextFourPhasesVcName)]
     }()
     
     private func newMoonInfoViewController(_ identifier: String) -> UIViewController {
-        return UIStoryboard(name: Constants.topLevelStoryBoard, bundle: nil).instantiateViewController(withIdentifier: identifier)
+        return UIStoryboard(name: MoonInfoConstants.topLevelStoryBoard, bundle: nil).instantiateViewController(withIdentifier: identifier)
     }
     
     override func viewDidLoad() {
         print ("In viewDidLoad")
         super.viewDidLoad()
         
+        spinner.center = view.center
+        spinner.hidesWhenStopped = true
+        view.addSubview(spinner)
+    
         dataSource = self
         delegate = self
         
@@ -36,6 +89,48 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
             navigationItem.title = firstViewController.title ?? ""
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+    }
+    
+    private func fetchData() {
+        let tbc = tabBarController as! LunarClubToolsTabBarController
+        timeAndLocation = tbc.timeAndLocation
+        let coords = timeAndLocation.getCoordinates()
+        var url = setupMoonInfoUrl()
+        let dateQuery = URLQueryItem(name: "date", value: String(timeAndLocation.getTimestamp()))
+        let longitudeQuery = URLQueryItem(name: "lon", value: String(coords.longitude))
+        let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
+        url.queryItems = [dateQuery, latitudeQuery, longitudeQuery]
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        //print(url.url!)
+        let request = URLRequest(url: url.url!)
+        //spinner?.startAnimating()
+        let task = session.dataTask(with: request) { [weak self] (data, response, error) -> Void in
+            let httpResponse = response as! HTTPURLResponse
+            let statusCode = httpResponse.statusCode
+            if statusCode == 200 {
+                //print("Downloaded Moon Info")
+                let fileManager = FileManager.default
+                let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+                let fileName = dirs[0].appendingPathComponent("MoonInfo.json")
+                print("\(dirs)")
+                if ((try? data?.write(to: fileName)) != nil) {
+                    print("OK")
+                    DispatchQueue.main.async {
+                        self?.moonInfo = MoonInfo(jsonFile: (self?.moonInfoFile!)!)
+                    }
+                } else {
+                    print("Failed to write file.")
+                }
+            } else {
+                print("Download failed: \(statusCode)")
+            }
+        }
+        task.resume()
     }
     
     internal func pageViewController(
