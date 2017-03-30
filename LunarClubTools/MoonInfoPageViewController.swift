@@ -54,7 +54,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                     updatable.updateUI()
                 }
             }
-
+            spinner.stopAnimating()
         }
     }
 
@@ -108,7 +108,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         let session = URLSession(configuration: URLSessionConfiguration.default)
         //print(url.url!)
         let request = URLRequest(url: url.url!)
-        //spinner?.startAnimating()
+        spinner.startAnimating()
         let task = session.dataTask(with: request) { [weak self] (data, response, error) -> Void in
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
