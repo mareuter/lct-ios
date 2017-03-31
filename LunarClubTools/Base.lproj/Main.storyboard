@@ -35,6 +35,11 @@
                     <navigationItem key="navigationItem" id="R1N-zo-3tD">
                         <barButtonItem key="rightBarButtonItem" title="Update" id="NGM-VN-NWb">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="Jxk-oN-O8r" kind="popoverPresentation" popoverAnchorBarButtonItem="NGM-VN-NWb" id="Qib-Hs-RaV">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </pageViewController>
@@ -42,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="1737" y="38"/>
         </scene>
-        <!--View Controller-->
+        <!--Update Time View Controller-->
         <scene sceneID="Oyh-oH-fqf">
             <objects>
-                <viewController id="Jxk-oN-O8r" sceneMemberID="viewController">
+                <viewController id="Jxk-oN-O8r" customClass="UpdateTimeViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zu7-fH-rN7"/>
                         <viewControllerLayoutGuide type="bottom" id="uGr-id-H9P"/>
@@ -69,11 +74,17 @@
                                         <rect key="frame" x="0.0" y="216" width="320" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Now"/>
+                                        <connections>
+                                            <action selector="now:" destination="Jxk-oN-O8r" eventType="touchUpInside" id="Lrc-pS-5U3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glu-94-ezX">
                                         <rect key="frame" x="0.0" y="264" width="320" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="OK"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="Jxk-oN-O8r" eventType="touchUpInside" id="bmu-0B-UpP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -84,6 +95,9 @@
                             <constraint firstItem="Pzg-4h-uPa" firstAttribute="centerY" secondItem="X4u-XS-id7" secondAttribute="centerY" id="oZe-9h-cYu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="6Xq-18-FE2" id="QiF-ly-6Nh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdt-06-Up0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
