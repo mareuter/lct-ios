@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="PZ4-BZ-dRA">
-                                <rect key="frame" x="47.5" y="139.5" width="279.5" height="388"/>
+                                <rect key="frame" x="48" y="139.5" width="279.5" height="388"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="07Y-5H-dPe">
                                         <rect key="frame" x="13.5" y="0.0" width="253" height="141"/>
@@ -194,7 +194,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="K4d-7G-utB">
                                         <rect key="frame" x="0.0" y="291" width="279.5" height="97"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="caG-XT-ae5">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="caG-XT-ae5">
                                                 <rect key="frame" x="0.0" y="0.0" width="279" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date (XXX)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D25-aL-Zpp" userLabel="Local Date Label">
@@ -211,7 +211,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3II-0v-rLD">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3II-0v-rLD">
                                                 <rect key="frame" x="0.0" y="25.5" width="279.5" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date (UTC)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDX-pc-LPW" userLabel="UTC Date Label">
@@ -228,34 +228,34 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="h37-Pd-Jj4">
-                                                <rect key="frame" x="0.0" y="51" width="258" height="20.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="h37-Pd-Jj4">
+                                                <rect key="frame" x="0.0" y="51" width="269.5" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPx-hP-heM" userLabel="Latitude Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="86" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000° 00' 00'' X" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-gm-yTI" userLabel="Latitude Info">
-                                                        <rect key="frame" x="143" y="0.0" width="115" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000° 00' 00'' X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-gm-yTI" userLabel="Latitude Info">
+                                                        <rect key="frame" x="96" y="0.0" width="173.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7uB-Va-Ybg">
-                                                <rect key="frame" x="0.0" y="76.5" width="240" height="20.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7uB-Va-Ybg">
+                                                <rect key="frame" x="0.0" y="76.5" width="269.5" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzK-Gr-j72" userLabel="Longitude Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="86" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000° 00' 00'' X" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aog-eA-LFT" userLabel="Longitude Info">
-                                                        <rect key="frame" x="125" y="0.0" width="115" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000° 00' 00'' X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aog-eA-LFT" userLabel="Longitude Info">
+                                                        <rect key="frame" x="96" y="0.0" width="173.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -263,6 +263,14 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="uzK-Gr-j72" firstAttribute="width" secondItem="dPx-hP-heM" secondAttribute="width" id="6xG-6J-87V"/>
+                                            <constraint firstItem="8eN-gm-yTI" firstAttribute="width" secondItem="kbI-xH-yT2" secondAttribute="width" id="9Kx-AY-Jxe"/>
+                                            <constraint firstItem="Aog-eA-LFT" firstAttribute="width" secondItem="8eN-gm-yTI" secondAttribute="width" id="ARh-wg-x6z"/>
+                                            <constraint firstItem="dPx-hP-heM" firstAttribute="width" secondItem="fDX-pc-LPW" secondAttribute="width" id="DMD-jc-VGt"/>
+                                            <constraint firstItem="fDX-pc-LPW" firstAttribute="width" secondItem="D25-aL-Zpp" secondAttribute="width" id="RYq-Wn-nxc"/>
+                                            <constraint firstItem="kbI-xH-yT2" firstAttribute="width" secondItem="ila-5k-ZmH" secondAttribute="width" id="ohU-vW-MjT"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
