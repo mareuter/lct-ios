@@ -19,10 +19,28 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("LCTTBC will appear")
         super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(forName: ProgramConstants.updateTimeNotification,
+                                               object: nil, queue: nil, using: updateTime)
         determineMyLocation()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("LCTTBC will disappear")
+    }
+    
+    private func updateTime(notification: Notification) -> Void {
+        guard let userInfo = notification.userInfo,
+            let date = userInfo["date"] as? Date else {
+                return
+        }
+        print("LCTTBC \(date)")
+        timeAndLocation.updateTime(new: date)
+        makeVcsFetchData()
+    }
+    
     private func determineMyLocation() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -33,14 +51,20 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
         }
     }
     
+    private func makeVcsFetchData() {
+        for vc in viewControllers! {
+            if let fd = vc as? FetchableData {
+                fd.fetchData()
+            }
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
         manager.stopUpdatingLocation()
         timeAndLocation.updateCoordinates(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         print("Location: (\(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude))")
-        for vc in viewControllers! {
-            vc.viewWillAppear(true)
-        }
+        makeVcsFetchData()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

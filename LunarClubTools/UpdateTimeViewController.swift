@@ -19,6 +19,7 @@ class UpdateTimeViewController: UIViewController {
         print(datePicker.date)
         presentingViewController?.dismiss(animated: true, completion: nil)
         let nc = NotificationCenter.default
-        nc.post(name: Notification.Name("UpdateTimeNotification"), object: nil, userInfo: ["date": datePicker.date])
+        nc.post(name: ProgramConstants.updateTimeNotification,
+                object: nil, userInfo: ["date": datePicker.date])
     }
 }

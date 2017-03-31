@@ -84,7 +84,9 @@ class EphemerisViewController: UIViewController, UIUpdatable {
         if view != nil {
             if let mipvc = parent as? MoonInfoPageViewController {
                 if let moonInfo = mipvc.moonInfo {
+                    print("Hello!")
                     let tl = mipvc.timeAndLocation
+                    print("\(tl.getTimestamp())")
                     let timeZoneString = localDateTimeFormatter.timeZone.abbreviation() ?? ""
                     if timeZoneString != "" {
                         localDateLabel.text =  "Date (" + timeZoneString + ")"

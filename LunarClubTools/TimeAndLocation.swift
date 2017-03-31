@@ -30,4 +30,9 @@ class TimeAndLocation
         currentLatitude = latitude
         currentLongitude = longitude
     }
+    
+    func updateTime(new date: Date) {
+        print("TIme updated in TAL")
+        currentTime = date
+    }
 }

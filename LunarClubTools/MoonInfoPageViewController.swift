@@ -9,13 +9,14 @@
 import UIKit
 import Foundation
 
-class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, FetchableData {
     
     private struct FileNames {
         static let bundleFile = "MoonInfoJSON"
         static let downloadedFile = "MoonInfo.json"
     }
     
+    private var fetchDataDelegate: FetchableData?
     private var urlComp = URLComponents()
     private var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     public var timeAndLocation = TimeAndLocation()
@@ -82,6 +83,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         spinner.hidesWhenStopped = true
         view.addSubview(spinner)
     
+        fetchDataDelegate = self
         dataSource = self
         delegate = self
         
@@ -92,16 +94,23 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        print("MIPVC will appear")
         super.viewWillAppear(animated)
         fetchData()
     }
     
-    private func fetchData() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("MIPVC will disappear")
+    }
+    internal func fetchData() {
+        print("Fetching data in MIPVC")
         let tbc = tabBarController as! LunarClubToolsTabBarController
         timeAndLocation = tbc.timeAndLocation
         let coords = timeAndLocation.getCoordinates()
         var url = setupMoonInfoUrl()
         let dateQuery = URLQueryItem(name: "date", value: String(timeAndLocation.getTimestamp()))
+        print("\(dateQuery)")
         let longitudeQuery = URLQueryItem(name: "lon", value: String(coords.longitude))
         let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
         url.queryItems = [dateQuery, latitudeQuery, longitudeQuery]
@@ -116,7 +125,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                 //print("Downloaded Moon Info")
                 let fileManager = FileManager.default
                 let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-                let fileName = dirs[0].appendingPathComponent("MoonInfo.json")
+                let fileName = dirs[0].appendingPathComponent(FileNames.downloadedFile)
                 print("\(dirs)")
                 if ((try? data?.write(to: fileName)) != nil) {
                     print("OK")
