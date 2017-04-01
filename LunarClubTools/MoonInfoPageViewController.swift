@@ -9,7 +9,9 @@
 import UIKit
 import Foundation
 
-class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, FetchableData {
+class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, FetchableData,
+    UIPopoverPresentationControllerDelegate
+{
     
     private struct FileNames {
         static let bundleFile = "MoonInfoJSON"
@@ -142,6 +144,17 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         task.resume()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        if segue.identifier == ProgramConstants.changeTimeSegue {
+            if let ctvc = destination as? UpdateTimeViewController {
+                if let povc = ctvc.popoverPresentationController {
+                    povc.delegate = self
+                }
+            }
+        }
+    }
+    
     internal func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController)
@@ -210,4 +223,29 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     internal func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController,
+                                   traitCollection: UITraitCollection)
+        -> UIModalPresentationStyle {
+        print("Beep")
+        return traitCollection.horizontalSizeClass == .compact ? .overFullScreen : .none
+    }
+    
+    func presentationController(_ controller: UIPresentationController,
+                                viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle)
+        -> UIViewController? {
+            if style == .fullScreen || style == .overFullScreen {
+                print("Help")
+                let navcon = UINavigationController(rootViewController: controller.presentedViewController)
+                let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+                visualEffectView.frame = navcon.view.bounds
+                visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                navcon.view.insertSubview(visualEffectView, at: 0)
+                return navcon
+            } else {
+                return nil
+            }
+
+    }
+
 }

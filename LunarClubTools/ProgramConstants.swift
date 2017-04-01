@@ -11,4 +11,5 @@ import Foundation
 struct ProgramConstants
 {
     static let updateTimeNotification = Notification.Name("UpdateTimeNotification")
+    static let changeTimeSegue = "Change Time"
 }

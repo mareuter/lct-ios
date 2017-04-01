@@ -22,4 +22,9 @@ class UpdateTimeViewController: UIViewController {
         nc.post(name: ProgramConstants.updateTimeNotification,
                 object: nil, userInfo: ["date": datePicker.date])
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        preferredContentSize = view.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+    }
 }
