@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,9 +37,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Change" id="NGM-VN-NWb">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="Jxk-oN-O8r" kind="popoverPresentation" identifier="Change Time" popoverAnchorBarButtonItem="NGM-VN-NWb" id="hJk-a9-mlI">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="qM5-21-Egt" kind="presentation" identifier="Change Time" modalPresentationStyle="formSheet" id="ttY-hF-AnY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -60,21 +59,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Xq-18-FE2">
-                                <rect key="frame" x="27" y="225" width="320" height="216"/>
+                                <rect key="frame" x="16" y="72" width="343" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <date key="date" timeIntervalSinceReferenceDate="511840724.03487802">
                                     <!--2017-03-22 01:58:44 +0000-->
                                 </date>
                             </datePicker>
                         </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6Xq-18-FE2" firstAttribute="centerY" secondItem="X4u-XS-id7" secondAttribute="centerY" id="s4Q-vu-kzM"/>
-                            <constraint firstItem="6Xq-18-FE2" firstAttribute="centerX" secondItem="X4u-XS-id7" secondAttribute="centerX" id="xJn-dJ-EqN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Xq-18-FE2" secondAttribute="trailing" id="IB7-ZI-O1I"/>
+                            <constraint firstItem="6Xq-18-FE2" firstAttribute="top" secondItem="Zu7-fH-rN7" secondAttribute="bottom" constant="8" id="S0W-Pv-AbJ"/>
+                            <constraint firstItem="uGr-id-H9P" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Xq-18-FE2" secondAttribute="bottom" constant="8" symbolic="YES" id="esU-wY-5tN"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="6Xq-18-FE2" secondAttribute="leading" id="pOZ-gF-sTE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Change Date/Time" id="UKu-80-QMT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WHQ-ZY-LLY"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="6HQ-fr-yKB"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WHQ-ZY-LLY">
+                            <connections>
+                                <action selector="cancel:" destination="Jxk-oN-O8r" id="dGv-Gk-0Ck"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="6HQ-fr-yKB">
+                            <connections>
+                                <action selector="dismiss:" destination="Jxk-oN-O8r" id="qMT-lm-fbz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="6Xq-18-FE2" id="QiF-ly-6Nh"/>
@@ -82,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdt-06-Up0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3828" y="-9.4452773613193415"/>
+            <point key="canvasLocation" x="3756" y="37"/>
         </scene>
         <!--Ephemeris-->
         <scene sceneID="qgU-Vf-In7">
@@ -403,6 +413,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlW-IE-d9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="844" y="36.431784107946029"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IoS-fe-VKY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qM5-21-Egt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6hB-7q-J7y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jxk-oN-O8r" kind="relationship" relationship="rootViewController" id="2oB-KV-UTp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UPt-Z1-aBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2825" y="36"/>
         </scene>
     </scenes>
     <resources>

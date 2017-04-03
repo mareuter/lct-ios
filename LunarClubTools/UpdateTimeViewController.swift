@@ -14,13 +14,17 @@ class UpdateTimeViewController: UIViewController {
     @IBAction func now(_ sender: UIButton) {
         datePicker.date = Date()
     }
-    
-    @IBAction func dismiss(_ sender: UIButton) {
+
+    @IBAction func dismiss(_ sender: UIBarButtonItem) {
         print(datePicker.date)
         presentingViewController?.dismiss(animated: true, completion: nil)
         let nc = NotificationCenter.default
         nc.post(name: ProgramConstants.updateTimeNotification,
                 object: nil, userInfo: ["date": datePicker.date])
+    }
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     override func viewWillLayoutSubviews() {
