@@ -66,7 +66,6 @@
                                 </date>
                             </datePicker>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="6Xq-18-FE2" secondAttribute="trailing" id="IB7-ZI-O1I"/>
                             <constraint firstItem="6Xq-18-FE2" firstAttribute="top" secondItem="Zu7-fH-rN7" secondAttribute="bottom" constant="8" id="S0W-Pv-AbJ"/>

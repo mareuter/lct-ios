@@ -27,6 +27,12 @@ class UpdateTimeViewController: UIViewController {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        datePicker.setValue(UIColor.white, forKey: "textColor")
+        datePicker.datePickerMode = .date
+        datePicker.datePickerMode = .dateAndTime
+    }
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         preferredContentSize = view.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
