@@ -37,7 +37,9 @@
                         <barButtonItem key="rightBarButtonItem" title="Change" id="NGM-VN-NWb">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="qM5-21-Egt" kind="presentation" identifier="Change Time" modalPresentationStyle="formSheet" id="ttY-hF-AnY"/>
+                                <segue destination="qM5-21-Egt" kind="popoverPresentation" identifier="Change Time" popoverAnchorBarButtonItem="NGM-VN-NWb" id="ttY-hF-AnY">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -299,37 +301,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="n2k-ud-ZgK">
-                                <rect key="frame" x="54.5" y="192" width="266.5" height="282"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="n2k-ud-ZgK">
+                                <rect key="frame" x="16.5" y="20" width="342.5" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oTY-yL-TmO" userLabel="First Phase Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="266.5" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="342.5" height="162"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="New-Moon" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-Tc-ubK" userLabel="First Phase Image">
-                                                <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="33" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="9Az-Tc-ubK" secondAttribute="height" multiplier="1:1" id="5Bc-Za-Fpc"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000-00-00 00:00 UTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deP-Pu-txd" userLabel="First Phase Date">
-                                                <rect key="frame" x="43" y="4.5" width="223.5" height="24"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000-00-00 00:00 UTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="deP-Pu-txd" userLabel="First Phase Date">
+                                                <rect key="frame" x="43" y="66" width="299.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qJi-ea-6Ho" userLabel="Second Phase Stack View">
-                                        <rect key="frame" x="0.0" y="83" width="266.5" height="33"/>
+                                        <rect key="frame" x="0.0" y="162" width="342.5" height="161.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FQ-Moon" translatesAutoresizingMaskIntoConstraints="NO" id="iSl-Gz-v8f" userLabel="Second Phase Image">
-                                                <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                <rect key="frame" x="0.0" y="64" width="33" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="iSl-Gz-v8f" secondAttribute="height" multiplier="1:1" id="rgv-cX-og8"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000-00-00 00:00 UTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0g-s3-GlJ" userLabel="Second Phase Date">
-                                                <rect key="frame" x="43" y="4.5" width="223.5" height="24"/>
+                                                <rect key="frame" x="43" y="68.5" width="299.5" height="24"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -337,16 +339,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="laa-up-2hL" userLabel="Third Phase Stack View">
-                                        <rect key="frame" x="0.0" y="166" width="266.5" height="33"/>
+                                        <rect key="frame" x="0.0" y="323.5" width="342.5" height="162"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Full-Moon" translatesAutoresizingMaskIntoConstraints="NO" id="yCy-tc-Wfj" userLabel="Third Phase Image">
-                                                <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="33" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yCy-tc-Wfj" secondAttribute="height" multiplier="1:1" id="veM-WW-mnr"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000-00-00 00:00 UTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2N-7m-zST" userLabel="Third Phase Date">
-                                                <rect key="frame" x="43" y="4.5" width="223.5" height="24"/>
+                                                <rect key="frame" x="43" y="69" width="299.5" height="24"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -354,16 +356,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aSL-db-Z2X" userLabel="Fourth Phase Stack View">
-                                        <rect key="frame" x="0.0" y="249" width="266.5" height="33"/>
+                                        <rect key="frame" x="0.0" y="485.5" width="342.5" height="161.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TQ-Moon" translatesAutoresizingMaskIntoConstraints="NO" id="Umf-Fi-AYU" userLabel="Fourth Phase Image">
-                                                <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                <rect key="frame" x="0.0" y="64" width="33" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Umf-Fi-AYU" secondAttribute="height" multiplier="1:1" id="eAN-6G-ZeB"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000-00-00 00:00 UTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKi-4q-ttb" userLabel="Fourth Phase Date">
-                                                <rect key="frame" x="43" y="4.5" width="223.5" height="24"/>
+                                                <rect key="frame" x="43" y="68.5" width="299.5" height="24"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -375,8 +377,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n2k-ud-ZgK" firstAttribute="centerY" secondItem="fAw-ga-Ecj" secondAttribute="centerY" id="TNi-2D-hoc"/>
-                            <constraint firstItem="n2k-ud-ZgK" firstAttribute="centerX" secondItem="fAw-ga-Ecj" secondAttribute="centerX" id="mRg-ZL-5US"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n2k-ud-ZgK" secondAttribute="trailing" id="V6K-R3-NuF"/>
+                            <constraint firstItem="n2k-ud-ZgK" firstAttribute="top" secondItem="A4Q-gr-Un4" secondAttribute="bottom" id="hKE-uk-omg"/>
+                            <constraint firstItem="dRB-t8-ayN" firstAttribute="top" secondItem="n2k-ud-ZgK" secondAttribute="bottom" id="iuq-QM-n4O"/>
+                            <constraint firstItem="n2k-ud-ZgK" firstAttribute="leading" secondItem="fAw-ga-Ecj" secondAttribute="leadingMargin" id="kgj-SV-eTn"/>
                         </constraints>
                     </view>
                     <connections>
