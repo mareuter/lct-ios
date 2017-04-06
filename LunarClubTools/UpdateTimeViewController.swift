@@ -33,8 +33,13 @@ class UpdateTimeViewController: UIViewController {
         datePicker.datePickerMode = .dateAndTime
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let popoverPresentationController = navigationController?.popoverPresentationController {
+            if popoverPresentationController.arrowDirection != .unknown {
+                navigationItem.leftBarButtonItem = nil
+            }
+        }
         preferredContentSize = view.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
     }
 }

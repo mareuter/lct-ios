@@ -68,6 +68,7 @@
                                 </date>
                             </datePicker>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="6Xq-18-FE2" secondAttribute="trailing" id="IB7-ZI-O1I"/>
                             <constraint firstItem="6Xq-18-FE2" firstAttribute="top" secondItem="Zu7-fH-rN7" secondAttribute="bottom" constant="8" id="S0W-Pv-AbJ"/>
@@ -93,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdt-06-Up0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3756" y="37"/>
+            <point key="canvasLocation" x="3447" y="37"/>
         </scene>
         <!--Ephemeris-->
         <scene sceneID="qgU-Vf-In7">
@@ -433,7 +434,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPt-Z1-aBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2825" y="36"/>
+            <point key="canvasLocation" x="2626" y="37"/>
         </scene>
     </scenes>
     <resources>

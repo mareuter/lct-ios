@@ -145,11 +145,14 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
+        var destinationViewController = segue.destination
+        if let navigationController = destinationViewController as? UINavigationController {
+            destinationViewController = navigationController.visibleViewController ?? destinationViewController
+        }
         if segue.identifier == ProgramConstants.changeTimeSegue {
-            if let ctvc = destination as? UpdateTimeViewController {
-                if let povc = ctvc.popoverPresentationController {
-                    povc.delegate = self
+            if destinationViewController is UpdateTimeViewController {
+                if let popoverPresentationController = segue.destination.popoverPresentationController {
+                    popoverPresentationController.delegate = self
                 }
             }
         }
@@ -224,28 +227,18 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         return 0
     }
     
-    func adaptivePresentationStyle(for controller: UIPresentationController,
-                                   traitCollection: UITraitCollection)
-        -> UIModalPresentationStyle {
-        print("Beep")
-        return traitCollection.horizontalSizeClass == .compact ? .overFullScreen : .none
-    }
-    
-    func presentationController(_ controller: UIPresentationController,
-                                viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle)
-        -> UIViewController? {
-            if style == .fullScreen || style == .overFullScreen {
-                print("Help")
-                let navcon = UINavigationController(rootViewController: controller.presentedViewController)
-                let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
-                visualEffectView.frame = navcon.view.bounds
-                visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                navcon.view.insertSubview(visualEffectView, at: 0)
-                return navcon
-            } else {
-                return nil
-            }
-
+    func adaptivePresentationStyle(
+        for controller: UIPresentationController,
+        traitCollection: UITraitCollection
+    ) -> UIModalPresentationStyle
+    {
+        if traitCollection.verticalSizeClass == .compact {
+            return .none
+        } else if traitCollection.horizontalSizeClass == .compact {
+            return .overFullScreen
+        } else {
+            return .none
+        }
     }
 
 }
