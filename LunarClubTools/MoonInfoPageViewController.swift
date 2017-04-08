@@ -105,6 +105,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         super.viewWillDisappear(animated)
         print("MIPVC will disappear")
     }
+    
     internal func fetchData() {
         print("Fetching data in MIPVC")
         let tbc = tabBarController as! LunarClubToolsTabBarController
@@ -150,7 +151,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             destinationViewController = navigationController.visibleViewController ?? destinationViewController
         }
         if segue.identifier == ProgramConstants.changeTimeSegue {
-            if destinationViewController is UpdateTimeViewController {
+            if destinationViewController is ChangeTimeViewController {
                 if let popoverPresentationController = segue.destination.popoverPresentationController {
                     popoverPresentationController.delegate = self
                 }

@@ -21,7 +21,7 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
     override func viewWillAppear(_ animated: Bool) {
         print("LCTTBC will appear")
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(forName: ProgramConstants.updateTimeNotification,
+        NotificationCenter.default.addObserver(forName: ProgramConstants.changeTimeNotification,
                                                object: nil, queue: nil, using: updateTime)
         determineMyLocation()
     }
@@ -53,7 +53,7 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
     
     private func makeVcsFetchData() {
         for vc in viewControllers! {
-            if let fd = vc as? FetchableData {
+            if let fd = vc.contents as? FetchableData {
                 fd.fetchData()
             }
         }
@@ -71,5 +71,21 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
         print("Error \(error)")
     }
     
-    
+}
+
+extension UIViewController
+{
+    // a friendly var we've added to UIViewController
+    // it returns the "contents" of this UIViewController
+    // which, if this UIViewController is a UINavigationController
+    // means "the UIViewController contained in me (and visible)"
+    // otherwise, it just means the UIViewController itself
+    // could easily imagine extending this for UITabBarController too
+    var contents: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController ?? self
+        } else {
+            return self
+        }
+    }
 }

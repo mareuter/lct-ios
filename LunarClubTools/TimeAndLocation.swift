@@ -32,7 +32,7 @@ class TimeAndLocation
     }
     
     func updateTime(new date: Date) {
-        print("TIme updated in TAL")
+        print("Time updated in TAL")
         currentTime = date
     }
 }

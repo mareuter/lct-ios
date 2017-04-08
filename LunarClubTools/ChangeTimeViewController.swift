@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UpdateTimeViewController: UIViewController {
+class ChangeTimeViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
 
     @IBAction func now(_ sender: UIButton) {
@@ -18,9 +18,6 @@ class UpdateTimeViewController: UIViewController {
     @IBAction func dismiss(_ sender: UIBarButtonItem) {
         print(datePicker.date)
         presentingViewController?.dismiss(animated: true, completion: nil)
-        let nc = NotificationCenter.default
-        nc.post(name: ProgramConstants.updateTimeNotification,
-                object: nil, userInfo: ["date": datePicker.date])
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -41,5 +38,12 @@ class UpdateTimeViewController: UIViewController {
             }
         }
         preferredContentSize = view.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        let nc = NotificationCenter.default
+        nc.post(name: ProgramConstants.changeTimeNotification,
+                object: nil, userInfo: ["date": datePicker.date])
     }
 }
