@@ -170,15 +170,18 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             
             let previousIndex = viewControllerIndex - 1
             
-            guard previousIndex >= 0 else {
+            if previousIndex < 0 {
+                return orderedViewControllers.last
+            } else {
                 return orderedViewControllers.first
             }
             
-            guard orderedViewControllers.count > previousIndex else {
-                return nil
-            }
+//            guard orderedViewControllers.count > previousIndex else {
+//                print("Nil2")
+//                return nil
+//            }
 
-            return orderedViewControllers[previousIndex]
+//            return orderedViewControllers[previousIndex]
     }
     
     internal func pageViewController(
