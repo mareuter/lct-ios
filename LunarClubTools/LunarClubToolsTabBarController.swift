@@ -68,7 +68,11 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error \(error)")
+        let locationUpdateFailedAlert = UIAlertController(title: "Location Update Failed",
+                                                          message: "Error \(error)",
+                                                          preferredStyle: .actionSheet)
+        self.present(locationUpdateFailedAlert, animated: true, completion: nil)
+        //print("Error \(error)")
     }
     
 }

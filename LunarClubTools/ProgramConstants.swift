@@ -12,4 +12,6 @@ struct ProgramConstants
 {
     static let changeTimeNotification = Notification.Name("ChangeTimeNotification")
     static let changeTimeSegue = "Change Time"
+    static let requestFailedTitle = "Request Failed"
+    static let jsonReadFailedTitle = "JSON Read Failed"
 }

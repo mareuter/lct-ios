@@ -28,14 +28,18 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         do {
             let fileList = try fileManager.contentsOfDirectory(at: dirs[0], includingPropertiesForKeys: nil, options: [])
-            print("A: \(fileList)")
+            //print("A: \(fileList)")
             for file in fileList {
                 if file.absoluteString.contains(FileNames.downloadedFile) {
                     do {
                         let iFile = try Data(contentsOf: file)
                         return iFile
                     } catch {
-                        print("Failed to read file.")
+                        let readFileFailAlert = UIAlertController(title: ProgramConstants.jsonReadFailedTitle,
+                                                                  message: "Failed to read MoonInfo JSON file.",
+                                                                  preferredStyle: .actionSheet)
+                        self.present(readFileFailAlert, animated: true, completion: nil)
+                        //print("Failed to read file.")
                         return nil
                     }
                 }
@@ -131,7 +135,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                 let fileManager = FileManager.default
                 let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
                 let fileName = dirs[0].appendingPathComponent(FileNames.downloadedFile)
-                print("\(dirs)")
+                //print("\(dirs)")
                 if ((try? data?.write(to: fileName)) != nil) {
                     print("OK")
                     DispatchQueue.main.async {
@@ -141,7 +145,13 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                     print("Failed to write file.")
                 }
             } else {
-                print("Download failed: \(statusCode)")
+                DispatchQueue.main.async {
+                    let downloadFailedAlert = UIAlertController(title: ProgramConstants.requestFailedTitle,
+                                                                message: "MoonInfo web service call failed: \(statusCode)",
+                        preferredStyle: .actionSheet)
+                    self?.present(downloadFailedAlert, animated: true, completion: nil)
+                }
+                //print("Download failed: \(statusCode)")
             }
         }
         task.resume()
