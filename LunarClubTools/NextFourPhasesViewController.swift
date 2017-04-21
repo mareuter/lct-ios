@@ -13,10 +13,10 @@ class NextFourPhasesViewController: UIViewController, UIUpdatable {
     private var delegate: UIUpdatable?
     private let moonPhaseDateTimeFormatter = DateFormatter()
     private let moonPhaseIcons = [
-        "new": #imageLiteral(resourceName: "New-Moon"),
-        "fq": #imageLiteral(resourceName: "FQ-Moon"),
-        "full": #imageLiteral(resourceName: "Full-Moon"),
-        "tq": #imageLiteral(resourceName: "TQ-Moon")
+        "new_moon": #imageLiteral(resourceName: "New-Moon"),
+        "first_quarter": #imageLiteral(resourceName: "FQ-Moon"),
+        "full_moon": #imageLiteral(resourceName: "Full-Moon"),
+        "last_quarter": #imageLiteral(resourceName: "TQ-Moon")
     ]
     
     @IBOutlet weak var firstPhaseImage: UIImageView!

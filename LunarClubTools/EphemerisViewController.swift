@@ -98,6 +98,7 @@ class EphemerisViewController: UIViewController, UIUpdatable {
                     colongitudeInfo.text = formatCoordinateLabel(from: moonInfo.colongitude, direction: nil)
                     latitudeInfo.text = formatCoordinateLabel(from: tl.getCoordinates().latitude, direction: "N S")
                     longitudeInfo.text = formatCoordinateLabel(from: tl.getCoordinates().longitude, direction: "E W")
+                    phaseInfo.text = moonInfo.phaseName
                 }
             }
         }
