@@ -17,6 +17,7 @@ struct MoonInfo
     let librationLongitude: Double
     let altitude: Double
     let azimuth: Double
+    let phaseName: String
     let nextFourPhases: Array<(String, Array<Int>)>
     
     init?(jsonFile: Data) {
@@ -30,6 +31,7 @@ struct MoonInfo
             let librationLongitude = json["libration_lon"] as? Double,
             let altitude = json["altitude"] as? Double,
             let azimuth = json["azimuth"] as? Double,
+            let phaseName = json["phase"] as? String,
             let nextFourPhasesJSON = json["next_four_phases"] as? [String: [String: Any]]
         else {
             return nil
@@ -49,6 +51,7 @@ struct MoonInfo
         self.librationLongitude = librationLongitude
         self.altitude = altitude
         self.azimuth = azimuth
+        self.phaseName = phaseName
         self.nextFourPhases = nextFourPhases
     }
     
