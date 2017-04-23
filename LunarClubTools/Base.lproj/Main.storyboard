@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TMs-7f-Xqz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TMs-7f-Xqz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -419,6 +419,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhY-Aj-ck8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1840.8" y="-708.39580209895053"/>
+        </scene>
+        <!--Phase and Libration-->
+        <scene sceneID="H0f-CW-dP1">
+            <objects>
+                <viewController storyboardIdentifier="PhaseAndLibrationViewController" title="Phase and Libration" id="EQj-AG-nCg" customClass="PhaseAndLibrationViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6cf-5I-IBF"/>
+                        <viewControllerLayoutGuide type="bottom" id="wcm-kR-HmF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pgL-2P-5k0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rBL-l7-NXs" customClass="MoonPhaseView" customModule="LunarClubTools" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isWaxing" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="illumnationFraction">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rBL-l7-NXs" firstAttribute="top" secondItem="pgL-2P-5k0" secondAttribute="top" id="BcV-UL-Vze"/>
+                            <constraint firstAttribute="trailing" secondItem="rBL-l7-NXs" secondAttribute="trailing" id="Eg1-k0-y6h"/>
+                            <constraint firstItem="rBL-l7-NXs" firstAttribute="bottom" secondItem="wcm-kR-HmF" secondAttribute="top" id="PLO-ck-R1H"/>
+                            <constraint firstItem="rBL-l7-NXs" firstAttribute="leading" secondItem="pgL-2P-5k0" secondAttribute="leading" id="nTp-Ww-bLK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MkD-ZG-oZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2577" y="-707"/>
         </scene>
         <!--Moon Info-->
         <scene sceneID="jkA-ls-uf7">
