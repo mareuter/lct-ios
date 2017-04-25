@@ -15,7 +15,7 @@ class MoonPhaseView: UIView {
     var illumnationFraction: CGFloat = 0.3 { didSet { setNeedsDisplay() } }
 
     @IBInspectable
-    var isWaxing: Bool = true { didSet { setNeedsDisplay() } }
+    var phaseState: Int = 2 { didSet { setNeedsDisplay() } }
 
     @IBInspectable
     var scale: CGFloat = 0.9 { didSet { setNeedsDisplay() } }
@@ -25,7 +25,7 @@ class MoonPhaseView: UIView {
     private var bo: CGFloat {
         return 1.0 - 2.0 * max(0, min(illumnationFraction, 1))
     }
-
+    
     private var earthShineColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
 
     private var overlapColor: UIColor {
@@ -52,7 +52,7 @@ class MoonPhaseView: UIView {
         return path
     }
 
-    private func drawQuarterMoon() -> UIBezierPath {
+    private func drawQuarterMoon(_ isWaxing: Bool) -> UIBezierPath {
         let path = UIBezierPath(arcCenter: moonCenter, radius: moonRadius,
                                 startAngle: 1.5 * CGFloat.pi, endAngle: CGFloat.pi / 2.0,
                                 clockwise: isWaxing)
@@ -69,18 +69,31 @@ class MoonPhaseView: UIView {
         path.lineWidth = lineWidth
         return path
     }
-
-    override func draw(_ rect: CGRect) {
-        UIColor.clear.setStroke()
+    
+    private func drawFractionIlluminatedMoon(_ isWaxing: Bool) {
         earthShineColor.setFill()
         drawBackground().fill()
-        drawBackground().stroke()
-        UIColor.white.set()
-        drawQuarterMoon().fill()
-        drawQuarterMoon().stroke()
-        overlapColor.set()
-        UIColor.clear.setStroke()
+        UIColor.white.setFill()
+        drawQuarterMoon(isWaxing).fill()
+        overlapColor.setFill()
         drawOverlap().fill()
-        drawOverlap().stroke()
+    }
+
+    override func draw(_ rect: CGRect) {
+        phaseState = max(0, min(phaseState, 3))
+        switch phaseState {
+        case 0:
+            earthShineColor.setFill()
+            drawBackground().fill()
+        case 2:
+            UIColor.white.setFill()
+            drawBackground().fill()
+        case 3:
+            drawFractionIlluminatedMoon(false)
+        case 1:
+            drawFractionIlluminatedMoon(true)
+        default:
+            break
+        }
     }
 }
