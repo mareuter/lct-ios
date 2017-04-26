@@ -460,6 +460,10 @@
                             <constraint firstItem="rBL-l7-NXs" firstAttribute="leading" secondItem="pgL-2P-5k0" secondAttribute="leading" id="nTp-Ww-bLK"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="moonPhaseView" destination="rBL-l7-NXs" id="StF-IJ-ij1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkD-ZG-oZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
