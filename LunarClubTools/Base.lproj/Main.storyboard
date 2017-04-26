@@ -442,6 +442,13 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="illumnationFraction">
                                         <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="librationLongitude">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showLibration" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="librationLatitude">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>

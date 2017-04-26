@@ -6,6 +6,7 @@
 //  Copyright © 2017 Type II Software. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 @IBDesignable
@@ -19,6 +20,18 @@ class MoonPhaseView: UIView {
 
     @IBInspectable
     var scale: CGFloat = 0.9 { didSet { setNeedsDisplay() } }
+
+    @IBInspectable
+    var showLibration: Bool = true { didSet { setNeedsDisplay() } }
+
+    @IBInspectable
+    var librationLatitude: Double = 0.0 { didSet { setNeedsDisplay() } }
+
+    @IBInspectable
+    var librationLongitude: Double = 0.0 { didSet { setNeedsDisplay() } }
+
+    @IBInspectable
+    var librationMarkerColor: UIColor = UIColor.cyan { didSet { setNeedsDisplay() } }
 
     private var lineWidth: CGFloat = 1.0
 
@@ -79,6 +92,19 @@ class MoonPhaseView: UIView {
         drawOverlap().fill()
     }
 
+    private func drawLibration() -> UIBezierPath {
+        let libLat = Measurement(value: librationLatitude, unit: UnitAngle.degrees)
+        let libLon = Measurement(value: librationLongitude, unit: UnitAngle.degrees)
+        let angle = atan2(libLat.converted(to: UnitAngle.radians).value, libLon.converted(to: UnitAngle.radians).value)
+        let magnitude = max(2, sqrt(libLon.value * libLon.value + libLat.value * libLat.value))
+        let xOffset = moonRadius * CGFloat(cos(angle))
+        let yOffset = moonRadius * CGFloat(sin(angle))
+        let librationCenter = CGPoint(x: moonCenter.x + xOffset, y: moonCenter.y - yOffset)
+        let path = UIBezierPath(arcCenter: librationCenter, radius: CGFloat(magnitude),
+                                startAngle: 0.0, endAngle: CGFloat.pi * 2.0, clockwise: true)
+        return path
+    }
+
     override func draw(_ rect: CGRect) {
         phaseState = max(0, min(phaseState, 3))
         switch phaseState {
@@ -94,6 +120,10 @@ class MoonPhaseView: UIView {
             drawFractionIlluminatedMoon(true)
         default:
             break
+        }
+        if showLibration {
+            librationMarkerColor.setFill()
+            drawLibration().fill()
         }
     }
 }
