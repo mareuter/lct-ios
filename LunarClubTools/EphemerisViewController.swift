@@ -94,6 +94,7 @@ class EphemerisViewController: UIViewController, UIUpdatable {
                     localDateInfo.text = localDateTimeFormatter.string(from: tl.getCurrentTime())
                     utcDateInfo.text = utcDateTimeFormatter.string(from: tl.getCurrentTime())
                     ageInfo.text = formatDoubleLabel(value: moonInfo.age, backCaption: " days")
+                    print(moonInfo.fractionalPhase)
                     illuminationInfo.text = formatDoubleLabel(value: moonInfo.illumination, backCaption: "%")
                     colongitudeInfo.text = formatCoordinateLabel(from: moonInfo.colongitude, direction: nil)
                     latitudeInfo.text = formatCoordinateLabel(from: tl.getCoordinates().latitude, direction: "N S")
