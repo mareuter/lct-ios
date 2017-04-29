@@ -15,6 +15,17 @@ class SpecialViewController: UIViewController, UIUpdatable {
     
     @IBOutlet weak var timeFromNewMoon: UILabel!
     @IBOutlet weak var timeToNewMoon: UILabel!
+    @IBOutlet weak var cresentMoonWaxing: UIImageView!
+    @IBOutlet weak var oldMoonInNewMoonsArms: UIImageView!
+    @IBOutlet weak var cresentMoonWaning: UIImageView!
+    @IBOutlet weak var newMoonInOldMoonsArms: UIImageView!
+    @IBOutlet weak var cowJumpingOverMoon: UIImageView!
+    @IBOutlet weak var manInTheMoon: UIImageView!
+    @IBOutlet weak var womanInTheMoon: UIImageView!
+    @IBOutlet weak var rabbitInTheMoon: UIImageView!
+    
+    private let indicatorOff = #imageLiteral(resourceName: "no-fill-star")
+    private let indicatorOn = #imageLiteral(resourceName: "fill-star")
     
     override func viewDidLoad() {
         delegate = self
@@ -40,16 +51,39 @@ class SpecialViewController: UIViewController, UIUpdatable {
         if view != nil {
             if let lcpvc = parent as? LunarClubPageViewController {
                 if let lunarClubInfo = lcpvc.lunarClubInfo {
-                    if lunarClubInfo.timeFromNewMoon <= LunarClubConstants.timeCutoff {
-                        timeFromNewMoon.text = formatDoubleLabel(value: lunarClubInfo.timeFromNewMoon, backCaption: " hours")
+                    let tfnm = lunarClubInfo.timeFromNewMoon
+                    if tfnm <= LunarClubConstants.timeCutoff {
+                        timeFromNewMoon.text = formatDoubleLabel(value: tfnm, backCaption: " hours")
+                        if tfnm > LunarClubConstants.timeWaxingCresent {
+                            oldMoonInNewMoonsArms.image = indicatorOn
+                        } else {
+                            cresentMoonWaxing.image = indicatorOn
+                        }
                     } else {
                         timeFromNewMoon.text = LunarClubConstants.timeLabelDefaultText
+                        cresentMoonWaxing.image = indicatorOff
+                        oldMoonInNewMoonsArms.image = indicatorOff
                     }
                     
-                    if lunarClubInfo.timeToNewMoon <= LunarClubConstants.timeCutoff {
-                        timeToNewMoon.text = formatDoubleLabel(value: lunarClubInfo.timeToNewMoon, backCaption: " hours")
+                    let ttnm = lunarClubInfo.timeToNewMoon
+                    if  ttnm <= LunarClubConstants.timeCutoff {
+                        timeToNewMoon.text = formatDoubleLabel(value: ttnm, backCaption: " hours")
+                        if ttnm > LunarClubConstants.timeWaningCresent {
+                            newMoonInOldMoonsArms.image = indicatorOn
+                        } else {
+                            cresentMoonWaning.image = indicatorOn
+                        }
                     } else {
                         timeToNewMoon.text = LunarClubConstants.timeLabelDefaultText
+                        newMoonInOldMoonsArms.image = indicatorOff
+                        cresentMoonWaning.image = indicatorOff
+                    }
+                    
+                    let dtfm = lunarClubInfo.timeToFullMoon
+                    if LunarClubConstants.timeCowJumping.contains(dtfm) {
+                        cowJumpingOverMoon.image = indicatorOn
+                    } else {
+                        cowJumpingOverMoon.image = indicatorOff
                     }
                 }
             }
