@@ -13,6 +13,7 @@ struct LunarClubInfo
     let timeFromNewMoon: Double
     let timeToNewMoon: Double
     let timeToFullMoon: Double
+    let fractionalPhase: Double
     
     init?(jsonFile: Data) {
         //print(String(data: jsonFile, encoding: String.Encoding.utf8) ?? "Cannot print data")
@@ -20,7 +21,8 @@ struct LunarClubInfo
         
         guard let timeFromNewMoon = json["time_from_new_moon"] as? Double,
             let timeToNewMoon = json["time_to_new_moon"] as? Double,
-            let timeToFullMoon = json["time_to_full_moon"] as? Double
+            let timeToFullMoon = json["time_to_full_moon"] as? Double,
+            let fractionalPhase = json["fractional_phase"] as? Double
         else {
             return nil
         }
@@ -28,5 +30,6 @@ struct LunarClubInfo
         self.timeToNewMoon = timeToNewMoon
         self.timeFromNewMoon = timeFromNewMoon
         self.timeToFullMoon = timeToFullMoon
+        self.fractionalPhase = fractionalPhase
     }
 }

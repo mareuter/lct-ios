@@ -85,6 +85,16 @@ class SpecialViewController: UIViewController, UIUpdatable {
                     } else {
                         cowJumpingOverMoon.image = indicatorOff
                     }
+
+                    if lunarClubInfo.fractionalPhase >= LunarClubConstants.fullMoonFraction {
+                        manInTheMoon.image = indicatorOn
+                        womanInTheMoon.image = indicatorOn
+                        rabbitInTheMoon.image = indicatorOn
+                    } else {
+                        manInTheMoon.image = indicatorOff
+                        womanInTheMoon.image = indicatorOff
+                        rabbitInTheMoon.image = indicatorOff
+                    }
                 }
             }
         }
