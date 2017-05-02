@@ -10,7 +10,7 @@ import Foundation
 
 struct LunarClubConstants
 {
-    static let specialVcName = "SpecialViewController"
+    static let specialVcName = "SpecialTableViewController"
     static let timeLabelDefaultText = "----"
     static let timeCutoff = 72.0
     static let timeWaxingCresent = 40.0

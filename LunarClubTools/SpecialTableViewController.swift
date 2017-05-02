@@ -8,88 +8,120 @@
 
 import UIKit
 
-class SpecialTableViewController: UITableViewController {
-
+class SpecialTableViewController: UITableViewController, UIUpdatable
+{
+    private var delegate: UIUpdatable?
+    private let hourFormatter = NumberFormatter()
+    
+    @IBOutlet weak var timeFromNewMoon: UILabel!
+    @IBOutlet weak var cresentMoonWaxing: UIImageView!
+    @IBOutlet weak var oldMoonInNewMoonsArms: UIImageView!
+    @IBOutlet weak var timeToNewMoon: UILabel!
+    @IBOutlet weak var cresentMoonWaning: UIImageView!
+    @IBOutlet weak var newMoonInOldMoonsArms: UIImageView!
+    @IBOutlet weak var cowJumpingOverMoon: UIImageView!
+    @IBOutlet weak var manInTheMoon: UIImageView!
+    @IBOutlet weak var womanInTheMoon: UIImageView!
+    @IBOutlet weak var rabbitInTheMoon: UIImageView!
+    
+    private let indicatorOff = #imageLiteral(resourceName: "no-fill-star")
+    private let indicatorOn = #imageLiteral(resourceName: "fill-star")
+    
     override func viewDidLoad() {
+        delegate = self
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        setupHourFormatter()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        var sectionRows = -1
+        switch section {
+        case 0, 1:
+            sectionRows = 3
+        case 2:
+            sectionRows = 4
+        default:
+            break
+        }
+        return sectionRows
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1.0
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1.0
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    private func setupHourFormatter() {
+        hourFormatter.minimumFractionDigits = 1
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    private func formatDoubleLabel(value: Double?, backCaption: String) -> String {
+        let parameter = value ?? 0.0
+        return hourFormatter.string(from: parameter as NSNumber)! + backCaption
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func updateUI() {
+        if view != nil {
+            if let lcpvc = parent as? LunarClubPageViewController {
+                if let lunarClubInfo = lcpvc.lunarClubInfo {
+                    let tfnm = lunarClubInfo.timeFromNewMoon
+                    if tfnm <= LunarClubConstants.timeCutoff {
+                        timeFromNewMoon.text = formatDoubleLabel(value: tfnm, backCaption: " hours")
+                        if tfnm > LunarClubConstants.timeWaxingCresent {
+                            oldMoonInNewMoonsArms.image = indicatorOn
+                        } else {
+                            cresentMoonWaxing.image = indicatorOn
+                        }
+                    } else {
+                        timeFromNewMoon.text = LunarClubConstants.timeLabelDefaultText
+                        cresentMoonWaxing.image = indicatorOff
+                        oldMoonInNewMoonsArms.image = indicatorOff
+                    }
+                    
+                    let ttnm = lunarClubInfo.timeToNewMoon
+                    if  ttnm <= LunarClubConstants.timeCutoff {
+                        timeToNewMoon.text = formatDoubleLabel(value: ttnm, backCaption: " hours")
+                        if ttnm > LunarClubConstants.timeWaningCresent {
+                            newMoonInOldMoonsArms.image = indicatorOn
+                        } else {
+                            cresentMoonWaning.image = indicatorOn
+                        }
+                    } else {
+                        timeToNewMoon.text = LunarClubConstants.timeLabelDefaultText
+                        newMoonInOldMoonsArms.image = indicatorOff
+                        cresentMoonWaning.image = indicatorOff
+                    }
+                    
+                    let dtfm = lunarClubInfo.timeToFullMoon
+                    if LunarClubConstants.timeCowJumping.contains(dtfm) {
+                        cowJumpingOverMoon.image = indicatorOn
+                    } else {
+                        cowJumpingOverMoon.image = indicatorOff
+                    }
+                    
+                    if lunarClubInfo.fractionalPhase >= LunarClubConstants.fullMoonFraction {
+                        manInTheMoon.image = indicatorOn
+                        womanInTheMoon.image = indicatorOn
+                        rabbitInTheMoon.image = indicatorOn
+                    } else {
+                        manInTheMoon.image = indicatorOff
+                        womanInTheMoon.image = indicatorOff
+                        rabbitInTheMoon.image = indicatorOff
+                    }
+                }
+            }
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
