@@ -17,12 +17,17 @@ struct LunarClubInfo
     
     init?(jsonFile: Data) {
         //print(String(data: jsonFile, encoding: String.Encoding.utf8) ?? "Cannot print data")
-        let json = try! JSONSerialization.jsonObject(with: jsonFile, options: []) as! [String: Any]
+        var json: [String: Any]? = nil
+        do {
+            json = try JSONSerialization.jsonObject(with: jsonFile, options: []) as? [String: Any]
+        } catch {
+            return nil
+        }
         
-        guard let timeFromNewMoon = json["time_from_new_moon"] as? Double,
-            let timeToNewMoon = json["time_to_new_moon"] as? Double,
-            let timeToFullMoon = json["time_to_full_moon"] as? Double,
-            let fractionalPhase = json["fractional_phase"] as? Double
+        guard let timeFromNewMoon = json!["time_from_new_moon"] as? Double,
+            let timeToNewMoon = json!["time_to_new_moon"] as? Double,
+            let timeToFullMoon = json!["time_to_full_moon"] as? Double,
+            let fractionalPhase = json!["fractional_phase"] as? Double
         else {
             return nil
         }

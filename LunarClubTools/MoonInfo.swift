@@ -22,17 +22,22 @@ struct MoonInfo
     
     init?(jsonFile: Data) {
         //print(String(data: jsonFile, encoding: String.Encoding.utf8) ?? "Cannot print data")
-        let json = try! JSONSerialization.jsonObject(with: jsonFile, options: []) as! [String: Any]
+        var json: [String: Any]? = nil
+        do {
+            json = try JSONSerialization.jsonObject(with: jsonFile, options: []) as? [String: Any]
+        } catch {
+            return nil
+        }
         
-        guard let age = json["age"] as? Double,
-            let colongitude = json["colong"] as? Double,
-            let fractionalPhase = json["fractional_phase"] as? Double,
-            let librationLatitude = json["libration_lat"] as? Double,
-            let librationLongitude = json["libration_lon"] as? Double,
-            let altitude = json["altitude"] as? Double,
-            let azimuth = json["azimuth"] as? Double,
-            let phaseName = json["phase"] as? String,
-            let nextFourPhasesJSON = json["next_four_phases"] as? [String: [String: Any]]
+        guard let age = json!["age"] as? Double,
+            let colongitude = json!["colong"] as? Double,
+            let fractionalPhase = json!["fractional_phase"] as? Double,
+            let librationLatitude = json!["libration_lat"] as? Double,
+            let librationLongitude = json!["libration_lon"] as? Double,
+            let altitude = json!["altitude"] as? Double,
+            let azimuth = json!["azimuth"] as? Double,
+            let phaseName = json!["phase"] as? String,
+            let nextFourPhasesJSON = json!["next_four_phases"] as? [String: [String: Any]]
         else {
             return nil
         }
