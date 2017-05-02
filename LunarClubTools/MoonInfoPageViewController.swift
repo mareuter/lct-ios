@@ -176,7 +176,6 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController)
         -> UIViewController? {
-            print("In pvc before")
             guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
                 return nil
             }
@@ -186,38 +185,26 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             if previousIndex < 0 {
                 return orderedViewControllers.last
             } else {
-                return orderedViewControllers.first
+                return orderedViewControllers[previousIndex]
             }
-            
-//            guard orderedViewControllers.count > previousIndex else {
-//                print("Nil2")
-//                return nil
-//            }
-
-//            return orderedViewControllers[previousIndex]
     }
     
     internal func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerAfter viewController: UIViewController)
         -> UIViewController? {
-            print("In pvc after")
             guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
                 return nil
             }
             
             let nextIndex = viewControllerIndex + 1
-            let orderedViewControllersCount = orderedViewControllers.count
+            let orderedViewControllersCount = orderedViewControllers.count - 1
             
-            guard orderedViewControllersCount != nextIndex else {
+            if nextIndex > orderedViewControllersCount {
                 return orderedViewControllers.first
+            } else {
+                return orderedViewControllers[nextIndex]
             }
-            
-            guard orderedViewControllersCount > nextIndex else {
-                return nil
-            }
-
-            return orderedViewControllers[nextIndex]
     }
     
     func pageViewController(

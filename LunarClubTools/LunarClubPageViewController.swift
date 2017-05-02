@@ -169,15 +169,8 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
             if previousIndex < 0 {
                 return orderedViewControllers.last
             } else {
-                return orderedViewControllers.first
+                return orderedViewControllers[previousIndex]
             }
-            
-            //            guard orderedViewControllers.count > previousIndex else {
-            //                print("Nil2")
-            //                return nil
-            //            }
-            
-            //            return orderedViewControllers[previousIndex]
     }
     
     internal func pageViewController(
@@ -189,17 +182,13 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
             }
             
             let nextIndex = viewControllerIndex + 1
-            let orderedViewControllersCount = orderedViewControllers.count
-            
-            guard orderedViewControllersCount != nextIndex else {
+            let orderedViewControllersCount = orderedViewControllers.count - 1
+
+            if nextIndex > orderedViewControllersCount {
                 return orderedViewControllers.first
+            } else {
+                return orderedViewControllers[nextIndex]
             }
-            
-            guard orderedViewControllersCount > nextIndex else {
-                return nil
-            }
-            
-            return orderedViewControllers[nextIndex]
     }
     
     func pageViewController(
