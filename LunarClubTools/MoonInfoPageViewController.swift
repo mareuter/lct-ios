@@ -149,7 +149,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                 DispatchQueue.main.async {
                     let downloadFailedAlert = UIAlertController(title: ProgramConstants.requestFailedTitle,
                                                                 message: "MoonInfo web service call failed: \(statusCode)",
-                        preferredStyle: .actionSheet)
+                                                                preferredStyle: .actionSheet)
                     self?.present(downloadFailedAlert, animated: true, completion: nil)
                 }
                 //print("Download failed: \(statusCode)")

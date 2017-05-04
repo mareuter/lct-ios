@@ -133,7 +133,7 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
                 DispatchQueue.main.async {
                     let downloadFailedAlert = UIAlertController(title: ProgramConstants.requestFailedTitle,
                                                                 message: "LunarClubInfo web service call failed: \(statusCode)",
-                        preferredStyle: .actionSheet)
+                                                                preferredStyle: .actionSheet)
                     self?.present(downloadFailedAlert, animated: true, completion: nil)
                 }
                 //print("Download failed: \(statusCode)")
