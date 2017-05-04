@@ -1,42 +1,37 @@
 //
-//  MoonInfoPageViewController.swift
+//  LunarClubPageViewController.swift
 //  LunarClubTools
 //
-//  Created by Michael Reuter on 3/24/17.
+//  Created by Michael Reuter on 4/26/17.
 //  Copyright © 2017 Type II Software. All rights reserved.
 //
 
 import UIKit
-import Foundation
 
-class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, FetchableData,
+class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, FetchableData,
     UIPopoverPresentationControllerDelegate
 {
-    
-    private struct FileNames {
-        static let bundleFile = "MoonInfoJSON"
-        static let downloadedFile = "MoonInfo.json"
-    }
-    
+    static let downloadedFile = "LunarClubInfo.json"
+
     private var fetchDataDelegate: FetchableData?
     private var urlComp = URLComponents()
     private var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     public var timeAndLocation = TimeAndLocation()
 
-    private var moonInfoFile: Data? {
+    private var lunarClubInfoFile: Data? {
         let fileManager = FileManager.default
         let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         do {
             let fileList = try fileManager.contentsOfDirectory(at: dirs[0], includingPropertiesForKeys: nil, options: [])
             //print("A: \(fileList)")
             for file in fileList {
-                if file.absoluteString.contains(FileNames.downloadedFile) {
+                if file.absoluteString.contains(LunarClubPageViewController.downloadedFile) {
                     do {
                         let iFile = try Data(contentsOf: file)
                         return iFile
                     } catch {
                         let readFileFailAlert = UIAlertController(title: ProgramConstants.jsonReadFailedTitle,
-                                                                  message: "Failed to read MoonInfo JSON file.",
+                                                                  message: "Failed to read LunarClubInfo JSON file.",
                                                                   preferredStyle: .actionSheet)
                         self.present(readFileFailAlert, animated: true, completion: nil)
                         //print("Failed to read file.")
@@ -50,10 +45,10 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             return nil
         }
         
-        return NSDataAsset(name: FileNames.bundleFile, bundle: Bundle.main)!.data
+        return nil
     }
-    
-    public var moonInfo : MoonInfo?
+
+    public var lunarClubInfo : LunarClubInfo?
     {
         didSet {
             for viewController in orderedViewControllers {
@@ -64,37 +59,33 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             spinner.stopAnimating()
         }
     }
-
-    private func setupMoonInfoUrl() -> URLComponents {
+    
+    private func setupLunarClubUrl() -> URLComponents {
         urlComp.scheme = "https"
         urlComp.host = "lct-web.herokuapp.com"
-        urlComp.path = "/moon_info"
+        urlComp.path = "/lunar_club"
         return urlComp
     }
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newMoonInfoViewController(MoonInfoConstants.ephemerisVcName),
-                self.newMoonInfoViewController(MoonInfoConstants.nextFourPhasesVcName),
-                self.newMoonInfoViewController(MoonInfoConstants.phaseAndLibrationVcName)]
+        return [self.newLunarClubViewController(LunarClubConstants.specialVcName)]
     }()
     
-    private func newMoonInfoViewController(_ identifier: String) -> UIViewController {
-        return UIStoryboard(name: MoonInfoConstants.topLevelStoryBoard, bundle: nil).instantiateViewController(withIdentifier: identifier)
+    private func newLunarClubViewController(_ identifier: String) -> UIViewController {
+        return UIStoryboard(name: ProgramConstants.topLevelStoryBoard, bundle: nil).instantiateViewController(withIdentifier: identifier)
     }
     
     override func viewDidLoad() {
-        print ("In viewDidLoad")
+        print("LCPVC did load")
         super.viewDidLoad()
         
         spinner.center = view.center
         spinner.hidesWhenStopped = true
         view.addSubview(spinner)
-    
+        
         fetchDataDelegate = self
         dataSource = self
         delegate = self
-        
-        moonInfo = MoonInfo(jsonFile: moonInfoFile!)
         
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
@@ -103,22 +94,15 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        print("MIPVC will appear")
         super.viewWillAppear(animated)
         fetchData()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("MIPVC will disappear")
-    }
-    
     internal func fetchData() {
-        print("Fetching data in MIPVC")
         let tbc = tabBarController as! LunarClubToolsTabBarController
         timeAndLocation = tbc.timeAndLocation
         let coords = timeAndLocation.getCoordinates()
-        var url = setupMoonInfoUrl()
+        var url = setupLunarClubUrl()
         let dateQuery = URLQueryItem(name: "date", value: String(timeAndLocation.getTimestamp()))
         print("\(dateQuery)")
         let longitudeQuery = URLQueryItem(name: "lon", value: String(coords.longitude))
@@ -132,15 +116,15 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
             if statusCode == 200 {
-                //print("Downloaded Moon Info")
+                //print("Downloaded Lunar Club Info")
                 let fileManager = FileManager.default
                 let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-                let fileName = dirs[0].appendingPathComponent(FileNames.downloadedFile)
+                let fileName = dirs[0].appendingPathComponent(LunarClubPageViewController.downloadedFile)
                 //print("\(dirs)")
                 if ((try? data?.write(to: fileName)) != nil) {
                     print("OK")
                     DispatchQueue.main.async {
-                        self?.moonInfo = MoonInfo(jsonFile: (self?.moonInfoFile!)!)
+                        self?.lunarClubInfo = LunarClubInfo(jsonFile: (self?.lunarClubInfoFile!)!)
                     }
                 } else {
                     print("Failed to write file.")
@@ -148,7 +132,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             } else {
                 DispatchQueue.main.async {
                     let downloadFailedAlert = UIAlertController(title: ProgramConstants.requestFailedTitle,
-                                                                message: "MoonInfo web service call failed: \(statusCode)",
+                                                                message: "LunarClubInfo web service call failed: \(statusCode)",
                                                                 preferredStyle: .actionSheet)
                     self?.present(downloadFailedAlert, animated: true, completion: nil)
                 }
@@ -157,7 +141,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         }
         task.resume()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var destinationViewController = segue.destination
         if let navigationController = destinationViewController as? UINavigationController {
@@ -199,7 +183,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             
             let nextIndex = viewControllerIndex + 1
             let orderedViewControllersCount = orderedViewControllers.count - 1
-            
+
             if nextIndex > orderedViewControllersCount {
                 return orderedViewControllers.first
             } else {
@@ -234,7 +218,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     func adaptivePresentationStyle(
         for controller: UIPresentationController,
         traitCollection: UITraitCollection
-    ) -> UIModalPresentationStyle
+        ) -> UIModalPresentationStyle
     {
         if traitCollection.verticalSizeClass == .compact {
             return .none
@@ -244,5 +228,4 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             return .none
         }
     }
-
 }
