@@ -82,20 +82,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Xq-18-FE2">
-                                <rect key="frame" x="16" y="72" width="343" height="216"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <date key="date" timeIntervalSinceReferenceDate="511840724.03487802">
-                                    <!--2017-03-22 01:58:44 +0000-->
-                                </date>
-                            </datePicker>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RIK-Zf-rzy">
+                                <rect key="frame" x="16" y="72" width="343" height="442"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Xq-18-FE2">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="216"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="511840724.03487802">
+                                            <!--2017-03-22 01:58:44 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gad-mS-GbX">
+                                        <rect key="frame" x="0.0" y="226" width="343" height="216"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="515557457.03384799">
+                                            <!--2017-05-04 02:24:17 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="6Xq-18-FE2" secondAttribute="trailing" id="IB7-ZI-O1I"/>
-                            <constraint firstItem="6Xq-18-FE2" firstAttribute="top" secondItem="Zu7-fH-rN7" secondAttribute="bottom" constant="8" id="S0W-Pv-AbJ"/>
-                            <constraint firstItem="uGr-id-H9P" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Xq-18-FE2" secondAttribute="bottom" constant="8" symbolic="YES" id="esU-wY-5tN"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="6Xq-18-FE2" secondAttribute="leading" id="pOZ-gF-sTE"/>
+                            <constraint firstItem="uGr-id-H9P" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RIK-Zf-rzy" secondAttribute="bottom" constant="8" symbolic="YES" id="AIm-3N-Iyb"/>
+                            <constraint firstItem="RIK-Zf-rzy" firstAttribute="top" secondItem="Zu7-fH-rN7" secondAttribute="bottom" constant="8" id="OIu-Wf-KwA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RIK-Zf-rzy" secondAttribute="trailing" id="V6U-tE-eeI"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="RIK-Zf-rzy" secondAttribute="leading" id="vD4-a2-QkI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Change Date/Time" id="UKu-80-QMT">
@@ -112,11 +124,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="6Xq-18-FE2" id="YWL-wW-QxW"/>
+                        <outlet property="timePicker" destination="Gad-mS-GbX" id="MQJ-o8-zUj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdt-06-Up0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2964" y="423"/>
+            <point key="canvasLocation" x="2964" y="422.33883058470769"/>
         </scene>
         <!--Ephemeris-->
         <scene sceneID="qgU-Vf-In7">
