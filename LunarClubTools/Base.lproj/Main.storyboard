@@ -34,7 +34,7 @@
         <scene sceneID="5kB-Sv-yp0">
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="fAz-Zi-lvJ" customClass="MoonInfoPageViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="R1N-zo-3tD">
                         <barButtonItem key="rightBarButtonItem" title="Change" id="NGM-VN-NWb">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -932,6 +932,6 @@
         <image name="no-fill-star" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F5m-Pj-ptd"/>
+        <segue reference="ttY-hF-AnY"/>
     </inferredMetricsTieBreakers>
 </document>
