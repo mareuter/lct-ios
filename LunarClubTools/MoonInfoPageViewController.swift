@@ -12,12 +12,6 @@ import Foundation
 class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, FetchableData,
     UIPopoverPresentationControllerDelegate
 {
-    
-    private struct FileNames {
-        static let bundleFile = "MoonInfoJSON"
-        static let downloadedFile = "MoonInfo.json"
-    }
-    
     private var fetchDataDelegate: FetchableData?
     private var urlComp = URLComponents()
     private var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -25,12 +19,11 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
 
     private var moonInfoFile: Data? {
         let fileManager = FileManager.default
-        let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let dirs = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
         do {
             let fileList = try fileManager.contentsOfDirectory(at: dirs[0], includingPropertiesForKeys: nil, options: [])
-            //print("A: \(fileList)")
             for file in fileList {
-                if file.absoluteString.contains(FileNames.downloadedFile) {
+                if file.absoluteString.contains(MoonInfoConstants.downloadedFile) {
                     do {
                         let iFile = try Data(contentsOf: file)
                         return iFile
@@ -39,7 +32,6 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                                                                   message: "Failed to read MoonInfo JSON file.",
                                                                   preferredStyle: .actionSheet)
                         self.present(readFileFailAlert, animated: true, completion: nil)
-                        //print("Failed to read file.")
                         return nil
                     }
                 }
@@ -50,7 +42,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             return nil
         }
         
-        return NSDataAsset(name: FileNames.bundleFile, bundle: Bundle.main)!.data
+        return nil
     }
     
     public var moonInfo : MoonInfo?
@@ -93,9 +85,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         fetchDataDelegate = self
         dataSource = self
         delegate = self
-        
-        moonInfo = MoonInfo(jsonFile: moonInfoFile!)
-        
+
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
             navigationItem.title = firstViewController.title ?? ""
@@ -120,25 +110,19 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         let coords = timeAndLocation.getCoordinates()
         var url = setupMoonInfoUrl()
         let dateQuery = URLQueryItem(name: "date", value: String(timeAndLocation.getTimestamp()))
-        print("\(dateQuery)")
         let longitudeQuery = URLQueryItem(name: "lon", value: String(coords.longitude))
         let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
         url.queryItems = [dateQuery, latitudeQuery, longitudeQuery]
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        //print(url.url!)
         let request = URLRequest(url: url.url!)
         spinner.startAnimating()
         let task = session.dataTask(with: request) { [weak self] (data, response, error) -> Void in
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
             if statusCode == 200 {
-                //print("Downloaded Moon Info")
-                let fileManager = FileManager.default
-                let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-                let fileName = dirs[0].appendingPathComponent(FileNames.downloadedFile)
-                //print("\(dirs)")
-                if ((try? data?.write(to: fileName)) != nil) {
-                    print("OK")
+                let dirs = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+                let fileName = dirs[0].appendingPathComponent(MoonInfoConstants.downloadedFile)
+                if ((try? data?.write(to: fileName, options: [Data.WritingOptions.atomic])) != nil) {
                     DispatchQueue.main.async {
                         self?.moonInfo = MoonInfo(jsonFile: (self?.moonInfoFile!)!)
                     }
@@ -152,7 +136,6 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                                                                 preferredStyle: .actionSheet)
                     self?.present(downloadFailedAlert, animated: true, completion: nil)
                 }
-                //print("Download failed: \(statusCode)")
             }
         }
         task.resume()

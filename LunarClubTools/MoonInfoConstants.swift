@@ -14,6 +14,7 @@ struct MoonInfoConstants
     static let ephemerisVcName = "EphemerisViewController"
     static let nextFourPhasesVcName = "NextFourPhasesViewController"
     static let phaseAndLibrationVcName = "PhaseAndLibrationViewController"
+    static let downloadedFile = "MoonInfo.json"
     static let secondsTime = "yyyy-MM-dd HH:mm:ss"
     static let minutesTimeWithTimeZone = "yyyy-MM-dd HH:mm zzz"
     static let localTimeZone = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)?.timeZone

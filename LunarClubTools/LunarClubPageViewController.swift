@@ -11,8 +11,6 @@ import UIKit
 class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, FetchableData,
     UIPopoverPresentationControllerDelegate
 {
-    static let downloadedFile = "LunarClubInfo.json"
-
     private var fetchDataDelegate: FetchableData?
     private var urlComp = URLComponents()
     private var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -20,12 +18,11 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
 
     private var lunarClubInfoFile: Data? {
         let fileManager = FileManager.default
-        let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let dirs = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
         do {
             let fileList = try fileManager.contentsOfDirectory(at: dirs[0], includingPropertiesForKeys: nil, options: [])
-            //print("A: \(fileList)")
             for file in fileList {
-                if file.absoluteString.contains(LunarClubPageViewController.downloadedFile) {
+                if file.absoluteString.contains(LunarClubConstants.downloadedFile) {
                     do {
                         let iFile = try Data(contentsOf: file)
                         return iFile
@@ -34,7 +31,6 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
                                                                   message: "Failed to read LunarClubInfo JSON file.",
                                                                   preferredStyle: .actionSheet)
                         self.present(readFileFailAlert, animated: true, completion: nil)
-                        //print("Failed to read file.")
                         return nil
                     }
                 }
@@ -104,25 +100,19 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
         let coords = timeAndLocation.getCoordinates()
         var url = setupLunarClubUrl()
         let dateQuery = URLQueryItem(name: "date", value: String(timeAndLocation.getTimestamp()))
-        print("\(dateQuery)")
         let longitudeQuery = URLQueryItem(name: "lon", value: String(coords.longitude))
         let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
         url.queryItems = [dateQuery, latitudeQuery, longitudeQuery]
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        //print(url.url!)
         let request = URLRequest(url: url.url!)
         spinner.startAnimating()
         let task = session.dataTask(with: request) { [weak self] (data, response, error) -> Void in
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
             if statusCode == 200 {
-                //print("Downloaded Lunar Club Info")
-                let fileManager = FileManager.default
-                let dirs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-                let fileName = dirs[0].appendingPathComponent(LunarClubPageViewController.downloadedFile)
-                //print("\(dirs)")
-                if ((try? data?.write(to: fileName)) != nil) {
-                    print("OK")
+                let dirs = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+                let fileName = dirs[0].appendingPathComponent(LunarClubConstants.downloadedFile)
+                if ((try? data?.write(to: fileName, options: [Data.WritingOptions.atomic])) != nil) {
                     DispatchQueue.main.async {
                         self?.lunarClubInfo = LunarClubInfo(jsonFile: (self?.lunarClubInfoFile!)!)
                     }
@@ -136,7 +126,6 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
                                                                 preferredStyle: .actionSheet)
                     self?.present(downloadFailedAlert, animated: true, completion: nil)
                 }
-                //print("Download failed: \(statusCode)")
             }
         }
         task.resume()
