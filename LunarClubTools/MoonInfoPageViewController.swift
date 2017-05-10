@@ -30,15 +30,14 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                     } catch {
                         let readFileFailAlert = UIAlertController(title: ProgramConstants.jsonReadFailedTitle,
                                                                   message: "Failed to read MoonInfo JSON file.",
-                                                                  preferredStyle: .actionSheet)
+                                                                  preferredStyle: .alert)
+                        readFileFailAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                         self.present(readFileFailAlert, animated: true, completion: nil)
                         return nil
                     }
                 }
             }
-        } catch let error {
-            print("\(error)")
-            print("Cannot read \(dirs[0].absoluteString)")
+        } catch {
             return nil
         }
         
@@ -75,7 +74,6 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     }
     
     override func viewDidLoad() {
-        print ("In viewDidLoad")
         super.viewDidLoad()
         
         spinner.center = view.center
@@ -93,18 +91,15 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        print("MIPVC will appear")
         super.viewWillAppear(animated)
         fetchData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("MIPVC will disappear")
     }
     
     internal func fetchData() {
-        print("Fetching data in MIPVC")
         let tbc = tabBarController as! LunarClubToolsTabBarController
         timeAndLocation = tbc.timeAndLocation
         let coords = timeAndLocation.getCoordinates()
@@ -126,14 +121,13 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                     DispatchQueue.main.async {
                         self?.moonInfo = MoonInfo(jsonFile: (self?.moonInfoFile!)!)
                     }
-                } else {
-                    print("Failed to write file.")
                 }
             } else {
                 DispatchQueue.main.async {
                     let downloadFailedAlert = UIAlertController(title: ProgramConstants.requestFailedTitle,
                                                                 message: "MoonInfo web service call failed: \(statusCode)",
-                                                                preferredStyle: .actionSheet)
+                                                                preferredStyle: .alert)
+                    downloadFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self?.present(downloadFailedAlert, animated: true, completion: nil)
                 }
             }

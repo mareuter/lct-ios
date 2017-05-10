@@ -66,7 +66,7 @@ class EphemerisViewController: UIViewController, UIUpdatable {
         let secDouble = (minDouble - Double(minutes)) * 60.0
         let seconds = Int(secDouble)
         
-        var coordinateString = "\(degrees)\(MoonInfoConstants.degrees) " + String(format: "%02d' %02d''", minutes, seconds) //\(minutes)' \(seconds)\""
+        var coordinateString = "\(degrees)\(MoonInfoConstants.degrees) " + String(format: "%02d' %02d''", minutes, seconds)
         
         if label != nil {
             let cardinalDirs = label!.components(separatedBy: " ")
@@ -84,9 +84,7 @@ class EphemerisViewController: UIViewController, UIUpdatable {
         if view != nil {
             if let mipvc = parent as? MoonInfoPageViewController {
                 if let moonInfo = mipvc.moonInfo {
-                    print("Hello!")
                     let tl = mipvc.timeAndLocation
-                    print("\(tl.getTimestamp())")
                     let timeZoneString = localDateTimeFormatter.timeZone.abbreviation() ?? ""
                     if timeZoneString != "" {
                         localDateLabel.text =  "Date (" + timeZoneString + ")"
@@ -94,7 +92,6 @@ class EphemerisViewController: UIViewController, UIUpdatable {
                     localDateInfo.text = localDateTimeFormatter.string(from: tl.getCurrentTime())
                     utcDateInfo.text = utcDateTimeFormatter.string(from: tl.getCurrentTime())
                     ageInfo.text = formatDoubleLabel(value: moonInfo.age, backCaption: " days")
-                    print(moonInfo.fractionalPhase)
                     illuminationInfo.text = formatDoubleLabel(value: moonInfo.illumination, backCaption: "%")
                     colongitudeInfo.text = formatCoordinateLabel(from: moonInfo.colongitude, direction: nil)
                     latitudeInfo.text = formatCoordinateLabel(from: tl.getCoordinates().latitude, direction: "N S")

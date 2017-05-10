@@ -29,15 +29,14 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
                     } catch {
                         let readFileFailAlert = UIAlertController(title: ProgramConstants.jsonReadFailedTitle,
                                                                   message: "Failed to read LunarClubInfo JSON file.",
-                                                                  preferredStyle: .actionSheet)
+                                                                  preferredStyle: .alert)
+                        readFileFailAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                         self.present(readFileFailAlert, animated: true, completion: nil)
                         return nil
                     }
                 }
             }
-        } catch let error {
-            print("\(error)")
-            print("Cannot read \(dirs[0].absoluteString)")
+        } catch {
             return nil
         }
         
@@ -72,7 +71,6 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
     }
     
     override func viewDidLoad() {
-        print("LCPVC did load")
         super.viewDidLoad()
         
         spinner.center = view.center
@@ -116,14 +114,13 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
                     DispatchQueue.main.async {
                         self?.lunarClubInfo = LunarClubInfo(jsonFile: (self?.lunarClubInfoFile!)!)
                     }
-                } else {
-                    print("Failed to write file.")
                 }
             } else {
                 DispatchQueue.main.async {
                     let downloadFailedAlert = UIAlertController(title: ProgramConstants.requestFailedTitle,
                                                                 message: "LunarClubInfo web service call failed: \(statusCode)",
-                                                                preferredStyle: .actionSheet)
+                                                                preferredStyle: .alert)
+                    downloadFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self?.present(downloadFailedAlert, animated: true, completion: nil)
                 }
             }
