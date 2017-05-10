@@ -14,6 +14,7 @@ struct ProgramConstants
     static let changeTimeSegue = "Change Time"
     static let requestFailedTitle = "Request Failed"
     static let jsonReadFailedTitle = "JSON Read Failed"
+    static let locationUpdateFailedTitle = "Location Update Failed"
     static let topLevelStoryBoard = "Main"
     static let latitudeKey = "Latitude"
     static let longitudeKey = "Longitude"

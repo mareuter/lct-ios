@@ -65,13 +65,13 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         if timeAndLocation.getCoordinates().latitude == 0.0 && timeAndLocation.getCoordinates().longitude == 0.0 {
-            let locationUpdateFailedAlert = UIAlertController(title: "Location Update Failed",
+            let locationUpdateFailedAlert = UIAlertController(title: ProgramConstants.locationUpdateFailedTitle,
                                                               message: "Rise and set times for the Moon will be inaccurate.",
                                                               preferredStyle: .alert)
             locationUpdateFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(locationUpdateFailedAlert, animated: true, completion: nil)
         } else {
-            let locationUpdateFailedAlert = UIAlertController(title: "Location Update Failed",
+            let locationUpdateFailedAlert = UIAlertController(title: ProgramConstants.locationUpdateFailedTitle,
                                                               message: "Using previously stored coordinates.",
                                                               preferredStyle: .alert)
             locationUpdateFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
