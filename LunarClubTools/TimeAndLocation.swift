@@ -11,8 +11,22 @@ import Foundation
 class TimeAndLocation
 {
     private var currentTime = Date()
-    private var currentLongitude = -84.316666666666
-    private var currentLatitude = 35.9694444444444
+    private var currentLongitude: Double {
+        get {
+            return UserDefaults.standard.double(forKey: ProgramConstants.longitudeKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: ProgramConstants.longitudeKey)
+        }
+    }
+    private var currentLatitude: Double {
+        get {
+            return UserDefaults.standard.double(forKey: ProgramConstants.latitudeKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: ProgramConstants.latitudeKey)
+        }
+    }
     
     func getCurrentTime() -> Date {
         return currentTime
@@ -32,7 +46,6 @@ class TimeAndLocation
     }
     
     func updateTime(new date: Date) {
-        print("Time updated in TAL")
         currentTime = date
     }
 }

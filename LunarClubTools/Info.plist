@@ -22,10 +22,10 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Will you allow this app to always know your location?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>WIll you allow this app to know your current location?</string>
+	<string>Will you allow this app to know your current location?</string>
+	<key>NSLocationUsageDescription</key>
+	<string>This app uses location to provide lunar rise/set information.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

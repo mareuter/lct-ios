@@ -19,7 +19,6 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("LCTTBC will appear")
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(forName: ProgramConstants.changeTimeNotification,
                                                object: nil, queue: nil, using: updateTime)
@@ -28,7 +27,6 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("LCTTBC will disappear")
     }
     
     private func updateTime(notification: Notification) -> Void {
@@ -36,7 +34,6 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
             let date = userInfo["date"] as? Date else {
                 return
         }
-        print("LCTTBC \(date)")
         timeAndLocation.updateTime(new: date)
         makeVcsFetchData()
     }
@@ -45,7 +42,7 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
@@ -63,18 +60,24 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
         let userLocation = locations[0]
         manager.stopUpdatingLocation()
         timeAndLocation.updateCoordinates(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        print("Location: (\(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude))")
         makeVcsFetchData()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        let locationUpdateFailedAlert = UIAlertController(title: "Location Update Failed",
-                                                          message: "Error \(error)",
-                                                          preferredStyle: .actionSheet)
-        self.present(locationUpdateFailedAlert, animated: true, completion: nil)
-        //print("Error \(error)")
+        if timeAndLocation.getCoordinates().latitude == 0.0 && timeAndLocation.getCoordinates().longitude == 0.0 {
+            let locationUpdateFailedAlert = UIAlertController(title: "Location Update Failed",
+                                                              message: "Rise and set times for the Moon will be inaccurate.",
+                                                              preferredStyle: .alert)
+            locationUpdateFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(locationUpdateFailedAlert, animated: true, completion: nil)
+        } else {
+            let locationUpdateFailedAlert = UIAlertController(title: "Location Update Failed",
+                                                              message: "Using previously stored coordinates.",
+                                                              preferredStyle: .alert)
+            locationUpdateFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(locationUpdateFailedAlert, animated: true, completion: nil)
+        }
     }
-    
 }
 
 extension UIViewController
