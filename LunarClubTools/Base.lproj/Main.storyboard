@@ -545,7 +545,7 @@
         <scene sceneID="8iK-Sf-UAT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fv1-NU-xqa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lunar Club" image="MoonInfoTabIcon" selectedImage="MoonInfoTabSelectedIcon" id="iIB-b0-1Z5"/>
+                    <tabBarItem key="tabBarItem" title="Lunar Club" image="LunarInfoTabIcon" selectedImage="LunarClubInfoTabSelectedIcon" id="iIB-b0-1Z5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="gCk-Cd-vAI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -925,6 +925,8 @@
     <resources>
         <image name="FQ-Moon" width="33" height="33"/>
         <image name="Full-Moon" width="33" height="33"/>
+        <image name="LunarClubInfoTabSelectedIcon" width="25" height="25"/>
+        <image name="LunarInfoTabIcon" width="25" height="25"/>
         <image name="MoonInfoTabIcon" width="25" height="25"/>
         <image name="MoonInfoTabSelectedIcon" width="25" height="25"/>
         <image name="New-Moon" width="33" height="33"/>
