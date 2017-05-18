@@ -59,6 +59,7 @@ struct LunarClubInfo
                                                    deltaLongitude: (featureInfo[5] as? Double)!))
             }
         }
+        newFeatureList.sort { $0.latitude > $1.latitude }
         return newFeatureList
     }
 }
