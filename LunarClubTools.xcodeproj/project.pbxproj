@@ -28,6 +28,8 @@
 		A4CC0B101E860CC000AADDE1 /* EphemerisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC0B0F1E860CC000AADDE1 /* EphemerisViewController.swift */; };
 		A4CC0B121E860CD200AADDE1 /* NextFourPhasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC0B111E860CD200AADDE1 /* NextFourPhasesViewController.swift */; };
 		A4F636FE1EB66C0700A4E15F /* SpecialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F636FD1EB66C0700A4E15F /* SpecialTableViewController.swift */; };
+		A4FF5B481ECBD400008AB481 /* LunarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF5B471ECBD400008AB481 /* LunarFeature.swift */; };
+		A4FF5B4A1ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF5B491ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		A4CC0B0F1E860CC000AADDE1 /* EphemerisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EphemerisViewController.swift; sourceTree = "<group>"; };
 		A4CC0B111E860CD200AADDE1 /* NextFourPhasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextFourPhasesViewController.swift; sourceTree = "<group>"; };
 		A4F636FD1EB66C0700A4E15F /* SpecialTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialTableViewController.swift; sourceTree = "<group>"; };
+		A4FF5B471ECBD400008AB481 /* LunarFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarFeature.swift; sourceTree = "<group>"; };
+		A4FF5B491ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NakedEyeFeaturesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 				A4CC0B0D1E860CA500AADDE1 /* MoonInfoPageViewController.swift */,
 				A42A09F21EB18DAC0000466E /* LunarClubConstants.swift */,
 				A42A09EC1EB184180000466E /* LunarClubPageViewController.swift */,
+				A4FF5B491ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift */,
 				A4F636FD1EB66C0700A4E15F /* SpecialTableViewController.swift */,
 				A4A62CE21E8BFB6700ADEA66 /* UIUpdatable.swift */,
 				A4CC0B0F1E860CC000AADDE1 /* EphemerisViewController.swift */,
@@ -108,6 +113,7 @@
 				A4A62CE81E8DE76000ADEA66 /* FetchableData.swift */,
 				A4C0D9B31E5A70BE005522A3 /* TimeAndLocation.swift */,
 				A4A62CE01E8A097E00ADEA66 /* MoonInfoConstants.swift */,
+				A4FF5B471ECBD400008AB481 /* LunarFeature.swift */,
 			);
 			path = LunarClubTools;
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 				A42D74BA1E54110D00E3641F /* LunarClubToolsTabBarController.swift in Sources */,
 				A42A09EF1EB187340000466E /* LunarClubInfo.swift in Sources */,
 				A4A62CE11E8A097E00ADEA66 /* MoonInfoConstants.swift in Sources */,
+				A4FF5B4A1ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift in Sources */,
 				A4F636FE1EB66C0700A4E15F /* SpecialTableViewController.swift in Sources */,
 				A4CC0B101E860CC000AADDE1 /* EphemerisViewController.swift in Sources */,
 				A4C0D9B41E5A70BE005522A3 /* TimeAndLocation.swift in Sources */,
@@ -199,6 +206,7 @@
 				A4CC0B0E1E860CA500AADDE1 /* MoonInfoPageViewController.swift in Sources */,
 				A4A532781EAAEA380080D128 /* PhaseAndLibrationViewController.swift in Sources */,
 				A4A62CE91E8DE76000ADEA66 /* FetchableData.swift in Sources */,
+				A4FF5B481ECBD400008AB481 /* LunarFeature.swift in Sources */,
 				A4B35FEC1E230F1B008D675F /* AppDelegate.swift in Sources */,
 				A4A62CE71E8DE54E00ADEA66 /* ProgramConstants.swift in Sources */,
 				A4CC0B121E860CD200AADDE1 /* NextFourPhasesViewController.swift in Sources */,

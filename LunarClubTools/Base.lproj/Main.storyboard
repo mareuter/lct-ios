@@ -921,6 +921,45 @@
             </objects>
             <point key="canvasLocation" x="3630" y="799"/>
         </scene>
+        <!--Naked Eye-->
+        <scene sceneID="5uT-ZQ-SdO">
+            <objects>
+                <tableViewController storyboardIdentifier="NakedEyeFeaturesTableViewController" title="Naked Eye" id="kif-Vm-NYe" customClass="NakedEyeFeaturesTableViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lMD-5Z-Ak5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="LunarFeature" textLabel="0Eh-l9-p0i" style="IBUITableViewCellStyleDefault" id="JrH-4l-q1t">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JrH-4l-q1t" id="h23-Ix-2p4">
+                                    <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Eh-l9-p0i">
+                                            <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kif-Vm-NYe" id="6pI-ju-peV"/>
+                            <outlet property="delegate" destination="kif-Vm-NYe" id="BuO-mc-vOX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iuo-ad-rsq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4286" y="798"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FQ-Moon" width="33" height="33"/>

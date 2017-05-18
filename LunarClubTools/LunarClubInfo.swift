@@ -14,6 +14,9 @@ struct LunarClubInfo
     let timeToNewMoon: Double
     let timeToFullMoon: Double
     let fractionalPhase: Double
+    lazy var nakedEyeFeatures: Array<LunarFeature> = []
+    lazy var binocularFeatures: Array<LunarFeature> = []
+    lazy var telescopeFeatures: Array<LunarFeature> = []
     
     init?(jsonFile: Data) {
         //print(String(data: jsonFile, encoding: String.Encoding.utf8) ?? "Cannot print data")
@@ -27,14 +30,35 @@ struct LunarClubInfo
         guard let timeFromNewMoon = json!["time_from_new_moon"] as? Double,
             let timeToNewMoon = json!["time_to_new_moon"] as? Double,
             let timeToFullMoon = json!["time_to_full_moon"] as? Double,
-            let fractionalPhase = json!["fractional_phase"] as? Double
+            let fractionalPhase = json!["fractional_phase"] as? Double,
+            let nakedEyeFeaturesJSON = json!["naked_eye_features"] as? [String: Any],
+            let binocularFeaturesJSON = json!["binocular_features"] as? [String: Any],
+            let telescopeFeaturesJSON = json!["telescope_features"] as? [String: Any]
         else {
             return nil
         }
-    
+        
         self.timeToNewMoon = timeToNewMoon
         self.timeFromNewMoon = timeFromNewMoon
         self.timeToFullMoon = timeToFullMoon
         self.fractionalPhase = fractionalPhase
+        self.nakedEyeFeatures = fillOutFeatureLists(from: nakedEyeFeaturesJSON)
+        self.binocularFeatures = fillOutFeatureLists(from: binocularFeaturesJSON)
+        self.telescopeFeatures = fillOutFeatureLists(from: telescopeFeaturesJSON)
+    }
+    
+    private func fillOutFeatureLists(from json: [String: Any]) -> Array<LunarFeature> {
+        var newFeatureList: Array<LunarFeature> = []
+        for featureList in Array(json.values) {
+            if let featureInfo = featureList as? Array<Any> {
+                newFeatureList.append(LunarFeature(name: (featureInfo[0] as? String)!,
+                                                   latitude: (featureInfo[1] as? Double)!,
+                                                   longitude: (featureInfo[2] as? Double)!,
+                                                   type: (featureInfo[3] as? String)!,
+                                                   deltaLatitude: (featureInfo[4] as? Double)!,
+                                                   deltaLongitude: (featureInfo[5] as? Double)!))
+            }
+        }
+        return newFeatureList
     }
 }
