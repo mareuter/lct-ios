@@ -65,7 +65,8 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.newLunarClubViewController(LunarClubConstants.specialVcName),
                 self.newLunarClubViewController(LunarClubConstants.nakedEyeVcName),
-                self.newLunarClubViewController(LunarClubConstants.binocularVcName)]
+                self.newLunarClubViewController(LunarClubConstants.binocularVcName),
+                self.newLunarClubViewController(LunarClubConstants.telescopeVcName)]
     }()
     
     private func newLunarClubViewController(_ identifier: String) -> UIViewController {
