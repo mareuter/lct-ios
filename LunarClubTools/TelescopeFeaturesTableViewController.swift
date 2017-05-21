@@ -68,4 +68,18 @@ class TelescopeFeaturesTableViewController: UITableViewController, UIUpdatable, 
             seguedToMvc.lunarFeature = lunarClubInfo?.telescopeFeatures[indexPath.row]
         }
     }
+    
+    func adaptivePresentationStyle(
+        for controller: UIPresentationController,
+        traitCollection: UITraitCollection
+        ) -> UIModalPresentationStyle
+    {
+        if traitCollection.verticalSizeClass == .compact {
+            return .none
+        } else if traitCollection.horizontalSizeClass == .compact {
+            return .overFullScreen
+        } else {
+            return .none
+        }
+    }
 }

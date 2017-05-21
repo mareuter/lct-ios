@@ -68,4 +68,18 @@ class NakedEyeFeaturesTableViewController: UITableViewController, UIUpdatable, U
             seguedToMvc.lunarFeature = lunarClubInfo?.nakedEyeFeatures[indexPath.row]
         }
     }
+    
+    func adaptivePresentationStyle(
+        for controller: UIPresentationController,
+        traitCollection: UITraitCollection
+        ) -> UIModalPresentationStyle
+    {
+        if traitCollection.verticalSizeClass == .compact {
+            return .none
+        } else if traitCollection.horizontalSizeClass == .compact {
+            return .overFullScreen
+        } else {
+            return .none
+        }
+    }
 }
