@@ -14,6 +14,7 @@ struct LunarClubConstants
     static let nakedEyeVcName = "NakedEyeFeaturesTableViewController"
     static let binocularVcName = "BinocularFeaturesTableViewController"
     static let telescopeVcName = "TelescopeFeaturesTableViewController"
+    static let lunarFeatureSegue = "Show Lunar Feature Detail"
     static let downloadedFile = "LunarClubInfo.json"
     static let timeLabelDefaultText = "----"
     static let timeCutoff = 72.0

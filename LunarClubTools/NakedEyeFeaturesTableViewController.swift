@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NakedEyeFeaturesTableViewController: UITableViewController, UIUpdatable
+class NakedEyeFeaturesTableViewController: UITableViewController, UIUpdatable, UIPopoverPresentationControllerDelegate
 {
     private var delegate: UIUpdatable?
     private var lunarClubInfo: LunarClubInfo?
@@ -29,7 +29,7 @@ class NakedEyeFeaturesTableViewController: UITableViewController, UIUpdatable
         updateUI()
     }
     
-    func updateUI() {
+    internal func updateUI() {
         if view != nil {
             if let lcpvc = parent as? LunarClubPageViewController {
                 if let lci = lcpvc.lunarClubInfo {
@@ -55,15 +55,17 @@ class NakedEyeFeaturesTableViewController: UITableViewController, UIUpdatable
         cell.textLabel?.text = lunarClubInfo?.nakedEyeFeatures[indexPath.row].name
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let destination = storyboard?.instantiateViewController(withIdentifier: LunarClubConstants.lunarFeatureSegue) as? UINavigationController
+        destination?.modalPresentationStyle = .popover
+        present(destination!, animated: true)
+        if let seguedToMvc = destination?.contents as? LunarFeatureViewController,
+            let popoverPc = destination?.popoverPresentationController {
+            popoverPc.delegate = self
+            popoverPc.sourceRect = tableView.rectForRow(at: indexPath)
+            popoverPc.permittedArrowDirections = .any
+            seguedToMvc.lunarFeature = lunarClubInfo?.nakedEyeFeatures[indexPath.row]
+        }
     }
-    */
-
 }
