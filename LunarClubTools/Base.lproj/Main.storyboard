@@ -921,6 +921,209 @@
             </objects>
             <point key="canvasLocation" x="3630" y="799"/>
         </scene>
+        <!--Naked Eye-->
+        <scene sceneID="5uT-ZQ-SdO">
+            <objects>
+                <tableViewController storyboardIdentifier="NakedEyeFeaturesTableViewController" title="Naked Eye" id="kif-Vm-NYe" customClass="NakedEyeFeaturesTableViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lMD-5Z-Ak5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="LunarFeature" textLabel="0Eh-l9-p0i" style="IBUITableViewCellStyleDefault" id="JrH-4l-q1t">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JrH-4l-q1t" id="h23-Ix-2p4">
+                                    <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Eh-l9-p0i">
+                                            <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kif-Vm-NYe" id="6pI-ju-peV"/>
+                            <outlet property="delegate" destination="kif-Vm-NYe" id="BuO-mc-vOX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iuo-ad-rsq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4286" y="798"/>
+        </scene>
+        <!--Binocular-->
+        <scene sceneID="4zy-JO-Aaz">
+            <objects>
+                <tableViewController storyboardIdentifier="BinocularFeaturesTableViewController" title="Binocular" id="JKU-Us-1Zr" customClass="BinocularFeaturesTableViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="IpV-Tv-ibT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="LunarFeature" textLabel="T8W-ye-tCY" style="IBUITableViewCellStyleDefault" id="Rmp-eo-lPr">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rmp-eo-lPr" id="MgF-Zw-BYh">
+                                    <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T8W-ye-tCY">
+                                            <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JKU-Us-1Zr" id="cwe-jy-yTV"/>
+                            <outlet property="delegate" destination="JKU-Us-1Zr" id="2FN-09-kOc"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLg-5c-Q6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4945" y="799"/>
+        </scene>
+        <!--Telescope-->
+        <scene sceneID="ezL-9Y-RaX">
+            <objects>
+                <tableViewController storyboardIdentifier="TelescopeFeaturesTableViewController" title="Telescope" id="HHc-Pk-bte" customClass="TelescopeFeaturesTableViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5tw-Ix-twv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="LunarFeature" textLabel="cz1-QB-IId" style="IBUITableViewCellStyleDefault" id="KYz-bZ-ZK4">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KYz-bZ-ZK4" id="rvW-XM-IpD">
+                                    <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cz1-QB-IId">
+                                            <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HHc-Pk-bte" id="WNM-gj-Vm3"/>
+                            <outlet property="delegate" destination="HHc-Pk-bte" id="Uow-CJ-mLK"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="75H-Ur-qXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5596" y="799"/>
+        </scene>
+        <!--Lunar Feature View Controller-->
+        <scene sceneID="Ugk-tt-9k5">
+            <objects>
+                <viewController id="StZ-ht-pap" customClass="LunarFeatureViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jG0-X6-X5M"/>
+                        <viewControllerLayoutGuide type="bottom" id="SIA-y1-ksD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dGl-uM-Dfd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mZL-Fr-xz0">
+                                <rect key="frame" x="16" y="72" width="343" height="112"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgO-oq-OED">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRd-b0-ttM">
+                                        <rect key="frame" x="0.0" y="30.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iH3-Xx-O7P">
+                                        <rect key="frame" x="0.0" y="61" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tu-sp-FrI">
+                                        <rect key="frame" x="0.0" y="91.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="mZL-Fr-xz0" secondAttribute="trailing" id="CF5-2T-c0T"/>
+                            <constraint firstItem="mZL-Fr-xz0" firstAttribute="top" secondItem="jG0-X6-X5M" secondAttribute="bottom" constant="8" symbolic="YES" id="Dcc-uq-hH8"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="mZL-Fr-xz0" secondAttribute="leading" id="UIf-9n-0w8"/>
+                            <constraint firstItem="SIA-y1-ksD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mZL-Fr-xz0" secondAttribute="bottom" id="nid-kc-mog"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8iU-pL-YMp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="eU5-Dw-Ht6">
+                            <connections>
+                                <action selector="dismiss:" destination="StZ-ht-pap" id="87l-9B-qbv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="latitude" destination="iH3-Xx-O7P" id="krY-rS-Ciz"/>
+                        <outlet property="longitude" destination="5Tu-sp-FrI" id="aDY-nB-apE"/>
+                        <outlet property="name" destination="VgO-oq-OED" id="EDr-XJ-bGC"/>
+                        <outlet property="type" destination="cRd-b0-ttM" id="0MX-Cp-asf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XjZ-fc-zQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7097" y="292"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UDN-db-Iq8">
+            <objects>
+                <navigationController storyboardIdentifier="Show Lunar Feature Detail" automaticallyAdjustsScrollViewInsets="NO" id="tdJ-mX-A1d" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MVn-uQ-pi0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="StZ-ht-pap" kind="relationship" relationship="rootViewController" id="ObB-XO-tx2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GOh-vE-5BM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6374" y="292"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FQ-Moon" width="33" height="33"/>
