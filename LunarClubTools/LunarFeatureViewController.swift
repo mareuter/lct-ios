@@ -17,6 +17,9 @@ class LunarFeatureViewController: UIViewController {
     @IBOutlet weak var latitude: UILabel!
     @IBOutlet weak var longitude: UILabel!
     @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var diameter: UILabel!
+    @IBOutlet weak var quadName: UILabel!
+    @IBOutlet weak var quadCode: UILabel!
     
     private func setupFormatter() {
         formatter.minimumFractionDigits = 2
@@ -54,5 +57,8 @@ class LunarFeatureViewController: UIViewController {
         type?.text = "Type: \(lunarFeature?.type ?? "")"
         latitude?.text = "Latitude: " + formatDecimalCoordinateLabel(from: lunarFeature?.latitude ?? 0.0, direction: "N S")
         longitude?.text = "Longitude: " + formatDecimalCoordinateLabel(from: lunarFeature?.longitude ?? 0.0, direction: "E W")
+        diameter?.text = "Diameter: " + formatter.string(from: lunarFeature?.diameter as NSNumber? ?? 0.0)! + " km"
+        quadName?.text = "Quad Name: \(lunarFeature?.quadName ?? "")"
+        quadCode?.text = "Quad Code: \(lunarFeature?.quadCode ?? "")"
     }
 }
