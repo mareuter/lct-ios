@@ -1250,7 +1250,7 @@
                 <navigationController title="Lunar II Club" automaticallyAdjustsScrollViewInsets="NO" id="4Pp-Bh-Qjp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Lunar II Club" image="LunarIIClubTabIcon" selectedImage="LunarIIClubTabSelectedIcon" id="6U2-43-oRf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Gh4-1M-IaX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Gh4-1M-IaX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

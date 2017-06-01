@@ -37,11 +37,12 @@ struct LunarIIClubInfo
         for featureList in Array(json.values) {
             if let featureInfo = featureList as? Array<Any> {
                 newFeatureList.append(LunarFeature(name: (featureInfo[0] as? String)!,
-                                                   latitude: (featureInfo[1] as? Double)!,
-                                                   longitude: (featureInfo[2] as? Double)!,
-                                                   type: (featureInfo[3] as? String)!,
-                                                   deltaLatitude: (featureInfo[4] as? Double)!,
-                                                   deltaLongitude: (featureInfo[5] as? Double)!))
+                                                   latitude: (featureInfo[2] as? Double)!,
+                                                   longitude: (featureInfo[3] as? Double)!,
+                                                   type: (featureInfo[6] as? String)!,
+                                                   diameter: (featureInfo[1] as? Double)!,
+                                                   quadName: (featureInfo[7] as? String)!,
+                                                   quadCode: (featureInfo[8] as? String)!))
             }
         }
         newFeatureList.sort { $0.latitude > $1.latitude }
