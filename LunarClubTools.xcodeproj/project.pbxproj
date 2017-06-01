@@ -30,6 +30,8 @@
 		A4E6CC571EDE6CFD00CF5BB1 /* LunarIIClubPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6CC561EDE6CFD00CF5BB1 /* LunarIIClubPageViewController.swift */; };
 		A4E6CC591EDE73A200CF5BB1 /* LunarIIFeaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6CC581EDE73A200CF5BB1 /* LunarIIFeaturesTableViewController.swift */; };
 		A4E6CC5B1EDE768400CF5BB1 /* LandingSitesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6CC5A1EDE768400CF5BB1 /* LandingSitesTableViewController.swift */; };
+		A4E6CC5D1EDE793000CF5BB1 /* LunarIIClubConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6CC5C1EDE793000CF5BB1 /* LunarIIClubConstants.swift */; };
+		A4E6CC5F1EDE79F000CF5BB1 /* LunarIIClubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6CC5E1EDE79F000CF5BB1 /* LunarIIClubInfo.swift */; };
 		A4F636FE1EB66C0700A4E15F /* SpecialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F636FD1EB66C0700A4E15F /* SpecialTableViewController.swift */; };
 		A4FF5B481ECBD400008AB481 /* LunarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF5B471ECBD400008AB481 /* LunarFeature.swift */; };
 		A4FF5B4A1ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF5B491ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift */; };
@@ -64,6 +66,8 @@
 		A4E6CC561EDE6CFD00CF5BB1 /* LunarIIClubPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarIIClubPageViewController.swift; sourceTree = "<group>"; };
 		A4E6CC581EDE73A200CF5BB1 /* LunarIIFeaturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarIIFeaturesTableViewController.swift; sourceTree = "<group>"; };
 		A4E6CC5A1EDE768400CF5BB1 /* LandingSitesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingSitesTableViewController.swift; sourceTree = "<group>"; };
+		A4E6CC5C1EDE793000CF5BB1 /* LunarIIClubConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarIIClubConstants.swift; sourceTree = "<group>"; };
+		A4E6CC5E1EDE79F000CF5BB1 /* LunarIIClubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarIIClubInfo.swift; sourceTree = "<group>"; };
 		A4F636FD1EB66C0700A4E15F /* SpecialTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialTableViewController.swift; sourceTree = "<group>"; };
 		A4FF5B471ECBD400008AB481 /* LunarFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarFeature.swift; sourceTree = "<group>"; };
 		A4FF5B491ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NakedEyeFeaturesTableViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				A4B35FF71E230F1B008D675F /* Info.plist */,
 				A4B35FF41E230F1B008D675F /* LaunchScreen.storyboard */,
 				A42A09F21EB18DAC0000466E /* LunarClubConstants.swift */,
+				A4E6CC5C1EDE793000CF5BB1 /* LunarIIClubConstants.swift */,
+				A4E6CC5E1EDE79F000CF5BB1 /* LunarIIClubInfo.swift */,
 				A42A09EE1EB187340000466E /* LunarClubInfo.swift */,
 				A42A09EC1EB184180000466E /* LunarClubPageViewController.swift */,
 				A42D74B91E54110D00E3641F /* LunarClubToolsTabBarController.swift */,
@@ -224,9 +230,11 @@
 				A4E6CC571EDE6CFD00CF5BB1 /* LunarIIClubPageViewController.swift in Sources */,
 				A4E6CC5B1EDE768400CF5BB1 /* LandingSitesTableViewController.swift in Sources */,
 				A42A09ED1EB184180000466E /* LunarClubPageViewController.swift in Sources */,
+				A4E6CC5F1EDE79F000CF5BB1 /* LunarIIClubInfo.swift in Sources */,
 				A4A62CE51E8DDCBA00ADEA66 /* ChangeTimeViewController.swift in Sources */,
 				A48BA3DF1E2D8D0C00A8C784 /* MoonInfo.swift in Sources */,
 				A4CC0B0E1E860CA500AADDE1 /* MoonInfoPageViewController.swift in Sources */,
+				A4E6CC5D1EDE793000CF5BB1 /* LunarIIClubConstants.swift in Sources */,
 				A4A532781EAAEA380080D128 /* PhaseAndLibrationViewController.swift in Sources */,
 				A4A62CE91E8DE76000ADEA66 /* FetchableData.swift in Sources */,
 				A4FF5B481ECBD400008AB481 /* LunarFeature.swift in Sources */,
