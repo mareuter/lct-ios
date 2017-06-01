@@ -14,6 +14,7 @@ struct LunarFeature
     let latitude: Double
     let longitude: Double
     let type: String
-    let deltaLatitude: Double
-    let deltaLongitude: Double
+    let diameter: Double
+    let quadName: String
+    let quadCode: String
 }
