@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TMs-7f-Xqz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TMs-7f-Xqz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -530,7 +530,7 @@
         <!--Sky Position-->
         <scene sceneID="WtB-7C-rc2">
             <objects>
-                <tableViewController storyboardIdentifier="SkyPositionInformation" title="Sky Position" id="afa-cR-9LG" customClass="SkyPositionInformationViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SkyPositionInformationViewController" title="Sky Position" id="afa-cR-9LG" customClass="SkyPositionInformationViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jHS-ov-1pH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -785,6 +785,15 @@
                             <outlet property="delegate" destination="afa-cR-9LG" id="7F3-cK-9Tt"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="altitudeInfo" destination="ZbN-wL-Aqk" id="Jbl-PV-VeS"/>
+                        <outlet property="azimuthInfo" destination="7qU-0t-W4K" id="oB3-ry-dXd"/>
+                        <outlet property="declinationInfo" destination="3Jt-Rb-DVt" id="z4E-aq-vOy"/>
+                        <outlet property="rightAscensionInfo" destination="6bM-TF-05L" id="MhE-3O-bAw"/>
+                        <outlet property="riseTime" destination="mjE-zl-quL" id="KNq-rD-Ej3"/>
+                        <outlet property="setTime" destination="Zfc-qC-dQL" id="BpF-EV-pWR"/>
+                        <outlet property="transitTime" destination="gD7-NW-r1W" id="7TJ-QV-ihc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvg-YB-K1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

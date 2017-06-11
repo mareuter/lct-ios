@@ -18,6 +18,7 @@ struct MoonInfoConstants
     static let downloadedFile = "MoonInfo.json"
     static let secondsTime = "yyyy-MM-dd HH:mm:ss"
     static let minutesTimeWithTimeZone = "yyyy-MM-dd HH:mm zzz"
+    static let timeOnly = "HH:mm"
     static let localTimeZone = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)?.timeZone
     static let utcTimeZone = TimeZone(abbreviation: "GMT")
     static let degrees = "°"

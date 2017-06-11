@@ -38,7 +38,7 @@ struct MoonInfo
         } catch {
             return nil
         }
-        
+
         guard let age = json!["age"] as? Double,
             let colongitude = json!["colong"] as? Double,
             let fractionalPhase = json!["fractional_phase"] as? Double,
@@ -48,7 +48,7 @@ struct MoonInfo
             let azimuth = json!["azimuth"] as? Double,
             let phaseName = json!["phase"] as? String,
             let rightAscension = json!["ra"] as? Double,
-            let declination = json!["declination"] as? Double,
+            let declination = json!["dec"] as? Double,
             let elongation = json!["elongation"] as? Double,
             let angularSize = json!["angular_size"] as? Double,
             let magnitude = json!["magnitude"] as? Double,
@@ -59,14 +59,14 @@ struct MoonInfo
         else {
             return nil
         }
-        
+
         var nextFourPhases: Array<(String, Array<Int>)> = []
         for phaseId in Array(nextFourPhasesJSON.keys).sorted(by: <) {
             if let phaseInfo = nextFourPhasesJSON[phaseId] {
                 nextFourPhases.append(((phaseInfo["phase"] as? String)!, (phaseInfo["datetime"] as? Array<Int>)!))
             }
         }
-        
+
         for timeId in Array(riseSetTimesJSON.keys) {
             if let timeInfo = riseSetTimesJSON[timeId] {
                 let name = timeInfo["time"] as? String ?? ""
