@@ -1,5 +1,5 @@
 //
-//  EphemerisAndPhasesViewController.swift
+//  EphemerisViewController.swift
 //  LunarClubTools
 //
 //  Created by Michael Reuter on 6/12/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EphemerisAndPhasesViewController: UITableViewController, UIUpdatable {
+class EphemerisViewController: UITableViewController, UIUpdatable {
 
     private var delegate: UIUpdatable?
     private let formatter = NumberFormatter()
