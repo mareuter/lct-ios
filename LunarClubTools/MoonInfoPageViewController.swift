@@ -64,7 +64,8 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     }
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newMoonInfoViewController(MoonInfoConstants.ephemerisVcName),
+        return [self.newMoonInfoViewController(MoonInfoConstants.ephemerisPhasesVcName),
+                self.newMoonInfoViewController(MoonInfoConstants.ephemerisVcName),
                 self.newMoonInfoViewController(MoonInfoConstants.nextFourPhasesVcName),
                 self.newMoonInfoViewController(MoonInfoConstants.phaseAndLibrationVcName),
                 self.newMoonInfoViewController(MoonInfoConstants.skyPositionVcName)]
