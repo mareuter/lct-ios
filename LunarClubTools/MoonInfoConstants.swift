@@ -13,7 +13,6 @@ struct MoonInfoConstants
     static let topLevelStoryBoard = "Main"
     static let ephemerisVcName = "EphemerisViewController"
     static let nextFourPhasesVcName = "NextFourPhasesViewController"
-    static let phaseAndLibrationVcName = "PhaseAndLibrationViewController"
     static let phaseAndLibration2VcName = "PhaseAndLibration2ViewController"
     static let skyPositionVcName = "SkyPositionInformationViewController"
     static let downloadedFile = "MoonInfo.json"

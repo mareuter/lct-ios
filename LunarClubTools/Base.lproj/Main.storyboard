@@ -669,55 +669,6 @@
             </objects>
             <point key="canvasLocation" x="5085.6000000000004" y="-611.24437781109452"/>
         </scene>
-        <!--Phase and Libration-->
-        <scene sceneID="H0f-CW-dP1">
-            <objects>
-                <viewController storyboardIdentifier="PhaseAndLibrationViewController" title="Phase and Libration" id="EQj-AG-nCg" customClass="PhaseAndLibrationViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6cf-5I-IBF"/>
-                        <viewControllerLayoutGuide type="bottom" id="wcm-kR-HmF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pgL-2P-5k0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rBL-l7-NXs" customClass="MoonPhaseView" customModule="LunarClubTools" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="phaseState">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="illumnationFraction">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="librationLongitude">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showLibration" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="librationLatitude">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="rBL-l7-NXs" firstAttribute="top" secondItem="pgL-2P-5k0" secondAttribute="top" id="BcV-UL-Vze"/>
-                            <constraint firstAttribute="trailing" secondItem="rBL-l7-NXs" secondAttribute="trailing" id="Eg1-k0-y6h"/>
-                            <constraint firstItem="rBL-l7-NXs" firstAttribute="bottom" secondItem="wcm-kR-HmF" secondAttribute="top" id="PLO-ck-R1H"/>
-                            <constraint firstItem="rBL-l7-NXs" firstAttribute="leading" secondItem="pgL-2P-5k0" secondAttribute="leading" id="nTp-Ww-bLK"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <connections>
-                        <outlet property="moonPhaseView" destination="rBL-l7-NXs" id="StF-IJ-ij1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MkD-ZG-oZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4945" y="43"/>
-        </scene>
         <!--Sky Position-->
         <scene sceneID="WtB-7C-rc2">
             <objects>
