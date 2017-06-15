@@ -14,6 +14,7 @@ struct MoonInfoConstants
     static let ephemerisVcName = "EphemerisViewController"
     static let nextFourPhasesVcName = "NextFourPhasesViewController"
     static let phaseAndLibrationVcName = "PhaseAndLibrationViewController"
+    static let phaseAndLibration2VcName = "PhaseAndLibration2ViewController"
     static let skyPositionVcName = "SkyPositionInformationViewController"
     static let downloadedFile = "MoonInfo.json"
     static let secondsTime = "yyyy-MM-dd HH:mm:ss"
@@ -22,4 +23,15 @@ struct MoonInfoConstants
     static let localTimeZone = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)?.timeZone
     static let utcTimeZone = TimeZone(abbreviation: "GMT")
     static let degrees = "°"
+    // Moon View constants
+    static let cameraRadius: Float = 5.0
+    static let sunRadius: Float = 20.0
+    static let sunShineFlux = 2500.0
+    static let earthShineRadius: Float = 20.0
+    static let earthShineFlux = 300.0
+    static let numMoonSegments = 96
+    static let arrowLightFlux = 800.0
+    static let arrowRadius: Float = 1.07
+    static let coneOffset: Float = 0.05
+    static let arrowZPosition: Float = 0.4
 }

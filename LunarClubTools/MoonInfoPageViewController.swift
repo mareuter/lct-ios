@@ -67,6 +67,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         return [self.newMoonInfoViewController(MoonInfoConstants.ephemerisVcName),
                 self.newMoonInfoViewController(MoonInfoConstants.nextFourPhasesVcName),
                 self.newMoonInfoViewController(MoonInfoConstants.phaseAndLibrationVcName),
+                self.newMoonInfoViewController(MoonInfoConstants.phaseAndLibration2VcName),
                 self.newMoonInfoViewController(MoonInfoConstants.skyPositionVcName)]
     }()
     

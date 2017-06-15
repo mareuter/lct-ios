@@ -607,6 +607,69 @@
             <point key="canvasLocation" x="4287" y="43"/>
         </scene>
         <!--Phase and Libration-->
+        <scene sceneID="ya7-KX-cyE">
+            <objects>
+                <viewController storyboardIdentifier="PhaseAndLibration2ViewController" title="Phase and Libration" id="jNu-Zg-ODU" customClass="PhaseAndLibration2ViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="15O-Se-ohc"/>
+                        <viewControllerLayoutGuide type="bottom" id="FnW-b3-aqI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pa3-px-zbZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u3B-cC-K71">
+                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                                <subviews>
+                                    <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFZ-r5-aC9">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="578.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </sceneKitView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Libration Latitude: -00.00°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spr-6U-l2Y">
+                                        <rect key="frame" x="0.0" y="578.5" width="375" height="19.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Libration Longitude: -00.00°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s7-Rk-xAL">
+                                        <rect key="frame" x="0.0" y="598" width="375" height="20.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SubSolar Latitude: -0.00°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndE-M2-IpU">
+                                        <rect key="frame" x="0.0" y="618.5" width="375" height="20.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="u3B-cC-K71" secondAttribute="trailing" id="LBl-x5-bRk"/>
+                            <constraint firstItem="u3B-cC-K71" firstAttribute="leading" secondItem="pa3-px-zbZ" secondAttribute="leading" id="RlV-1f-4jW"/>
+                            <constraint firstItem="u3B-cC-K71" firstAttribute="top" secondItem="15O-Se-ohc" secondAttribute="bottom" constant="8" symbolic="YES" id="dHO-jD-CiI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="u3B-cC-K71" secondAttribute="bottom" id="fQM-ZK-v7W"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="librationLatitude" destination="spr-6U-l2Y" id="mQS-4Q-lsB"/>
+                        <outlet property="librationLongitude" destination="8s7-Rk-xAL" id="gdW-pV-KPQ"/>
+                        <outlet property="moonView" destination="vFZ-r5-aC9" id="fe4-7u-dTM"/>
+                        <outlet property="subSolarLatitude" destination="ndE-M2-IpU" id="Aau-oA-tn9"/>
+                        <outlet property="view" destination="vFZ-r5-aC9" id="gTz-dV-JWH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8e4-VA-3lD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5085.6000000000004" y="-611.24437781109452"/>
+        </scene>
+        <!--Phase and Libration-->
         <scene sceneID="H0f-CW-dP1">
             <objects>
                 <viewController storyboardIdentifier="PhaseAndLibrationViewController" title="Phase and Libration" id="EQj-AG-nCg" customClass="PhaseAndLibrationViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
