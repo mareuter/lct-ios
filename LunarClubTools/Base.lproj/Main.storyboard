@@ -609,7 +609,7 @@
         <!--Phase and Libration-->
         <scene sceneID="ya7-KX-cyE">
             <objects>
-                <viewController storyboardIdentifier="PhaseAndLibration2ViewController" title="Phase and Libration" id="jNu-Zg-ODU" customClass="PhaseAndLibration2ViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhaseAndLibrationViewController" title="Phase and Libration" id="jNu-Zg-ODU" customClass="PhaseAndLibrationViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="15O-Se-ohc"/>
                         <viewControllerLayoutGuide type="bottom" id="FnW-b3-aqI"/>
@@ -658,16 +658,16 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="librationLatitude" destination="spr-6U-l2Y" id="mQS-4Q-lsB"/>
-                        <outlet property="librationLongitude" destination="8s7-Rk-xAL" id="gdW-pV-KPQ"/>
+                        <outlet property="librationLatitude" destination="spr-6U-l2Y" id="yO6-B1-DvD"/>
+                        <outlet property="librationLongitude" destination="8s7-Rk-xAL" id="JTa-fv-QRa"/>
                         <outlet property="moonView" destination="vFZ-r5-aC9" id="fe4-7u-dTM"/>
-                        <outlet property="subSolarLatitude" destination="ndE-M2-IpU" id="Aau-oA-tn9"/>
+                        <outlet property="subSolarLatitude" destination="ndE-M2-IpU" id="cTm-HE-ZJg"/>
                         <outlet property="view" destination="vFZ-r5-aC9" id="gTz-dV-JWH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8e4-VA-3lD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5085.6000000000004" y="-611.24437781109452"/>
+            <point key="canvasLocation" x="4945" y="43"/>
         </scene>
         <!--Sky Position-->
         <scene sceneID="WtB-7C-rc2">

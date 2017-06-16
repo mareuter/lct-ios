@@ -1,5 +1,5 @@
 //
-//  PhaseAndLibration2ViewController.swift
+//  PhaseAndLibrationViewController.swift
 //  LunarClubTools
 //
 //  Created by Michael Reuter on 6/12/17.
@@ -9,7 +9,7 @@
 import UIKit
 import SceneKit
 
-class PhaseAndLibration2ViewController: UIViewController, UIUpdatable {
+class PhaseAndLibrationViewController: UIViewController, UIUpdatable {
 
     private var delegate: UIUpdatable?
     private var formatter = NumberFormatter()
@@ -19,7 +19,7 @@ class PhaseAndLibration2ViewController: UIViewController, UIUpdatable {
     @IBOutlet weak var librationLatitude: UILabel!
     @IBOutlet weak var librationLongitude: UILabel!
     @IBOutlet weak var subSolarLatitude: UILabel!
-    
+
     override func viewDidLoad() {
         delegate = self
         super.viewDidLoad()
@@ -47,9 +47,9 @@ class PhaseAndLibration2ViewController: UIViewController, UIUpdatable {
                     let libLat = formatDoubleLabel(value: moonInfo.librationLatitude, backCaption: MoonInfoConstants.degrees)
                     let libLon = formatDoubleLabel(value: moonInfo.librationLongitude, backCaption: MoonInfoConstants.degrees)
                     let subSolLat = formatDoubleLabel(value: moonInfo.subSolarLatitude, backCaption: MoonInfoConstants.degrees)
-                    librationLatitude.text = "Libration Latitude: \(libLat)"
-                    librationLongitude.text = "Libration Longitude: \(libLon)"
-                    subSolarLatitude.text = "SubSolar Latitude: \(subSolLat)"
+                    self.librationLatitude?.text = "Libration Latitude: \(libLat)"
+                    self.librationLongitude?.text = "Libration Longitude: \(libLon)"
+                    self.subSolarLatitude?.text = "SubSolar Latitude: \(subSolLat)"
                     
                     self.moonViewHelper.setAngles(moonInfo.elongation, moonInfo.librationLatitude,
                                                   moonInfo.librationLongitude, moonInfo.subSolarLatitude)
