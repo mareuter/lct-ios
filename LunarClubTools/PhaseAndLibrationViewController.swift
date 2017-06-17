@@ -15,7 +15,20 @@ class PhaseAndLibrationViewController: UIViewController, UIUpdatable {
     private var formatter = NumberFormatter()
     private var moonViewHelper = MoonViewHelper()
     
-    @IBOutlet weak var moonView: SCNView!
+    @IBOutlet weak var moonView: SCNView! {
+        didSet {
+            let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(changeScale(byReactingTo:))
+            )
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveCamera(byReactingTo:))
+            )
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(reset(byReactingTo:))
+            )
+            tapGestureRecognizer.numberOfTapsRequired = 2
+            moonView.addGestureRecognizer(pinchGestureRecognizer)
+            moonView.addGestureRecognizer(panGestureRecognizer)
+            moonView.addGestureRecognizer(tapGestureRecognizer)
+        }
+    }
     @IBOutlet weak var librationLatitude: UILabel!
     @IBOutlet weak var librationLongitude: UILabel!
     @IBOutlet weak var subSolarLatitude: UILabel!
@@ -29,6 +42,47 @@ class PhaseAndLibrationViewController: UIViewController, UIUpdatable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateUI()
+    }
+    
+    func changeScale(byReactingTo pinchRecognizer: UIPinchGestureRecognizer) {
+        switch pinchRecognizer.state {
+        case .changed, .ended:
+            var scale = moonViewHelper.scale
+            scale *= Double(pinchRecognizer.scale)
+            moonViewHelper.setScale(scale)
+            pinchRecognizer.scale = 1
+        default:
+            break
+        }
+    }
+    
+    func moveCamera(byReactingTo panRecognizer: UIPanGestureRecognizer) {
+        switch panRecognizer.state {
+        case .changed, .ended:
+            let translation = panRecognizer.translation(in: moonView)
+            let scale = CGFloat(moonViewHelper.scale)
+            let viewScale = min(moonView.bounds.width, moonView.bounds.height)
+            let scaleFactor = viewScale / scale
+            moonViewHelper.moveCamera(Float(translation.x / scaleFactor),
+                                      Float(translation.y / scaleFactor))
+            panRecognizer.setTranslation(CGPoint.zero, in: moonView)
+        default:
+            break
+        }
+    }
+    
+    func reset(byReactingTo tapRecognizer: UITapGestureRecognizer) {
+        switch tapRecognizer.state {
+        case .ended:
+            moonViewHelper.resetCamera()
+        default:
+            break
+        }
     }
     
     private func setupFormatter() {

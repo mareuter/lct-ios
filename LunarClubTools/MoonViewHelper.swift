@@ -11,8 +11,8 @@ import SceneKit
 
 class MoonViewHelper
 {
-    private var scale = 1.1
-    private var color = UIColor.cyan
+    var scale: Double = MoonInfoConstants.maxCameraZoomOut
+    var color = UIColor.cyan
  
     private var sunXPosition: Float = 0.0
     private var sunZPosition: Float = MoonInfoConstants.sunRadius
@@ -42,8 +42,6 @@ class MoonViewHelper
     private var arrowNode = SCNNode()
     private var arrowLight = SCNLight()
     private var arrowLightNode = SCNNode()
-    private var moonConstraint = SCNLookAtConstraint()
-    private var arrowConsraint = SCNLookAtConstraint()
     
     func render(_ moonView: SCNView) {
         moonView.scene = scene
@@ -54,17 +52,19 @@ class MoonViewHelper
         setupMoon()
         setupArrowLight()
         setupLibrationArrow()
-        //setupConstraints()
+        setupConstraints()
         
         self.scene.rootNode.addChildNode(cameraNode)
         self.scene.rootNode.addChildNode(sunShineNode)
         self.scene.rootNode.addChildNode(earthShineNode)
         self.scene.rootNode.addChildNode(moonNode)
         self.scene.rootNode.addChildNode(arrowNode)
+        self.scene.rootNode.addChildNode(arrowLightNode)
     }
     
     func setColor(_ color: UIColor) {
         self.color = color
+        self.arrowMaterial.diffuse.contents = self.color
     }
     
     func setAngles(_ elongation: Double, _ librationLatitude: Double,
@@ -89,13 +89,34 @@ class MoonViewHelper
         self.coneXPosition = difference * librationCosineAngle
         self.coneYPosition = difference * librationSineAngle
     }
+
+    func moveCamera(_ x: Float, _ y: Float) {
+        // Coordinate system for x is opposite to pan direction
+        var newX = self.cameraNode.position.x - x
+        var newY = self.cameraNode.position.y + y
+        if fabsf(newX) > MoonInfoConstants.maxCameraPosition {
+            newX = sign(newX) * MoonInfoConstants.maxCameraPosition
+        }
+        if fabsf(newY) > MoonInfoConstants.maxCameraPosition {
+            newY = sign(newY) * MoonInfoConstants.maxCameraPosition
+        }
+        self.cameraNode.position.x = newX
+        self.cameraNode.position.y = newY
+    }
+    
+    func resetCamera() {
+        self.cameraNode.position.x = 0.0
+        self.cameraNode.position.y = 0.0
+        self.camera.orthographicScale = MoonInfoConstants.maxCameraZoomOut
+    }
     
     func setScale(_ scale: Double) {
-        if scale < 1.1 {
-            self.scale = 1.1
+        if scale > MoonInfoConstants.maxCameraZoomOut {
+            self.scale = MoonInfoConstants.maxCameraZoomOut
         } else {
             self.scale = scale
         }
+        self.camera.orthographicScale = self.scale
     }
     
     private func setupCamera() {
@@ -149,9 +170,12 @@ class MoonViewHelper
     }
     
     private func setupConstraints() {
-        self.moonConstraint.target = self.moonNode
-        self.moonConstraint.isGimbalLockEnabled = true
-        self.cameraNode.constraints = [self.moonConstraint]
-        self.sunShineNode.constraints = [self.moonConstraint]
+        let moonConstraint = SCNLookAtConstraint(target: self.moonNode)
+        moonConstraint.isGimbalLockEnabled = true
+        self.sunShineNode.constraints = [moonConstraint]
+        self.earthShineNode.constraints = [moonConstraint]
+        let arrowConstraint = SCNLookAtConstraint(target: self.cylinderNode)
+        arrowConstraint.isGimbalLockEnabled = true
+        self.arrowLightNode.constraints = [arrowConstraint]
     }
 }
