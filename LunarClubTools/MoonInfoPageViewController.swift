@@ -66,7 +66,8 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.newMoonInfoViewController(MoonInfoConstants.ephemerisVcName),
                 self.newMoonInfoViewController(MoonInfoConstants.nextFourPhasesVcName),
-                self.newMoonInfoViewController(MoonInfoConstants.phaseAndLibrationVcName)]
+                self.newMoonInfoViewController(MoonInfoConstants.phaseAndLibrationVcName),
+                self.newMoonInfoViewController(MoonInfoConstants.skyPositionVcName)]
     }()
     
     private func newMoonInfoViewController(_ identifier: String) -> UIViewController {
@@ -105,9 +106,10 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         let coords = timeAndLocation.getCoordinates()
         var url = setupMoonInfoUrl()
         let dateQuery = URLQueryItem(name: "date", value: String(timeAndLocation.getTimestamp()))
+        let timezoneQuery = URLQueryItem(name: "tz", value: MoonInfoConstants.localTimeZone?.identifier)
         let longitudeQuery = URLQueryItem(name: "lon", value: String(coords.longitude))
         let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
-        url.queryItems = [dateQuery, latitudeQuery, longitudeQuery]
+        url.queryItems = [dateQuery, timezoneQuery, latitudeQuery, longitudeQuery]
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let request = URLRequest(url: url.url!)
         spinner.startAnimating()
