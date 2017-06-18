@@ -49,7 +49,7 @@ class LunarFeatureViewController: UIViewController {
     }
     
     @IBAction func dismiss(_ sender: UIBarButtonItem) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
+        presentingViewController?.dismiss(animated: false, completion: nil)
     }
     
     func updateUI() {

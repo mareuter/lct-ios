@@ -59,13 +59,14 @@ class BinocularFeaturesTableViewController: UITableViewController, UIUpdatable, 
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let destination = storyboard?.instantiateViewController(withIdentifier: LunarClubConstants.lunarFeatureSegue) as? UINavigationController
         destination?.modalPresentationStyle = .popover
-        present(destination!, animated: true)
         if let seguedToMvc = destination?.contents as? LunarFeatureViewController,
             let popoverPc = destination?.popoverPresentationController {
             popoverPc.delegate = self
             popoverPc.sourceRect = tableView.rectForRow(at: indexPath)
+            popoverPc.sourceView = tableView
             popoverPc.permittedArrowDirections = .any
             seguedToMvc.lunarFeature = lunarClubInfo?.binocularFeatures[indexPath.row]
+            present(destination!, animated: false)
         }
     }
     
