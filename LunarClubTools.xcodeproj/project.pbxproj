@@ -11,6 +11,7 @@
 		A42A09EF1EB187340000466E /* LunarClubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A09EE1EB187340000466E /* LunarClubInfo.swift */; };
 		A42A09F31EB18DAC0000466E /* LunarClubConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A09F21EB18DAC0000466E /* LunarClubConstants.swift */; };
 		A42D74BA1E54110D00E3641F /* LunarClubToolsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D74B91E54110D00E3641F /* LunarClubToolsTabBarController.swift */; };
+		A43BF3F21EF62A61001B1FD7 /* SimplePhaseAndLibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43BF3F11EF62A61001B1FD7 /* SimplePhaseAndLibrationViewController.swift */; };
 		A47404151EEA38C0008090F8 /* SkyPositionInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47404141EEA38C0008090F8 /* SkyPositionInformationViewController.swift */; };
 		A48BA3DF1E2D8D0C00A8C784 /* MoonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA3DE1E2D8D0C00A8C784 /* MoonInfo.swift */; };
 		A4A5327A1EAAEB940080D128 /* MoonPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A532791EAAEB940080D128 /* MoonPhaseView.swift */; };
@@ -47,6 +48,7 @@
 		A42A09EE1EB187340000466E /* LunarClubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarClubInfo.swift; sourceTree = "<group>"; };
 		A42A09F21EB18DAC0000466E /* LunarClubConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarClubConstants.swift; sourceTree = "<group>"; };
 		A42D74B91E54110D00E3641F /* LunarClubToolsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarClubToolsTabBarController.swift; sourceTree = "<group>"; };
+		A43BF3F11EF62A61001B1FD7 /* SimplePhaseAndLibrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePhaseAndLibrationViewController.swift; sourceTree = "<group>"; };
 		A47404141EEA38C0008090F8 /* SkyPositionInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyPositionInformationViewController.swift; sourceTree = "<group>"; };
 		A48BA3DE1E2D8D0C00A8C784 /* MoonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonInfo.swift; sourceTree = "<group>"; };
 		A4A532791EAAEB940080D128 /* MoonPhaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPhaseView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				A4B35FEF1E230F1B008D675F /* Main.storyboard */,
 				A48BA3DE1E2D8D0C00A8C784 /* MoonInfo.swift */,
 				A4A62CE01E8A097E00ADEA66 /* MoonInfoConstants.swift */,
+				A43BF3F11EF62A61001B1FD7 /* SimplePhaseAndLibrationViewController.swift */,
 				A4CC0B0D1E860CA500AADDE1 /* MoonInfoPageViewController.swift */,
 				A4A532791EAAEB940080D128 /* MoonPhaseView.swift */,
 				A4DFDD781EEFA61000751D36 /* MoonViewHelper.swift */,
@@ -246,6 +249,7 @@
 				A47404151EEA38C0008090F8 /* SkyPositionInformationViewController.swift in Sources */,
 				A4FF5B481ECBD400008AB481 /* LunarFeature.swift in Sources */,
 				A4DFDD751EEF8C3600751D36 /* EphemerisViewController.swift in Sources */,
+				A43BF3F21EF62A61001B1FD7 /* SimplePhaseAndLibrationViewController.swift in Sources */,
 				A4FF5B501ECE9D61008AB481 /* LunarFeatureViewController.swift in Sources */,
 				A4B35FEC1E230F1B008D675F /* AppDelegate.swift in Sources */,
 				A4A62CE71E8DE54E00ADEA66 /* ProgramConstants.swift in Sources */,
