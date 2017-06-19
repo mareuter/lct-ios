@@ -30,11 +30,11 @@ class LunarFeatureViewController: UIViewController
         var directionString = ""
         let cardinalDirs = labels.components(separatedBy: " ")
         if coordinate < 0 {
-            directionString = " \(cardinalDirs.last!)"
+            directionString = "\(cardinalDirs.last!)"
         } else {
-            directionString = " \(cardinalDirs.first!)"
+            directionString = "\(cardinalDirs.first!)"
         }
-        return formatter.string(from: coordinate as NSNumber)! + " " + directionString
+        return formatter.string(from: fabs(coordinate) as NSNumber)! + " " + directionString
     }
     
     override func viewDidLoad() {
