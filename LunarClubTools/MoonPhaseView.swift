@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class MoonPhaseView: UIView {
-
+class MoonPhaseView: UIView
+{
     @IBInspectable
     var illumnationFraction: CGFloat = 0.3 { didSet { setNeedsDisplay() } }
 

@@ -8,8 +8,8 @@
 
 import UIKit
 
-class NextFourPhasesViewController: UIViewController, UIUpdatable {
-
+class NextFourPhasesViewController: UIViewController, UIUpdatable
+{
     private var delegate: UIUpdatable?
     private let moonPhaseDateTimeFormatter = DateFormatter()
     private let moonPhaseIcons = [

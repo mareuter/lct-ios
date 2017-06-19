@@ -8,8 +8,8 @@
 
 import UIKit
 
-class EphemerisViewController: UITableViewController, UIUpdatable {
-
+class EphemerisViewController: UITableViewController, UIUpdatable
+{
     private var delegate: UIUpdatable?
     private let formatter = NumberFormatter()
     private let localDateTimeFormatter = DateFormatter()

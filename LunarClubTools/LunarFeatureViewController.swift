@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LunarFeatureViewController: UIViewController {
-
+class LunarFeatureViewController: UIViewController
+{
     private var formatter = NumberFormatter()
     var lunarFeature: LunarFeature? { didSet { updateUI() } }
     

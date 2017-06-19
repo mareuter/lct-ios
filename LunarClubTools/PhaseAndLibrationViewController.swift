@@ -9,8 +9,8 @@
 import UIKit
 import SceneKit
 
-class PhaseAndLibrationViewController: UIViewController, UIUpdatable {
-
+class PhaseAndLibrationViewController: UIViewController, UIUpdatable
+{
     private var delegate: UIUpdatable?
     private var formatter = NumberFormatter()
     private var moonViewHelper = MoonViewHelper()

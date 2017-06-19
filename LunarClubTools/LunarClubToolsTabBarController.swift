@@ -9,8 +9,8 @@
 import UIKit
 import CoreLocation
 
-class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDelegate {
-
+class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDelegate
+{
     var timeAndLocation = TimeAndLocation()
     private var locationManager : CLLocationManager!
     

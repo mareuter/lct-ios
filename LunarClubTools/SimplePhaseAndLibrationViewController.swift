@@ -7,8 +7,8 @@
 //
 import UIKit
 
-class SimplePhaseAndLibrationViewController: UIViewController, UIUpdatable {
-    
+class SimplePhaseAndLibrationViewController: UIViewController, UIUpdatable
+{    
     private var delegate: UIUpdatable?
     
     @IBOutlet weak var moonPhaseView: MoonPhaseView!

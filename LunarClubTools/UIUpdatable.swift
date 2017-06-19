@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol UIUpdatable {
+protocol UIUpdatable
+{
     func updateUI()
 }

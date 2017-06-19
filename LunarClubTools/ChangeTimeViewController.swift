@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ChangeTimeViewController: UIViewController {
+class ChangeTimeViewController: UIViewController
+{
     private var loadDate = Date()
 
     @IBOutlet weak var datePicker: UIDatePicker!
