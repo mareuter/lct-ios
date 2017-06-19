@@ -26,10 +26,10 @@ struct MoonInfoConstants
     static let maxCameraZoomOut = 1.1
     static let maxCameraPosition: Float = 1.5
     static let cameraRadius: Float = 5.0
-    static let sunRadius: Float = 20.0
-    static let sunShineFlux = 2500.0
+    static let sunRadius: Float = 200.0
+    static let sunShineFlux = 7000.0
     static let earthShineRadius: Float = 20.0
-    static let earthShineFlux = 300.0
+    static let earthShineFlux = 5.0
     static let numMoonSegments = 96
     static let arrowLightFlux = 500.0
     static let arrowRadius: Float = 1.07

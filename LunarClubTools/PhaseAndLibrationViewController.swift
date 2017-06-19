@@ -105,6 +105,7 @@ class PhaseAndLibrationViewController: UIViewController, UIUpdatable {
                     self.librationLongitude?.text = "Libration Longitude: \(libLon)"
                     self.subSolarLatitude?.text = "SubSolar Latitude: \(subSolLat)"
                     
+                    self.moonViewHelper.resetCamera()
                     self.moonViewHelper.setAngles(moonInfo.elongation, moonInfo.librationLatitude,
                                                   moonInfo.librationLongitude, moonInfo.subSolarLatitude)
                     self.moonViewHelper.render(self.moonView)
