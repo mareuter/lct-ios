@@ -1,5 +1,5 @@
 //
-//  SpecialTableViewController.swift
+//  SpecialViewController.swift
 //  LunarClubTools
 //
 //  Created by Michael Reuter on 4/30/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpecialTableViewController: UITableViewController, UIUpdatable
+class SpecialViewController: UITableViewController, UIUpdatable
 {
     private var delegate: UIUpdatable?
     private let hourFormatter = NumberFormatter()

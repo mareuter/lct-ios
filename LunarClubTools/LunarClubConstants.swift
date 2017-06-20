@@ -10,7 +10,7 @@ import Foundation
 
 struct LunarClubConstants
 {
-    static let specialVcName = "SpecialTableViewController"
+    static let specialVcName = "SpecialViewController"
     static let nakedEyeVcName = "NakedEyeFeaturesTableViewController"
     static let binocularVcName = "BinocularFeaturesTableViewController"
     static let telescopeVcName = "TelescopeFeaturesTableViewController"

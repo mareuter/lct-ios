@@ -35,7 +35,7 @@
 		A4E6CC5B1EDE768400CF5BB1 /* LandingSitesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6CC5A1EDE768400CF5BB1 /* LandingSitesTableViewController.swift */; };
 		A4E6CC5D1EDE793000CF5BB1 /* LunarIIClubConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6CC5C1EDE793000CF5BB1 /* LunarIIClubConstants.swift */; };
 		A4E6CC5F1EDE79F000CF5BB1 /* LunarIIClubInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6CC5E1EDE79F000CF5BB1 /* LunarIIClubInfo.swift */; };
-		A4F636FE1EB66C0700A4E15F /* SpecialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F636FD1EB66C0700A4E15F /* SpecialTableViewController.swift */; };
+		A4F636FE1EB66C0700A4E15F /* SpecialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F636FD1EB66C0700A4E15F /* SpecialViewController.swift */; };
 		A4FF5B481ECBD400008AB481 /* LunarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF5B471ECBD400008AB481 /* LunarFeature.swift */; };
 		A4FF5B4A1ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF5B491ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift */; };
 		A4FF5B4C1ECD5704008AB481 /* BinocularFeaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF5B4B1ECD5704008AB481 /* BinocularFeaturesTableViewController.swift */; };
@@ -74,7 +74,7 @@
 		A4E6CC5A1EDE768400CF5BB1 /* LandingSitesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingSitesTableViewController.swift; sourceTree = "<group>"; };
 		A4E6CC5C1EDE793000CF5BB1 /* LunarIIClubConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarIIClubConstants.swift; sourceTree = "<group>"; };
 		A4E6CC5E1EDE79F000CF5BB1 /* LunarIIClubInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarIIClubInfo.swift; sourceTree = "<group>"; };
-		A4F636FD1EB66C0700A4E15F /* SpecialTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialTableViewController.swift; sourceTree = "<group>"; };
+		A4F636FD1EB66C0700A4E15F /* SpecialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialViewController.swift; sourceTree = "<group>"; };
 		A4FF5B471ECBD400008AB481 /* LunarFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarFeature.swift; sourceTree = "<group>"; };
 		A4FF5B491ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NakedEyeFeaturesTableViewController.swift; sourceTree = "<group>"; };
 		A4FF5B4B1ECD5704008AB481 /* BinocularFeaturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinocularFeaturesTableViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 				A4DFDD761EEFA0B400751D36 /* PhaseAndLibrationViewController.swift */,
 				A4A62CE61E8DE54E00ADEA66 /* ProgramConstants.swift */,
 				A47404141EEA38C0008090F8 /* SkyPositionInformationViewController.swift */,
-				A4F636FD1EB66C0700A4E15F /* SpecialTableViewController.swift */,
+				A4F636FD1EB66C0700A4E15F /* SpecialViewController.swift */,
 				A4FF5B4D1ECD5937008AB481 /* TelescopeFeaturesTableViewController.swift */,
 				A4C0D9B31E5A70BE005522A3 /* TimeAndLocation.swift */,
 				A4A62CE21E8BFB6700ADEA66 /* UIUpdatable.swift */,
@@ -228,7 +228,7 @@
 				A42A09EF1EB187340000466E /* LunarClubInfo.swift in Sources */,
 				A4A62CE11E8A097E00ADEA66 /* MoonInfoConstants.swift in Sources */,
 				A4FF5B4A1ECC0EE0008AB481 /* NakedEyeFeaturesTableViewController.swift in Sources */,
-				A4F636FE1EB66C0700A4E15F /* SpecialTableViewController.swift in Sources */,
+				A4F636FE1EB66C0700A4E15F /* SpecialViewController.swift in Sources */,
 				A4E6CC591EDE73A200CF5BB1 /* LunarIIFeaturesTableViewController.swift in Sources */,
 				A4FF5B4C1ECD5704008AB481 /* BinocularFeaturesTableViewController.swift in Sources */,
 				A4C0D9B41E5A70BE005522A3 /* TimeAndLocation.swift in Sources */,

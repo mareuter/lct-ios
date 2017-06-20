@@ -1000,7 +1000,7 @@
         <!--Special-->
         <scene sceneID="Zy2-x2-R13">
             <objects>
-                <tableViewController storyboardIdentifier="SpecialTableViewController" title="Special" id="0BE-UP-91k" customClass="SpecialTableViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SpecialViewController" title="Special" id="0BE-UP-91k" customClass="SpecialViewController" customModule="LunarClubTools" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xrP-Ah-Abf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
