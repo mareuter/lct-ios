@@ -89,6 +89,8 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
             navigationItem.title = firstViewController.title ?? ""
         }
+        
+        moonInfo = MoonInfo(jsonFile: moonInfoFile!)
     }
 
     override func viewWillAppear(_ animated: Bool) {
