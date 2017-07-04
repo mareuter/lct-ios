@@ -45,7 +45,9 @@ class LunarFeatureViewController: UIViewController
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        preferredContentSize = view.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        let width = view.sizeThatFits(UILayoutFittingCompressedSize).width
+        let height = view.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        preferredContentSize = CGSize(width: width, height: height)
     }
     
     @IBAction func dismiss(_ sender: UIBarButtonItem) {
