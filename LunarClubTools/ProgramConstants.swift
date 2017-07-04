@@ -16,6 +16,7 @@ struct ProgramConstants
     static let jsonReadFailedTitle = "JSON Read Failed"
     static let locationUpdateFailedTitle = "Location Update Failed"
     static let topLevelStoryBoard = "Main"
+    static let dateTimeKey = "DateTime"
     static let latitudeKey = "Latitude"
     static let longitudeKey = "Longitude"
 }

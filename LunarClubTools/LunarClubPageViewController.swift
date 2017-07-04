@@ -14,7 +14,8 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
     private var fetchDataDelegate: FetchableData?
     private var urlComp = URLComponents()
     private var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-    public var timeAndLocation = TimeAndLocation()
+    public var currentTime: Date?
+    public var currentLocation: (latitude: Double, longitude: Double)?
 
     private var lunarClubInfoFile: Data? {
         let fileManager = FileManager.default
@@ -88,21 +89,26 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
             navigationItem.title = firstViewController.title ?? ""
         }
+        
+        if lunarClubInfoFile != nil {
+            lunarClubInfo = LunarClubInfo(jsonFile: lunarClubInfoFile!)
+        }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchData()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        fetchData()
+//    }
     
     internal func fetchData() {
         let tbc = tabBarController as! LunarClubToolsTabBarController
-        timeAndLocation = tbc.timeAndLocation
-        let coords = timeAndLocation.getCoordinates()
+        let tl = tbc.timeAndLocation
+        currentTime = tl.getCurrentTime()
+        currentLocation = tl.getCoordinates()
         var url = setupLunarClubUrl()
-        let dateQuery = URLQueryItem(name: "date", value: String(timeAndLocation.getTimestamp()))
-        let longitudeQuery = URLQueryItem(name: "lon", value: String(coords.longitude))
-        let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
+        let dateQuery = URLQueryItem(name: "date", value: String(tl.getTimestamp()))
+        let longitudeQuery = URLQueryItem(name: "lon", value: String(currentLocation!.longitude))
+        let latitudeQuery = URLQueryItem(name: "lat", value: String(currentLocation!.latitude))
         url.queryItems = [dateQuery, latitudeQuery, longitudeQuery]
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let request = URLRequest(url: url.url!)

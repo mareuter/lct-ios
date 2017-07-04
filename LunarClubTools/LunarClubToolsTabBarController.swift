@@ -60,6 +60,7 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
         let userLocation = locations[0]
         manager.stopUpdatingLocation()
         timeAndLocation.updateCoordinates(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        timeAndLocation.updateTime(new: Date())
         makeVcsFetchData()
     }
     
