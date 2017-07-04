@@ -10,7 +10,14 @@ import Foundation
 
 class TimeAndLocation
 {
-    private var currentTime = Date()
+    private var currentTime: Date {
+        get {
+            return UserDefaults.standard.object(forKey: ProgramConstants.dateTimeKey) as? Date ?? Date()
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: ProgramConstants.dateTimeKey)
+        }
+    }
     private var currentLongitude: Double {
         get {
             return UserDefaults.standard.double(forKey: ProgramConstants.longitudeKey)

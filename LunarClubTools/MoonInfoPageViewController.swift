@@ -15,7 +15,8 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     private var fetchDataDelegate: FetchableData?
     private var urlComp = URLComponents()
     private var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-    public var timeAndLocation = TimeAndLocation()
+    public var currentTime: Date?
+    public var currentLocation: (latitude: Double, longitude: Double)?
 
     private var moonInfoFile: Data? {
         let fileManager = FileManager.default
@@ -89,12 +90,16 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
             navigationItem.title = firstViewController.title ?? ""
         }
+        
+        if moonInfoFile != nil {
+            moonInfo = MoonInfo(jsonFile: moonInfoFile!)
+        }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchData()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        fetchData()
+//    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -102,13 +107,14 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     
     internal func fetchData() {
         let tbc = tabBarController as! LunarClubToolsTabBarController
-        timeAndLocation = tbc.timeAndLocation
-        let coords = timeAndLocation.getCoordinates()
+        let tl = tbc.timeAndLocation
+        currentTime = tl.getCurrentTime()
+        currentLocation = tl.getCoordinates()
         var url = setupMoonInfoUrl()
-        let dateQuery = URLQueryItem(name: "date", value: String(timeAndLocation.getTimestamp()))
+        let dateQuery = URLQueryItem(name: "date", value: String(tl.getTimestamp()))
         let timezoneQuery = URLQueryItem(name: "tz", value: MoonInfoConstants.localTimeZone?.identifier)
-        let longitudeQuery = URLQueryItem(name: "lon", value: String(coords.longitude))
-        let latitudeQuery = URLQueryItem(name: "lat", value: String(coords.latitude))
+        let longitudeQuery = URLQueryItem(name: "lon", value: String(currentLocation!.longitude))
+        let latitudeQuery = URLQueryItem(name: "lat", value: String(currentLocation!.latitude))
         url.queryItems = [dateQuery, timezoneQuery, latitudeQuery, longitudeQuery]
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let request = URLRequest(url: url.url!)
