@@ -108,6 +108,7 @@ class MoonViewHelper
         self.cameraNode.position.x = 0.0
         self.cameraNode.position.y = 0.0
         self.camera.orthographicScale = MoonInfoConstants.maxCameraZoomOut
+        self.scale = MoonInfoConstants.maxCameraZoomOut
     }
     
     func setScale(_ scale: Double) {
