@@ -23,7 +23,7 @@ struct MoonInfoConstants
     static let utcTimeZone = TimeZone(abbreviation: "GMT")
     static let degrees = "°"
     // Moon View constants
-    static let maxCameraZoomOut = 1.1
+    static let maxCameraZoomOut = 1.35
     static let maxCameraPosition: Float = 1.5
     static let cameraRadius: Float = 5.0
     static let sunRadius: Float = 200.0
