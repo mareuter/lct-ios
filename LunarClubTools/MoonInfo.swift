@@ -25,7 +25,7 @@ struct MoonInfo
     let magnitude: Double
     let earthDistance: Double
     let subSolarLatitude: Double
-    let nextFourPhases: Array<(String, Array<Int>)>
+    let nextFourPhases: Array<(String, Array<Double>)>
     var riseTime: Any?
     var setTime: Any?
     var transitTime: Any?
@@ -60,10 +60,10 @@ struct MoonInfo
             return nil
         }
 
-        var nextFourPhases: Array<(String, Array<Int>)> = []
+        var nextFourPhases: Array<(String, Array<Double>)> = []
         for phaseId in Array(nextFourPhasesJSON.keys).sorted(by: <) {
             if let phaseInfo = nextFourPhasesJSON[phaseId] {
-                nextFourPhases.append(((phaseInfo["phase"] as? String)!, (phaseInfo["datetime"] as? Array<Int>)!))
+                nextFourPhases.append(((phaseInfo["phase"] as? String)!, (phaseInfo["datetime"] as! Array<Double>)))
             }
         }
 
@@ -111,12 +111,12 @@ struct MoonInfo
         let phaseId = nextFourPhases[index].0
         let dateList = nextFourPhases[index].1
         let components = NSDateComponents()
-        components.year = dateList[0]
-        components.month = dateList[1]
-        components.day = dateList[2]
-        components.hour = dateList[3]
-        components.minute = dateList[4]
-        components.second = dateList[5]
+        components.year = Int(dateList[0])
+        components.month = Int(dateList[1])
+        components.day = Int(dateList[2])
+        components.hour = Int(dateList[3])
+        components.minute = Int(dateList[4])
+        components.second = Int(dateList[5])
         components.timeZone = TimeZone(abbreviation: "GMT")
         let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         let cdate = cal?.date(from: components as DateComponents)
