@@ -88,6 +88,12 @@
       "idiom" : "ipad",
       "filename" : "lct-ipad@2x.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "lct.png",
+      "scale" : "1x"
     }
   ],
   "info" : {
