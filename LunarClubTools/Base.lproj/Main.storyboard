@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TMs-7f-Xqz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TMs-7f-Xqz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1016,16 +1016,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULa-yp-bIb">
-                                                    <rect key="frame" x="245" y="14" width="99" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="99" id="h1i-M9-Ssp"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="308" y="14" width="36" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time from New Moon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjW-Pl-wYL">
-                                                    <rect key="frame" x="16" y="14" width="208" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Time from New Moon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjW-Pl-wYL">
+                                                    <rect key="frame" x="16" y="14" width="271" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1057,7 +1054,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cresent Moon, Waxing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLB-ch-Jqf">
-                                                    <rect key="frame" x="16" y="10" width="194" height="24"/>
+                                                    <rect key="frame" x="16" y="10" width="224" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1068,7 +1065,7 @@
                                                 <constraint firstItem="iaj-0c-c58" firstAttribute="centerY" secondItem="lLB-ch-Jqf" secondAttribute="centerY" id="avf-v7-sVO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="iaj-0c-c58" secondAttribute="trailing" constant="21" id="cTG-Tk-c5g"/>
                                                 <constraint firstItem="iaj-0c-c58" firstAttribute="centerY" secondItem="DKW-Kh-SbF" secondAttribute="centerY" id="pOl-ok-C9z"/>
-                                                <constraint firstItem="iaj-0c-c58" firstAttribute="leading" secondItem="lLB-ch-Jqf" secondAttribute="trailing" constant="99" id="w7g-Za-dfC"/>
+                                                <constraint firstItem="iaj-0c-c58" firstAttribute="leading" secondItem="lLB-ch-Jqf" secondAttribute="trailing" constant="69" id="w7g-Za-dfC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1116,17 +1113,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-et-4qn">
-                                                    <rect key="frame" x="245" y="14" width="99" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="99" id="FTa-W5-JC5"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to New Moon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQt-PD-2Au">
+                                                    <rect key="frame" x="16" y="14" width="163" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to New Moon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQt-PD-2Au">
-                                                    <rect key="frame" x="16" y="14" width="208" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-et-4qn">
+                                                    <rect key="frame" x="310" y="14" width="36" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1136,10 +1130,10 @@
                                                 <constraint firstItem="vQt-PD-2Au" firstAttribute="centerY" secondItem="KUz-Ey-aJd" secondAttribute="centerY" id="5h1-0Q-chP"/>
                                                 <constraint firstItem="vQt-PD-2Au" firstAttribute="leading" secondItem="KUz-Ey-aJd" secondAttribute="leadingMargin" id="FRY-hK-9bH"/>
                                                 <constraint firstItem="vQt-PD-2Au" firstAttribute="baseline" secondItem="gpg-et-4qn" secondAttribute="baseline" id="Oyr-Aq-OxX"/>
-                                                <constraint firstItem="gpg-et-4qn" firstAttribute="leading" secondItem="vQt-PD-2Au" secondAttribute="trailing" constant="21" id="RRe-bp-61p"/>
+                                                <constraint firstItem="gpg-et-4qn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="vQt-PD-2Au" secondAttribute="trailing" constant="131" id="RRe-bp-61p"/>
                                                 <constraint firstItem="vQt-PD-2Au" firstAttribute="firstBaseline" secondItem="gpg-et-4qn" secondAttribute="firstBaseline" id="oXG-mH-P2d"/>
                                                 <constraint firstItem="vQt-PD-2Au" firstAttribute="top" secondItem="KUz-Ey-aJd" secondAttribute="topMargin" constant="3" id="tFl-wg-Vtm"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="gpg-et-4qn" secondAttribute="trailing" constant="15" id="xZR-aA-3bj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gpg-et-4qn" secondAttribute="trailing" constant="13" id="xZR-aA-3bj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1158,7 +1152,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cresent Moon, Waning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBn-gz-kF9">
-                                                    <rect key="frame" x="16" y="10" width="194" height="24"/>
+                                                    <rect key="frame" x="16" y="10" width="229" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1168,7 +1162,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="pU4-ua-CeV" secondAttribute="trailing" constant="21" id="5cD-gb-4Pa"/>
                                                 <constraint firstItem="pU4-ua-CeV" firstAttribute="centerY" secondItem="gVj-eg-bog" secondAttribute="centerY" id="I1b-a1-5S8"/>
                                                 <constraint firstItem="pU4-ua-CeV" firstAttribute="centerY" secondItem="PBn-gz-kF9" secondAttribute="centerY" id="TLf-Rb-QTz"/>
-                                                <constraint firstItem="pU4-ua-CeV" firstAttribute="leading" secondItem="PBn-gz-kF9" secondAttribute="trailing" constant="99" id="fbV-4G-NSF"/>
+                                                <constraint firstItem="pU4-ua-CeV" firstAttribute="leading" secondItem="PBn-gz-kF9" secondAttribute="trailing" constant="64" id="fbV-4G-NSF"/>
                                                 <constraint firstItem="PBn-gz-kF9" firstAttribute="leading" secondItem="gVj-eg-bog" secondAttribute="leadingMargin" id="h9O-wR-HpP"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1224,7 +1218,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cow Jumping Over the Moon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWl-5y-PC8">
-                                                    <rect key="frame" x="16" y="10" width="253" height="24"/>
+                                                    <rect key="frame" x="16" y="10" width="268" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1234,7 +1228,7 @@
                                                 <constraint firstItem="IWl-5y-PC8" firstAttribute="leading" secondItem="zXi-cf-YXJ" secondAttribute="leadingMargin" id="2gp-ir-CGl"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="r0g-Qx-uaT" secondAttribute="trailing" constant="21" id="LOj-Pa-5qD"/>
                                                 <constraint firstItem="r0g-Qx-uaT" firstAttribute="centerY" secondItem="zXi-cf-YXJ" secondAttribute="centerY" id="nqo-gU-KzH"/>
-                                                <constraint firstItem="r0g-Qx-uaT" firstAttribute="leading" secondItem="IWl-5y-PC8" secondAttribute="trailing" constant="40" id="nuu-Sa-Dap"/>
+                                                <constraint firstItem="r0g-Qx-uaT" firstAttribute="leading" secondItem="IWl-5y-PC8" secondAttribute="trailing" constant="25" id="nuu-Sa-Dap"/>
                                                 <constraint firstItem="r0g-Qx-uaT" firstAttribute="centerY" secondItem="IWl-5y-PC8" secondAttribute="centerY" id="xzV-Pt-oOV"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1355,7 +1349,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOc-dz-tIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3630" y="799"/>
+            <point key="canvasLocation" x="3629.5999999999999" y="798.35082458770626"/>
         </scene>
         <!--Features-->
         <scene sceneID="6rN-xP-Nj5">
