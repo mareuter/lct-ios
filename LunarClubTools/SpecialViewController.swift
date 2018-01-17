@@ -65,6 +65,7 @@ class SpecialViewController: UITableViewController, UIUpdatable
     
     private func setupHourFormatter() {
         hourFormatter.minimumFractionDigits = 1
+        hourFormatter.minimumIntegerDigits = 1
     }
     
     private func formatDoubleLabel(value: Double?, backCaption: String) -> String {
