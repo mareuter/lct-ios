@@ -49,7 +49,7 @@ class PhaseAndLibrationViewController: UIViewController, UIUpdatable
         updateUI()
     }
     
-    func changeScale(byReactingTo pinchRecognizer: UIPinchGestureRecognizer) {
+    @objc func changeScale(byReactingTo pinchRecognizer: UIPinchGestureRecognizer) {
         switch pinchRecognizer.state {
         case .changed, .ended:
             var scale = moonViewHelper.scale
@@ -61,7 +61,7 @@ class PhaseAndLibrationViewController: UIViewController, UIUpdatable
         }
     }
     
-    func moveCamera(byReactingTo panRecognizer: UIPanGestureRecognizer) {
+    @objc func moveCamera(byReactingTo panRecognizer: UIPanGestureRecognizer) {
         switch panRecognizer.state {
         case .changed, .ended:
             let translation = panRecognizer.translation(in: moonView)
@@ -76,7 +76,7 @@ class PhaseAndLibrationViewController: UIViewController, UIUpdatable
         }
     }
     
-    func reset(byReactingTo tapRecognizer: UITapGestureRecognizer) {
+    @objc func reset(byReactingTo tapRecognizer: UITapGestureRecognizer) {
         switch tapRecognizer.state {
         case .ended:
             moonViewHelper.resetCamera()
