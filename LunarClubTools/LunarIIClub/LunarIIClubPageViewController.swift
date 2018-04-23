@@ -69,7 +69,7 @@ class LunarIIClubPageViewController: UIPageViewController, UIPageViewControllerD
     }()
     
     private func newLunarIIClubViewController(_ identifier: String) -> UIViewController {
-        return UIStoryboard(name: MoonInfoConstants.topLevelStoryBoard, bundle: nil).instantiateViewController(withIdentifier: identifier)
+        return UIStoryboard(name: LunarIIClubConstants.topLevelStoryBoard, bundle: nil).instantiateViewController(withIdentifier: identifier)
     }
     
     override func viewDidLoad() {

@@ -10,7 +10,7 @@ import Foundation
 
 struct MoonInfoConstants
 {
-    static let topLevelStoryBoard = "Main"
+    static let topLevelStoryBoard = "MoonInfo"
     static let ephemerisVcName = "EphemerisViewController"
     static let nextFourPhasesVcName = "NextFourPhasesViewController"
     static let phaseAndLibrationVcName = "PhaseAndLibrationViewController"

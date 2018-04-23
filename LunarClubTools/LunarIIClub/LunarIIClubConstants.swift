@@ -10,6 +10,7 @@ import Foundation
 
 struct LunarIIClubConstants
 {
+    static let topLevelStoryBoard = "LunarIIClub"
     static let featuresVcName = "LunarIIFeaturesTableViewController"
     static let landingSitesVcName = "LandingSitesTableViewController"
     static let downloadedFile = "LunarIIInfo.json"
