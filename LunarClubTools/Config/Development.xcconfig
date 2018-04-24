@@ -1,0 +1,9 @@
+//
+//  Development.xcconfig
+//  LunarClubTools
+//
+//  Created by Michael Reuter on 4/23/18.
+//  Copyright © 2018 Type II Software. All rights reserved.
+//
+
+WEB_SERVICE_URL=lct-web-stage.herokuapp.com

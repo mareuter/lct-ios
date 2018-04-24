@@ -58,7 +58,7 @@ class LunarClubPageViewController: UIPageViewController, UIPageViewControllerDat
     
     private func setupLunarClubUrl() -> URLComponents {
         urlComp.scheme = "https"
-        urlComp.host = "lct-web.herokuapp.com"
+        urlComp.host = ProgramConstants.webServiceUrl
         urlComp.path = "/lunar_club"
         return urlComp
     }
