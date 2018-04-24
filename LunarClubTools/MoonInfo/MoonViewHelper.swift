@@ -40,8 +40,6 @@ class MoonViewHelper
     private var coneNode = SCNNode()
     private var arrowMaterial = SCNMaterial()
     private var arrowNode = SCNNode()
-    private var arrowLight = SCNLight()
-    private var arrowLightNode = SCNNode()
     
     func render(_ moonView: SCNView) {
         moonView.scene = scene
@@ -50,7 +48,6 @@ class MoonViewHelper
         setupSun()
         setupEarthShine()
         setupMoon()
-        setupArrowLight()
         setupLibrationArrow()
         setupConstraints()
         
@@ -59,12 +56,12 @@ class MoonViewHelper
         self.scene.rootNode.addChildNode(earthShineNode)
         self.scene.rootNode.addChildNode(moonNode)
         self.scene.rootNode.addChildNode(arrowNode)
-        self.scene.rootNode.addChildNode(arrowLightNode)
     }
     
     func setColor(_ color: UIColor) {
         self.color = color
         self.arrowMaterial.diffuse.contents = self.color
+        self.arrowMaterial.emission.contents = self.color
     }
     
     func setAngles(_ elongation: Double, _ librationLatitude: Double,
@@ -148,16 +145,10 @@ class MoonViewHelper
         self.moonNode.geometry = self.moon
         self.moonNode.eulerAngles = SCNVector3(x: self.libLatAngleRad, y: -self.libLonAngleRad, z: 0.0)
     }
-    
-    private func setupArrowLight() {
-        self.arrowLight.type = SCNLight.LightType.spot
-        self.arrowLight.intensity = CGFloat(MoonInfoConstants.arrowLightFlux)
-        self.arrowLightNode.light = self.arrowLight
-        self.arrowLightNode.position = SCNVector3(x: self.cylinderXPosition, y: self.cylinderYPosition, z: MoonInfoConstants.arrowZPosition)
-    }
-    
+
     private func setupLibrationArrow() {
         self.arrowMaterial.diffuse.contents = self.color
+        self.arrowMaterial.emission.contents = self.color
         self.cylinder.materials = [self.arrowMaterial]
         self.cone.materials = [self.arrowMaterial]
         self.cylinderNode.geometry = self.cylinder
@@ -177,6 +168,5 @@ class MoonViewHelper
         self.earthShineNode.constraints = [moonConstraint]
         let arrowConstraint = SCNLookAtConstraint(target: self.cylinderNode)
         arrowConstraint.isGimbalLockEnabled = true
-        self.arrowLightNode.constraints = [arrowConstraint]
     }
 }
