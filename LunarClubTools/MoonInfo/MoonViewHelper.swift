@@ -15,6 +15,7 @@ class MoonViewHelper
     var color = UIColor.cyan
  
     private var sunXPosition: Float = 0.0
+    private var sunYPosition: Float = 0.0
     private var sunZPosition: Float = MoonInfoConstants.sunRadius
     private var libLatAngleRad: Float = 0.0
     private var libLonAngleRad: Float = 0.0
@@ -74,6 +75,8 @@ class MoonViewHelper
         let phaseAngleRad = GLKMathDegreesToRadians(Float(-phaseAngle))
         self.sunXPosition = MoonInfoConstants.sunRadius * sinf(phaseAngleRad)
         self.sunZPosition = MoonInfoConstants.sunRadius * cosf(phaseAngleRad)
+        let subSolarLatRad = GLKMathDegreesToRadians(Float(subSolarLatitude))
+        self.sunYPosition = MoonInfoConstants.sunRadius * sinf(subSolarLatRad)
         
         self.libLatAngleRad = GLKMathDegreesToRadians(Float(librationLatitude))
         self.libLonAngleRad = GLKMathDegreesToRadians(Float(librationLongitude))
@@ -128,7 +131,7 @@ class MoonViewHelper
         self.sunShine.type = SCNLight.LightType.omni
         self.sunShine.intensity = CGFloat(MoonInfoConstants.sunShineFlux)
         self.sunShineNode.light = self.sunShine
-        self.sunShineNode.position = SCNVector3(x: self.sunXPosition, y: 0.0, z: self.sunZPosition)
+        self.sunShineNode.position = SCNVector3(x: self.sunXPosition, y: self.sunYPosition, z: self.sunZPosition)
     }
     
     private func setupEarthShine() {
