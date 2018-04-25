@@ -78,6 +78,7 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
             locationUpdateFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(locationUpdateFailedAlert, animated: true, completion: nil)
         }
+        print("Hello there!")
     }
 }
 

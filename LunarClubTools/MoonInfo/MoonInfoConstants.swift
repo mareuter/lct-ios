@@ -11,6 +11,7 @@ import Foundation
 struct MoonInfoConstants
 {
     static let topLevelStoryBoard = "MoonInfo"
+    static let webServicePath = "/moon_info"
     static let ephemerisVcName = "EphemerisViewController"
     static let nextFourPhasesVcName = "NextFourPhasesViewController"
     static let phaseAndLibrationVcName = "PhaseAndLibrationViewController"

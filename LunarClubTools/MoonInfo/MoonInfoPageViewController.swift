@@ -58,9 +58,9 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     }
 
     private func setupMoonInfoUrl() -> URLComponents {
-        urlComp.scheme = "https"
+        urlComp.scheme = ProgramConstants.webServiceScheme
         urlComp.host = ProgramConstants.webServiceUrl
-        urlComp.path = "/moon_info"
+        urlComp.path = MoonInfoConstants.webServicePath
         return urlComp
     }
     

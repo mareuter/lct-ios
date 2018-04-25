@@ -10,6 +10,7 @@ import Foundation
 
 struct ProgramConstants
 {
+    static let webServiceScheme = "https"
     static let webServiceUrl = Bundle.main.infoDictionary?["WEB_SERVICE_URL"] as? String
     static let changeTimeNotification = Notification.Name("ChangeTimeNotification")
     static let changeTimeSegue = "Change Time"
