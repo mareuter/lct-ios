@@ -21,4 +21,9 @@ struct ProgramConstants
     static let dateTimeKey = "DateTime"
     static let latitudeKey = "Latitude"
     static let longitudeKey = "Longitude"
+    static let locationStatusKey = "locationStatus"
+    static let locationWarningKey = "locationWarning"
+    static let localTimeZone = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)?.timeZone.identifier
+    static let zeroLatitude = 0.0
+    static let zeroLongitude = 0.0
 }

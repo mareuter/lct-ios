@@ -129,6 +129,7 @@ class LunarIIClubPageViewController: UIPageViewController, UIPageViewControllerD
                         preferredStyle: .alert)
                     downloadFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self?.present(downloadFailedAlert, animated: true, completion: nil)
+                    self?.spinner.stopAnimating()
                 }
             }
         }

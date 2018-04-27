@@ -85,6 +85,15 @@ class SkyPositionInformationViewController: UITableViewController, UIUpdatable
         if view != nil {
             if let mipvc = parent as? MoonInfoPageViewController {
                 if let moonInfo = mipvc.moonInfo {
+
+                    var haveGoodLocation : Bool
+                    if let lo = mipvc.isLocationOK {
+                        haveGoodLocation = lo
+                    } else {
+                        let tbc = mipvc.tabBarController as! LunarClubToolsTabBarController
+                        haveGoodLocation = tbc.timeAndLocation.getLocationStatus()
+                    }
+                    
                     altitudeInfo.text = formatDoubleLabel(value: moonInfo.altitude, backCaption: MoonInfoConstants.degrees)
                     azimuthInfo.text = formatDoubleLabel(value: moonInfo.azimuth, backCaption: MoonInfoConstants.degrees)
                     rightAscensionInfo.text = formatRightAscension(from: moonInfo.rightAscension)
@@ -92,6 +101,26 @@ class SkyPositionInformationViewController: UITableViewController, UIUpdatable
                     riseTime.text = getTime(from: moonInfo.riseTime)
                     transitTime.text = getTime(from: moonInfo.transitTime)
                     setTime.text = getTime(from: moonInfo.setTime)
+
+                    if haveGoodLocation {
+                        let normalFont = UIFont.preferredFont(forTextStyle: .title3)
+                        altitudeInfo.font = normalFont
+                        azimuthInfo.font = normalFont
+                        rightAscensionInfo.font = normalFont
+                        declinationInfo.font = normalFont
+                        riseTime.font = normalFont
+                        transitTime.font = normalFont
+                        setTime.font = normalFont
+                    } else {
+                        let italicFont = UIFont.preferredFont(forTextStyle: .title3).italic()
+                        altitudeInfo.font = italicFont
+                        azimuthInfo.font = italicFont
+                        rightAscensionInfo.font = italicFont
+                        declinationInfo.font = italicFont
+                        riseTime.font = italicFont
+                        transitTime.font = italicFont
+                        setTime.font = italicFont
+                    }
                 }
             }
         }
