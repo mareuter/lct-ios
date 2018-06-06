@@ -17,6 +17,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
     private var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     public var currentTime: Date?
     public var currentLocation: (latitude: Double, longitude: Double)?
+    public var isLocationOK: Bool?
 
     private var moonInfoFile: Data? {
         let fileManager = FileManager.default
@@ -110,6 +111,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
         let tl = tbc.timeAndLocation
         currentTime = tl.getCurrentTime()
         currentLocation = tl.getCoordinates()
+        isLocationOK = tl.getLocationStatus()
         var url = setupMoonInfoUrl()
         let dateQuery = URLQueryItem(name: "date", value: String(tl.getTimestamp()))
         let timezoneQuery = URLQueryItem(name: "tz", value: MoonInfoConstants.localTimeZone?.identifier)
@@ -137,6 +139,7 @@ class MoonInfoPageViewController: UIPageViewController, UIPageViewControllerData
                                                                 preferredStyle: .alert)
                     downloadFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self?.present(downloadFailedAlert, animated: true, completion: nil)
+                    self?.spinner.stopAnimating()
                 }
             }
         }

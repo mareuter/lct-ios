@@ -99,16 +99,23 @@ class EphemerisViewController: UITableViewController, UIUpdatable
         if view != nil {
             if let mipvc = parent as? MoonInfoPageViewController {
                 if let moonInfo = mipvc.moonInfo {
-                    let ct = mipvc.currentTime
-                    let cc = mipvc.currentLocation
+
                     let timeZoneString = localDateTimeFormatter.timeZone.abbreviation() ?? ""
                     if timeZoneString != "" {
                         localDateLabel.text =  "Date (" + timeZoneString + ")"
                     }
+                    
+                    var haveGoodLocation : Bool
+                    if let lo = mipvc.isLocationOK {
+                        haveGoodLocation = lo
+                    } else {
+                        let tbc = mipvc.tabBarController as! LunarClubToolsTabBarController
+                        haveGoodLocation = tbc.timeAndLocation.getLocationStatus()
+                    }
 
-                    if ct != nil {
-                        localDateTime.text = localDateTimeFormatter.string(from: ct!)
-                        utcDateTime.text = utcDateTimeFormatter.string(from: ct!)
+                    if let ct = mipvc.currentTime {
+                        localDateTime.text = localDateTimeFormatter.string(from: ct)
+                        utcDateTime.text = utcDateTimeFormatter.string(from: ct)
                     } else {
                         let tbc = mipvc.tabBarController as! LunarClubToolsTabBarController
                         localDateTime.text = localDateTimeFormatter.string(from: tbc.timeAndLocation.getCurrentTime())
@@ -118,9 +125,9 @@ class EphemerisViewController: UITableViewController, UIUpdatable
                     illumination.text = formatDoubleLabel(value: moonInfo.illumination, backCaption: "%")
                     colongitude.text = formatCoordinateLabel(from: moonInfo.colongitude, direction: nil)
                     elongation.text = formatCoordinateLabel(from: moonInfo.elongation, direction: nil)
-                    if cc != nil {
-                        let latitude = formatCoordinateLabel(from: cc!.latitude, direction: "N S")
-                        let longitude = formatCoordinateLabel(from: cc!.longitude, direction: "E W")
+                    if let cc = mipvc.currentLocation {
+                        let latitude = formatCoordinateLabel(from: cc.latitude, direction: "N S")
+                        let longitude = formatCoordinateLabel(from: cc.longitude, direction: "E W")
                         location.text = "\(latitude) \(longitude)"
                     } else {
                         let tbc = mipvc.tabBarController as! LunarClubToolsTabBarController
@@ -131,6 +138,11 @@ class EphemerisViewController: UITableViewController, UIUpdatable
                     }
                     phase.text = moonInfo.phaseName
                     distance.text = formatDoubleLabel(value: moonInfo.earthDistance, backCaption: " km")
+                    if haveGoodLocation {
+                        distance.font = UIFont.preferredFont(forTextStyle: .title3)
+                    } else {
+                        distance.font = UIFont.preferredFont(forTextStyle: .title3).italic()
+                    }
                 }
             }
         }

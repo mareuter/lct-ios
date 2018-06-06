@@ -14,6 +14,15 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
     var timeAndLocation = TimeAndLocation()
     private var locationManager : CLLocationManager!
     
+    private var locationWarning : Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: ProgramConstants.locationWarningKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: ProgramConstants.locationWarningKey)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -59,26 +68,49 @@ class LunarClubToolsTabBarController: UITabBarController, CLLocationManagerDeleg
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
         manager.stopUpdatingLocation()
+        locationWarning = false
         timeAndLocation.updateCoordinates(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         timeAndLocation.updateTime(new: Date())
+        timeAndLocation.updateLocationStatus(new: true)
         makeVcsFetchData()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        if timeAndLocation.getCoordinates().latitude == 0.0 && timeAndLocation.getCoordinates().longitude == 0.0 {
-            let locationUpdateFailedAlert = UIAlertController(title: ProgramConstants.locationUpdateFailedTitle,
-                                                              message: "Rise and set times for the Moon will be inaccurate.",
-                                                              preferredStyle: .alert)
-            locationUpdateFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(locationUpdateFailedAlert, animated: true, completion: nil)
+        manager.stopUpdatingLocation()
+        var locMessage = ""
+        if timeAndLocation.getLocationStatus() {
+            locMessage = "Using previously stored coordinates."
         } else {
+            let tz = ProgramConstants.localTimeZone!
+            let coordinatesForTimeZone = AverageTimeZoneCoordinates.info[tz]
+            var coordMessage = ""
+            if coordinatesForTimeZone != nil {
+                timeAndLocation.updateCoordinates(latitude: coordinatesForTimeZone!.0, longitude: coordinatesForTimeZone!.1)
+                coordMessage = "Using average latitude/longitude from timezone."
+            } else {
+                timeAndLocation.updateCoordinates(latitude: ProgramConstants.zeroLatitude, longitude: ProgramConstants.zeroLongitude)
+                coordMessage = "Using 0/0 for latitude/longitude."
+            }
+            locMessage = """
+            \(coordMessage)
+            Sky position information, Earth-Moon distance and angular size will be inaccurate and shown in italics!
+            """
+        }
+        let finalMessage = """
+        Location service failed or denied.
+        \(locMessage)
+        """
+        timeAndLocation.updateTime(new: Date())
+        makeVcsFetchData()
+
+        if !locationWarning {
             let locationUpdateFailedAlert = UIAlertController(title: ProgramConstants.locationUpdateFailedTitle,
-                                                              message: "Using previously stored coordinates.",
+                                                              message: finalMessage,
                                                               preferredStyle: .alert)
             locationUpdateFailedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(locationUpdateFailedAlert, animated: true, completion: nil)
         }
-        print("Hello there!")
+        locationWarning = true
     }
 }
 

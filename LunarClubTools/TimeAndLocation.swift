@@ -35,24 +35,41 @@ class TimeAndLocation
         }
     }
     
+    private var isLocationOk: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: ProgramConstants.locationStatusKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: ProgramConstants.locationStatusKey)
+        }
+    }
+
     func getCurrentTime() -> Date {
         return currentTime
     }
-    
+
     func getTimestamp() -> TimeInterval {
         return currentTime.timeIntervalSince1970
     }
-    
+
     func getCoordinates() -> (latitude: Double, longitude: Double) {
         return (currentLatitude, currentLongitude)
     }
     
+    func getLocationStatus() -> Bool {
+        return isLocationOk
+    }
+
     func updateCoordinates(latitude: Double, longitude: Double) {
         currentLatitude = latitude
         currentLongitude = longitude
     }
-    
+
     func updateTime(new date: Date) {
         currentTime = date
+    }
+
+    func updateLocationStatus(new locationStatus: Bool) {
+        isLocationOk = locationStatus
     }
 }
