@@ -377,6 +377,74 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lBI-aA-gHf">
+                                        <rect key="frame" x="0.0" y="396" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lBI-aA-gHf" id="lUz-7D-f57">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzP-S7-rwp">
+                                                    <rect key="frame" x="16" y="11" width="343" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Angular Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbC-ns-6am">
+                                                            <rect key="frame" x="0.0" y="0.0" width="283" height="22"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" text="-0.00°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrt-AM-C7i" userLabel="Angular Size">
+                                                            <rect key="frame" x="283" y="0.0" width="60" height="22"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yzP-S7-rwp" firstAttribute="top" secondItem="lUz-7D-f57" secondAttribute="topMargin" id="F5K-Y4-Riw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yzP-S7-rwp" secondAttribute="trailing" id="LDv-gj-yXj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yzP-S7-rwp" secondAttribute="bottom" id="Ya8-6p-yN8"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="yzP-S7-rwp" secondAttribute="leading" id="xg4-hB-g7G"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SJw-6b-Adq">
+                                        <rect key="frame" x="0.0" y="440" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SJw-6b-Adq" id="L1P-cR-kLW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBr-0f-Pfb">
+                                                    <rect key="frame" x="16" y="11" width="343" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magnitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kC2-U6-7If">
+                                                            <rect key="frame" x="0.0" y="0.0" width="279" height="22"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" text="-00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMr-Sr-JtY" userLabel="Magnitude">
+                                                            <rect key="frame" x="279" y="0.0" width="64" height="22"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dBr-0f-Pfb" firstAttribute="top" secondItem="L1P-cR-kLW" secondAttribute="topMargin" id="G37-Dy-1j0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dBr-0f-Pfb" secondAttribute="bottom" id="ZDU-ZP-3oY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dBr-0f-Pfb" secondAttribute="trailing" id="h3J-Jp-MXG"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="dBr-0f-Pfb" secondAttribute="leading" id="vRc-aw-q2J"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -387,6 +455,7 @@
                     </tableView>
                     <connections>
                         <outlet property="age" destination="KAM-CE-nWu" id="B6E-9a-qlG"/>
+                        <outlet property="angularSize" destination="Mrt-AM-C7i" id="yYE-gf-9Xr"/>
                         <outlet property="colongitude" destination="e0H-FQ-dbd" id="CXp-as-yj9"/>
                         <outlet property="distance" destination="SOc-LC-Vqj" id="tdV-xk-bhh"/>
                         <outlet property="elongation" destination="ip8-52-wSt" id="Er2-Uw-l3e"/>
@@ -394,6 +463,7 @@
                         <outlet property="localDateLabel" destination="xnJ-oN-fL2" id="22e-iY-9YI"/>
                         <outlet property="localDateTime" destination="QoE-Xp-0cv" id="JqI-7P-nvU"/>
                         <outlet property="location" destination="F9u-37-l1v" id="WYu-zo-3nh"/>
+                        <outlet property="magnitude" destination="bMr-Sr-JtY" id="wmV-Jg-Hxw"/>
                         <outlet property="phase" destination="iae-gG-1h7" id="Oe5-Oj-Phr"/>
                         <outlet property="utcDateTime" destination="djc-Eb-Hdp" id="0PK-xP-YWI"/>
                     </connections>

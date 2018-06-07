@@ -25,6 +25,8 @@ class EphemerisViewController: UITableViewController, UIUpdatable
     @IBOutlet weak var colongitude: UILabel!
     @IBOutlet weak var elongation: UILabel!
     @IBOutlet weak var distance: UILabel!
+    @IBOutlet weak var angularSize: UILabel!
+    @IBOutlet weak var magnitude: UILabel!
     
     override func viewDidLoad() {
         delegate = self
@@ -89,7 +91,7 @@ class EphemerisViewController: UITableViewController, UIUpdatable
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 9
+            return 11
         default:
             return 0
         }
@@ -138,10 +140,16 @@ class EphemerisViewController: UITableViewController, UIUpdatable
                     }
                     phase.text = moonInfo.phaseName
                     distance.text = formatDoubleLabel(value: moonInfo.earthDistance, backCaption: " km")
+                    angularSize.text = formatDoubleLabel(value: moonInfo.angularSize, backCaption: MoonInfoConstants.degrees)
+                    magnitude.text = formatDoubleLabel(value: moonInfo.magnitude, backCaption: "")
                     if haveGoodLocation {
-                        distance.font = UIFont.preferredFont(forTextStyle: .title3)
+                        let normalFont = UIFont.preferredFont(forTextStyle: .title3)
+                        distance.font = normalFont
+                        angularSize.font = normalFont
                     } else {
-                        distance.font = UIFont.preferredFont(forTextStyle: .title3).italic()
+                        let italicFont = UIFont.preferredFont(forTextStyle: .title3).italic()
+                        distance.font = italicFont
+                        angularSize.font = italicFont
                     }
                 }
             }
