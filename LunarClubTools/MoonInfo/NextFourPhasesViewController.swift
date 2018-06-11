@@ -13,20 +13,24 @@ class NextFourPhasesViewController: UIViewController, UIUpdatable
     private var delegate: UIUpdatable?
     private let moonPhaseDateTimeFormatter = DateFormatter()
     private let moonPhaseIcons = [
-        "new_moon": #imageLiteral(resourceName: "New-Moon"),
-        "first_quarter": #imageLiteral(resourceName: "FQ-Moon"),
-        "full_moon": #imageLiteral(resourceName: "Full-Moon"),
-        "last_quarter": #imageLiteral(resourceName: "TQ-Moon")
+        "new_moon": #imageLiteral(resourceName: "NewMoon"),
+        "first_quarter": #imageLiteral(resourceName: "FirstQuarterMoon"),
+        "full_moon": #imageLiteral(resourceName: "FullMoon"),
+        "last_quarter": #imageLiteral(resourceName: "ThirdQuarterMoon")
     ]
     
     @IBOutlet weak var firstPhaseImage: UIImageView!
     @IBOutlet weak var firstPhaseDateLabel: UILabel!
+    @IBOutlet weak var firstPhaseTimeLabel: UILabel!
     @IBOutlet weak var secondPhaseImage: UIImageView!
     @IBOutlet weak var secondPhaseDateLabel: UILabel!
+    @IBOutlet weak var secondPhaseTimeLabel: UILabel!
     @IBOutlet weak var thirdPhaseImage: UIImageView!
     @IBOutlet weak var thirdPhaseDateLabel: UILabel!
+    @IBOutlet weak var thirdPhaseTimeLabel: UILabel!
     @IBOutlet weak var fourthPhaseImage: UIImageView!
     @IBOutlet weak var fourthPhaseDateLabel: UILabel!
+    @IBOutlet weak var fourthPhaseTimeLabel: UILabel!
     
     override func viewDidLoad() {
         delegate = self
@@ -44,19 +48,21 @@ class NextFourPhasesViewController: UIViewController, UIUpdatable
         moonPhaseDateTimeFormatter.timeZone = MoonInfoConstants.localTimeZone
     }
     
-    private func formatPhaseInfo(phase: (String, Date), image: UIImageView, label: UILabel) {
+    private func formatPhaseInfo(phase: (String, Date), image: UIImageView, dateLabel: UILabel, timeLabel: UILabel) {
         image.image = moonPhaseIcons[phase.0]
-        label.text = moonPhaseDateTimeFormatter.string(from: phase.1)
+        let dateTime = moonPhaseDateTimeFormatter.string(from: phase.1).split(separator: " ", maxSplits: 1, omittingEmptySubsequences: false)
+        dateLabel.text = dateTime[0].description
+        timeLabel.text = dateTime[1].description
     }
     
     func updateUI() {
         if view != nil {
             if let mipvc = parent as? MoonInfoPageViewController {
                 if let moonInfo = mipvc.moonInfo {
-                    formatPhaseInfo(phase: moonInfo.getPhase(index: 0), image: firstPhaseImage, label: firstPhaseDateLabel)
-                    formatPhaseInfo(phase: moonInfo.getPhase(index: 1), image: secondPhaseImage, label: secondPhaseDateLabel)
-                    formatPhaseInfo(phase: moonInfo.getPhase(index: 2), image: thirdPhaseImage, label: thirdPhaseDateLabel)
-                    formatPhaseInfo(phase: moonInfo.getPhase(index: 3), image: fourthPhaseImage, label: fourthPhaseDateLabel)
+                    formatPhaseInfo(phase: moonInfo.getPhase(index: 0), image: firstPhaseImage, dateLabel: firstPhaseDateLabel, timeLabel: firstPhaseTimeLabel)
+                    formatPhaseInfo(phase: moonInfo.getPhase(index: 1), image: secondPhaseImage, dateLabel: secondPhaseDateLabel, timeLabel: secondPhaseTimeLabel)
+                    formatPhaseInfo(phase: moonInfo.getPhase(index: 2), image: thirdPhaseImage, dateLabel: thirdPhaseDateLabel, timeLabel: thirdPhaseTimeLabel)
+                    formatPhaseInfo(phase: moonInfo.getPhase(index: 3), image: fourthPhaseImage, dateLabel: fourthPhaseDateLabel, timeLabel: fourthPhaseTimeLabel)
                 }
             }
         }

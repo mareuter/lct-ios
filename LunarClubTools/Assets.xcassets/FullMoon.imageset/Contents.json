@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tq-moon.png",
+      "filename" : "full_moon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tq-moon@2x.png",
+      "filename" : "full_moon@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tq-moon@3x.png",
+      "filename" : "full_moon@3x.png",
       "scale" : "3x"
     }
   ],
